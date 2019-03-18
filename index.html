@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bíblia projector</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <header>
+        <select id="versoes">
+            <option value="ara">ARA</option>
+            <option value="arc">ARC</option>
+            <option value="ntlh">NTLH</option>
+            <option value="nvi">NVI</option>
+        </select>
+        <input type="text" id="pesquisarTexto">
+        <button id="pesquisarButton">Pesquisar</button>
+        <button id="projetarButton">Projetar</button>
+        <button id="atualizarButton">Atualizar</button>
+        <button id="ajudaButton">Ajuda</button>
+        <label>Fonte: </label>
+        <input type="number" id="tamanhoFonte">
+        <label id="ultimaPesquisa">Livro n:n</label>
+    </header>
+    <div class="body">
+        <div class="preview">
+            <label>Pré-visualização:</label>
+            <textarea id="textoSelecionado"></textarea>
+        </div>
+        <div class="historico">
+            <label>Histórico:</label>
+            <textarea id="historico"></textarea>
+        </div>
+    </div>
+    <script src="js/biblia.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

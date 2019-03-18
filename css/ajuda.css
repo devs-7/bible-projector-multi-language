@@ -1,0 +1,20 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #eee5;
+}
+
+h1 {
+    font-size: 25px;
+    color: rgb(107, 170, 241);
+}
+
+h2 {
+    font-size: 17px;
+}
+
+p {
+    margin: 5px;
+}

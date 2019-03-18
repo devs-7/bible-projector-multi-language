@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+}
+
+body {
+    background-color: #eee5;
+}
+
+div {
+    margin: 5px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: rgb(190, 220, 255);
+    padding: 5px 10px;
+}
+
+header label {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(54, 145, 248);
+    margin-left: 20px;
+}
+
+.preview {
+    display: inline-block;
+}
+
+.historico {
+    display: inline-block;
+}
+
+.preview > textarea {
+    width: 60vw;
+}
+
+.preview > label {
+    display: block;
+}
+
+.historico > label {
+    display: block;
+}
+
+.historico > textarea {
+    width: calc(35vw - 63px);
+}
+
+.body {
+    display: flex;
+    justify-content: space-around;
+}
+
+.body textarea {
+    height: calc(100vh - 100px);;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    resize: none;
+}
+
+.body label {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.5em;
+    color: #444;
+}
+
+#tamanhoFonte {
+    max-width: 50px;
+}
+
+#pesquisarTexto {
+    max-width: 100px;
+    margin: 0px 5px;
+}
+
+#ultimaPesquisa {
+    flex-grow: 1;
+    text-align: right;
+}
+
+@media(max-width: 780px) {
+    #ultimaPesquisa {
+        display: none;
+    }
+}

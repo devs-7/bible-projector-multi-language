@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+body:hover {
+    cursor: none;
+}
+
+p {
+    align-self: center;
+    padding: 0px 10vw;
+    color: white;
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
