@@ -11,31 +11,31 @@
 
 <body>
     <header>
-        <select id="versoes">
+        <select id="versoes" class="bordaRedonda">
             <option value="ara">ARA</option>
             <option value="arc">ARC</option>
             <option value="ntlh">NTLH</option>
             <option value="nvi">NVI</option>
         </select>
-        <input type="text" id="pesquisarTexto">
-        <button id="pesquisarButton">Pesquisar</button>
-        <button id="projetarButton">Projetar</button>
-        <button id="atualizarButton">Atualizar</button>
-        <button id="ajudaButton">Ajuda</button>
+        <input type="text" id="pesquisarTexto" class="bordaRedonda">
+        <button id="pesquisarButton" class="bordaRedonda">Pesquisar</button>
+        <button id="projetarButton" class="bordaRedonda">Projetar</button>
+        <button id="atualizarButton" class="bordaRedonda">Atualizar</button>
+        <button id="ajudaButton" class="bordaRedonda">Ajuda</button>
         <label>Fonte: </label>
-        <input type="number" id="tamanhoFonte">
+        <input type="number" id="tamanhoFonte" class="bordaRedonda">
         <label id="ultimaPesquisa">Livro n:n</label>
     </header>
-    <div class="body">
+    <main>
         <div class="preview">
             <label>Pré-visualização:</label>
-            <textarea id="textoSelecionado"></textarea>
+            <textarea id="textoSelecionado" class="bordaRedonda"></textarea>
         </div>
         <div class="historico">
             <label>Histórico:</label>
-            <textarea id="historico"></textarea>
+            <textarea id="historico" class="bordaRedonda"></textarea>
         </div>
-    </div>
+    </main>
     <script src="js/biblia.js"></script>
     <script src="js/index.js"></script>
 </body>
