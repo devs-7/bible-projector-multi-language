@@ -50,6 +50,11 @@ function interpretarPesquisa(pesquisa) {
     }
 
     indice = pesquisa.indexOf(' ');
+    if (!Number(pesquisa.substring(indice + 1, indice + 2))) {
+        pesquisa = pesquisa.replace(' ', '');
+        indice = pesquisa.indexOf(' ');
+    }
+
     livro = pesquisa.substring(0, indice).replace(' ', '');
     livro = getLivro(livro);
     pesquisa = pesquisa.substring(indice + 1);
