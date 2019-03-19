@@ -9,11 +9,21 @@
 
 body {
     background-color: #eee5;
+    margin: 0 20px;
 }
 
 h1 {
     font-size: 25px;
     color: deepskyblue;
+    padding: 0 20px;
+    margin-bottom: 5px;
+}
+
+div {
+    background-color: #eee;
+    padding: 5px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
 h2 {
