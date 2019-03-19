@@ -59,12 +59,19 @@ tamanhoFonteTexto.onchange = function () {
         capitulo = pesquisa.substring(0, indice).replace(' ', '');
         versiculo = pesquisa.substring(indice + 1);
 
-        ultimaPesquisa.innerHTML = `${livro} ${capitulo}:${versiculo}`;
-        historico.value += ultimaPesquisa.innerHTML + '\n';
         let texto = queryTexto(biblia, livro, capitulo, versiculo);
-        preview.value = texto != null ? texto + getRepresentacao(livro, capitulo, versiculo) : 'Texto inexistente';
 
-        atualizarButton.click();
+        if (texto != null) {
+            ultimaPesquisa.innerHTML = `${livro} ${capitulo}:${versiculo}`;
+            historico.value += ultimaPesquisa.innerHTML + '\n';
+            preview.value = texto + getRepresentacao(livro, capitulo, versiculo);
+            atualizarButton.click();
+        }
+        else {
+            preview.value = '';
+            atualizarButton.click();
+            preview.value = 'Texto inexistente';
+        }
     }
 
     atualizarButton.onclick = function () {
