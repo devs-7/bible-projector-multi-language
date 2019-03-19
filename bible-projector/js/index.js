@@ -97,14 +97,13 @@ function adicionarVerso() { // Em processo............
 }
 
 function atualizar() {
-    fs.writeFile('./data/texto.txt', preview.value, () => { });
+    fs.writeFile('./data/texto.txt', preview.value, () => { preview.innerHTML = 'Erro ao enviar texto para o projetor.' });
     salvarPreferencias(livro, capitulo, versiculo);
 }
 
-pesquisarButton.onclick = function () {
-    let pesquisa;
+function pesquisar(projetar = true) {
+    let pesquisa = pesquisarTexto.value;
 
-    pesquisa = pesquisarTexto.value;
     if (!!pesquisa) {
         let referencia = interpretarPesquisa(pesquisa);
         livro = referencia.livro;
@@ -117,19 +116,23 @@ pesquisarButton.onclick = function () {
 
         if (texto != null) {
             ultimaPesquisa.innerHTML = `${livro} ${capitulo}:${versiculo}`;
-            historico.value += ultimaPesquisa.innerHTML + '\n';
             preview.value = texto + getRepresentacao(livro, capitulo, versiculo);
-            atualizarButton.click();
+            if (projetar) {
+                atualizar();
+                historico.value += ultimaPesquisa.innerHTML + '\n';
+            }
         }
         else {
-            preview.value = '';
-            atualizarButton.click();
+            if (projetar) {
+                preview.value = '';
+                atualizar();
+            }
             preview.value = 'Texto inexistente';
         }
     }
-
 }
 
+pesquisarButton.onclick = () => pesquisar(true);
 atualizarButton.onclick = atualizar;
 tamanhoFonteTexto.onchange = salvarPreferencias;
 projetarButton.onclick = projetar;
@@ -139,9 +142,13 @@ versoes.onchange = function () {
     biblia = fs.readFileSync('data/bibles/' + versoes.value + '.txt', 'utf-8');
 }
 
-pesquisarTexto.addEventListener('keydown', e => {
+pesquisarTexto.addEventListener('keypress', e => {
+    if (e.keyCode == 10) {
+        pesquisar(false);
+    }
+
     if (e.keyCode == 13) {
-        pesquisarButton.click();
+        pesquisar(true);
     }
 });
 
