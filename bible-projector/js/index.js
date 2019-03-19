@@ -90,6 +90,11 @@ function adicionarVerso() { // Em processo............
     }
 }
 
+function atualizar() {
+    fs.writeFile('./data/texto.txt', preview.value, () => { });
+    salvarPreferencias(livro, capitulo, versiculo);
+}
+
 pesquisarButton.onclick = function () {
     let pesquisa;
 
@@ -119,24 +124,13 @@ pesquisarButton.onclick = function () {
 
 }
 
-atualizarButton.onclick = function () {
-    fs.writeFile('./data/texto.txt', preview.value, () => { });
-    salvarPreferencias(livro, capitulo, versiculo);
-}
+atualizarButton.onclick = atualizar;
+tamanhoFonteTexto.onchange = salvarPreferencias;
+projetarButton.onclick = projetar;
+ajudaButton.onclick = ajuda;
 
 versoes.onchange = function () {
     biblia = fs.readFileSync('data/bibles/' + versoes.value + '.txt', 'utf-8');
-}
-
-tamanhoFonteTexto.onchange = function () {
-    salvarPreferencias();
-}
-
-
-projetarButton.onclick = projetar;
-
-ajudaButton.onclick = function () {
-    ajuda();
 }
 
 pesquisarTexto.addEventListener('keydown', e => {
