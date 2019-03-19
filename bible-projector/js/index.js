@@ -27,6 +27,14 @@ function salvarPreferencias(livro, capitulo, versiculo) {
     });
 }
 
+function projetar() {
+    window.open('projetar.html', 'big', 'fullscreen=no');
+}
+
+function ajuda() {
+    window.open('ajuda.html');
+}
+
 versoes.onchange = function () {
     biblia = fs.readFileSync('data/bibles/' + versoes.value + '.txt', 'utf-8');
 }
@@ -45,36 +53,39 @@ tamanhoFonteTexto.onchange = function () {
         let indice;
 
         pesquisa = pesquisarTexto.value;
-        pesquisa = pesquisa.replace(/:/g, ' ');
+        if (!!pesquisa) {
+            pesquisa = pesquisa.replace(/:/g, ' ');
 
-        while (pesquisa.indexOf('  ') != -1) { // Remover espaços múltiplos
-            pesquisa = pesquisa.replace(/  /g, ' ');
+            while (pesquisa.indexOf('  ') != -1) { // Remover espaços múltiplos
+                pesquisa = pesquisa.replace(/  /g, ' ');
+            }
+
+            indice = pesquisa.indexOf(' ');
+            livro = pesquisa.substring(0, indice).replace(' ', '');
+            livro = getLivro(livro);
+            pesquisa = pesquisa.substring(indice + 1);
+
+            indice = pesquisa.indexOf(' ');
+            capitulo = pesquisa.substring(0, indice).replace(' ', '');
+            versiculo = pesquisa.substring(indice + 1);
+
+            pesquisarTexto.value = `${livro} ${capitulo}:${versiculo}`;
+
+            let texto = queryTexto(biblia, livro, capitulo, versiculo);
+
+            if (texto != null) {
+                ultimaPesquisa.innerHTML = `${livro} ${capitulo}:${versiculo}`;
+                historico.value += ultimaPesquisa.innerHTML + '\n';
+                preview.value = texto + getRepresentacao(livro, capitulo, versiculo);
+                atualizarButton.click();
+            }
+            else {
+                preview.value = '';
+                atualizarButton.click();
+                preview.value = 'Texto inexistente';
+            }
         }
 
-        indice = pesquisa.indexOf(' ');
-        livro = pesquisa.substring(0, indice).replace(' ', '');
-        livro = getLivro(livro);
-        pesquisa = pesquisa.substring(indice + 1);
-
-        indice = pesquisa.indexOf(' ');
-        capitulo = pesquisa.substring(0, indice).replace(' ', '');
-        versiculo = pesquisa.substring(indice + 1);
-
-        pesquisarTexto.value = `${livro} ${capitulo}:${versiculo}`;
-
-        let texto = queryTexto(biblia, livro, capitulo, versiculo);
-
-        if (texto != null) {
-            ultimaPesquisa.innerHTML = `${livro} ${capitulo}:${versiculo}`;
-            historico.value += ultimaPesquisa.innerHTML + '\n';
-            preview.value = texto + getRepresentacao(livro, capitulo, versiculo);
-            atualizarButton.click();
-        }
-        else {
-            preview.value = '';
-            atualizarButton.click();
-            preview.value = 'Texto inexistente';
-        }
     }
 
     atualizarButton.onclick = function () {
@@ -113,12 +124,10 @@ tamanhoFonteTexto.onchange = function () {
     }
 }
 
-projetarButton.onclick = function () {
-    window.open('projetar.html', 'big', 'fullscreen=no');
-}
+projetarButton.onclick = projetar;
 
 ajudaButton.onclick = function () {
-    window.open('ajuda.html');
+    ajuda();
 }
 
 pesquisarTexto.addEventListener('keydown', e => {
@@ -133,7 +142,7 @@ document.addEventListener('keydown', e => {
     }
 
     if (e.keyCode == 116) { // F5
-        projetarButton.click();
+        projetar();
     }
 
     if (e.keyCode == 117) { // F6
