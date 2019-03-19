@@ -45,6 +45,7 @@ tamanhoFonteTexto.onchange = function () {
         let indice;
 
         pesquisa = pesquisarTexto.value;
+        pesquisa = pesquisa.replace(/:/g, ' ');
 
         while (pesquisa.indexOf('  ') != -1) { // Remover espaços múltiplos
             pesquisa = pesquisa.replace(/  /g, ' ');
@@ -58,6 +59,8 @@ tamanhoFonteTexto.onchange = function () {
         indice = pesquisa.indexOf(' ');
         capitulo = pesquisa.substring(0, indice).replace(' ', '');
         versiculo = pesquisa.substring(indice + 1);
+
+        pesquisarTexto.value = `${livro} ${capitulo}:${versiculo}`;
 
         let texto = queryTexto(biblia, livro, capitulo, versiculo);
 
