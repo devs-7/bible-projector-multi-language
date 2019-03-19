@@ -12,6 +12,7 @@ const versoes = document.getElementById('versoes');
 var livro;
 var capitulo;
 var versiculo;
+var biblia;
 
 function salvarPreferencias(livro, capitulo, versiculo) {
     const preferencias = {
@@ -105,7 +106,7 @@ pesquisarButton.onclick = function () {
         capitulo = referencia.capitulo;
         versiculo = referencia.versiculo;
 
-        if(!!livro && !!capitulo && !!versiculo) pesquisarTexto.value = `${livro} ${capitulo}:${versiculo}`;
+        if (!!livro && !!capitulo && !!versiculo) pesquisarTexto.value = `${livro} ${capitulo}:${versiculo}`;
 
         let texto = queryTexto(biblia, livro, capitulo, versiculo);
 
@@ -140,37 +141,23 @@ pesquisarTexto.addEventListener('keydown', e => {
 });
 
 document.addEventListener('keydown', e => {
-    if (e.keyCode == 115) { // F4
-        pesquisarTexto.select();
-    }
+    if (e.keyCode == 115) pesquisarTexto.select(); // F4
 
-    if (e.keyCode == 116) { // F5
-        projetar();
-    }
+    if (e.keyCode == 116) projetar(); // F5
 
-    if (e.keyCode == 117) { // F6
-        atualizarButton.click();
-    }
+    if (e.keyCode == 117) atualizar(); // F6
 
-    if (e.keyCode == 119) { // F8
-        //adicionarVerso();
-    }
+    if (e.keyCode == 119) { } // F8
 
-    if (e.keyCode == 120 || e.keyCode == 34) { // F9 e PageDown
-        voltarVerso();
-    }
+    if (e.keyCode == 120 || e.keyCode == 34) voltarVerso(); // F9 e PageDown
 
-    if (e.keyCode == 121 || e.keyCode == 33) { // F10 e PageUp
-        avancarVerso();
-    }
+    if (e.keyCode == 121 || e.keyCode == 33) avancarVerso(); // F10 e PageUp
 
-    if (e.keyCode == 112) { // F1
-        ajudaButton.click();
-    }
+    if (e.keyCode == 112) ajuda(); // F1
 });
 
 // Ao iniciar
 const fs = require('fs');
 
-let biblia = fs.readFileSync('data/bibles/ara.txt', 'utf-8');
+biblia = fs.readFileSync('data/bibles/ara.txt', 'utf-8');
 tamanhoFonteTexto.value = JSON.parse(fs.readFileSync('data/preferencias.json', 'utf-8')).fonte;
