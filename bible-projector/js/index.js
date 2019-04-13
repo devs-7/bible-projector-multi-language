@@ -14,20 +14,21 @@ var capitulo;
 var versiculo;
 var biblia;
 
-function salvarPreferencias(livro, capitulo, versiculo) {
+function salvarPreferencias(livro, capitulo, versiculo, texto) {
     const preferencias = {
         fonte: Number(tamanhoFonteTexto.value),
         textoAtual: {
             livro: livro,
             capitulo: Number(capitulo),
-            versiculo: Number(versiculo)
+            versiculo: Number(versiculo),
+            texto: texto
         },
         versao: versoes.value
     }
 
     fs.writeFile('data/preferencias.json', JSON.stringify(preferencias), erro => {
         if (erro) {
-            alert('Erro ao salvar');
+            preview.value = 'Erro ao enviar texto para o projetor.';
         }
     });
 }
@@ -97,8 +98,7 @@ function adicionarVerso() { // Em processo............
 }
 
 function atualizar() {
-    fs.writeFile('./data/texto.txt', preview.value, () => { preview.innerHTML = 'Erro ao enviar texto para o projetor.' });
-    salvarPreferencias(livro, capitulo, versiculo);
+    salvarPreferencias(livro, capitulo, versiculo, preview.value);
 }
 
 function pesquisar(projetar = true) {

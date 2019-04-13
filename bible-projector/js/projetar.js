@@ -18,7 +18,7 @@ function aplicarPreferencias() {
     fs.readFile('data/preferencias.json', 'utf-8', (erro, conteudo) => {
         const preferencias = JSON.parse(conteudo);
         texto.style.fontSize = Number(preferencias.fonte) + 'px';
-    })
+    });
 }
 
 function getPreferencias() {
@@ -64,10 +64,8 @@ function avancarVerso(sentido) {
         }
 
         preferencias.textoAtual.versiculo = versiculo;
+        preferencias.textoAtual.texto = queryTexto(biblia, livro, capitulo, versiculo) + getRepresentacao(livro, capitulo, versiculo);
         setPreferencias(preferencias);
-        let texto = queryTexto(biblia, livro, capitulo, versiculo);
-
-        fs.writeFile('./data/texto.txt', texto + getRepresentacao(livro, capitulo, versiculo), () => { });
     });
 }
 
@@ -102,6 +100,6 @@ const texto = document.querySelector('p');
 let biblia = fs.readFileSync('data/bibles/' + getPreferencias().versao + '.txt', 'utf-8');
 
 setInterval(() => {
-    texto.innerHTML = aplicarAlteracoes(fs.readFileSync('./data/texto.txt', 'utf-8'));
+    texto.innerHTML = aplicarAlteracoes(getPreferencias().textoAtual.texto);
     aplicarPreferencias(texto);
 }, 10);
