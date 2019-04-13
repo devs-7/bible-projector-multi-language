@@ -174,17 +174,11 @@ pesquisarTexto.addEventListener('keypress', e => {
 
 document.addEventListener('keydown', e => {
     if (e.keyCode == 115) pesquisarTexto.select(); // F4
-
     if (e.keyCode == 116) projetar(); // F5
-
     if (e.keyCode == 117) atualizar(); // F6
-
     if (e.keyCode == 119) { } // F8
-
     if (e.keyCode == 120 || e.keyCode == 34) voltarVerso(); // F9 e PageDown
-
     if (e.keyCode == 121 || e.keyCode == 33) avancarVerso(); // F10 e PageUp
-
     if (e.keyCode == 112) ajuda(); // F1
 });
 
