@@ -105,7 +105,7 @@ function atualizarHistorico() {
     let textos = [];
     textos = historico.value.split('\n');
     textos.push(ultimaPesquisa.innerHTML);
-    
+
     // Removendo elementos repetidos e inválidos
     textos = textos.filter((elemento, indice) => {
         return textos.indexOf(elemento) == indice && !!elemento;
