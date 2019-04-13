@@ -101,6 +101,26 @@ function atualizar() {
     salvarPreferencias(livro, capitulo, versiculo, preview.value);
 }
 
+function atualizarHistorico() {
+    let textos = [];
+    textos = historico.value.split('\n');
+    textos.push(ultimaPesquisa.innerHTML);
+    
+    // Removendo elementos repetidos e inválidos
+    textos = textos.filter((elemento, indice) => {
+        return textos.indexOf(elemento) == indice && !!elemento;
+    });
+
+    // Atualização da caixa de texto
+    let temp = '';
+    textos.forEach(texto => {
+        temp += texto + '\n';
+    });
+    temp = temp.substring(0, temp.length - 1);
+
+    historico.value = temp;
+}
+
 function pesquisar(projetar = true) {
     let pesquisa = pesquisarTexto.value;
 
@@ -119,7 +139,7 @@ function pesquisar(projetar = true) {
             preview.value = texto + getRepresentacao(livro, capitulo, versiculo);
             if (projetar) {
                 atualizar();
-                historico.value += ultimaPesquisa.innerHTML + '\n';
+                atualizarHistorico();
             }
         }
         else {
