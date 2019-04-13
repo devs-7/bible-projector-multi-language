@@ -34,11 +34,11 @@ function salvarPreferencias(livro, capitulo, versiculo, texto) {
 }
 
 function projetar() {
-    window.open('projetar.html', 'big', 'fullscreen=no');
+    window.open('projetar.html', 'Projetor', 'fullscreen=no');
 }
 
 function ajuda() {
-    window.open('ajuda.html');
+    window.open('ajuda.html', 'Ajuda');
 }
 
 function interpretarPesquisa(pesquisa) {
