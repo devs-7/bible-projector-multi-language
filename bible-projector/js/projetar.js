@@ -98,6 +98,7 @@ document.addEventListener('keydown', e => {
 const fs = require('fs');
 const texto = document.querySelector('p');
 let biblia = fs.readFileSync('data/bibles/' + getPreferencias().versao + '.txt', 'utf-8');
+window.moveBy(window.innerWidth + 100, null);
 
 setInterval(() => {
     texto.innerHTML = aplicarAlteracoes(getPreferencias().textoAtual.texto);
