@@ -121,9 +121,7 @@ function atualizarHistorico() {
     historico.value = temp;
 }
 
-function pesquisar(projetar = true) {
-    let pesquisa = pesquisarTexto.value;
-
+function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
     if (!!pesquisa) {
         let referencia = interpretarPesquisa(pesquisa);
         livro = referencia.livro;
