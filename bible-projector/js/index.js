@@ -41,7 +41,7 @@ function ajuda() {
     window.open('ajuda.html', 'Ajuda');
 }
 
-function interpretarPesquisa(pesquisa) {
+function interpretarPesquisa(pesquisa = '') {
     let livro, capitulo, versiculo;
 
     pesquisa = pesquisa.replace(/:/g, ' ');
@@ -49,6 +49,9 @@ function interpretarPesquisa(pesquisa) {
     while (pesquisa.indexOf('  ') != -1) { // Remover espaços múltiplos
         pesquisa = pesquisa.replace(/  /g, ' ');
     }
+
+    if (pesquisa[pesquisa.length - 1] == ' ') pesquisa = pesquisa.substring(0, pesquisa.length - 1);
+    if (pesquisa[0] == ' ') pesquisa = pesquisa.substring(1);
 
     pesquisa = pesquisa.split(' ');
 
