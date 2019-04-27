@@ -77,7 +77,7 @@ function getLivro(pesquisa = '') {
     }
 
     for (let livro of nomeLivros) {
-        if (normalizar(livro).replace(' ', '').indexOf(normalizar(pesquisa)) !== -1) {
+        if (normalizar(livro).indexOf(normalizar(pesquisa)) !== -1) {
             return livro;
         };
     }

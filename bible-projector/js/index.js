@@ -42,7 +42,7 @@ function ajuda() {
 }
 
 function interpretarPesquisa(pesquisa) {
-    let livro, capitulo, versiculo, indice;
+    let livro, capitulo, versiculo;
 
     pesquisa = pesquisa.replace(/:/g, ' ');
 
@@ -50,19 +50,12 @@ function interpretarPesquisa(pesquisa) {
         pesquisa = pesquisa.replace(/  /g, ' ');
     }
 
-    indice = pesquisa.indexOf(' ');
-    if (!Number(pesquisa.substring(indice + 1, indice + 2))) {
-        pesquisa = pesquisa.replace(' ', '');
-        indice = pesquisa.indexOf(' ');
-    }
+    pesquisa = pesquisa.split(' ');
 
-    livro = pesquisa.substring(0, indice).replace(' ', '');
+    versiculo = parseInt(pesquisa.pop());
+    capitulo = parseInt(pesquisa.pop());
+    livro = pesquisa.toString().replace(/,/g, ' ');
     livro = getLivro(livro);
-    pesquisa = pesquisa.substring(indice + 1);
-
-    indice = pesquisa.indexOf(' ');
-    capitulo = pesquisa.substring(0, indice).replace(' ', '');
-    versiculo = pesquisa.substring(indice + 1);
 
     return { livro, capitulo, versiculo }
 }
