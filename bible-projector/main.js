@@ -21,6 +21,10 @@ function createWindow() {
     win.once('ready-to-show', () => {
         win.show();
     });
+
+    win.once('close', () => {
+        process.abort();
+    });
 }
 
 app.on('ready', createWindow);
