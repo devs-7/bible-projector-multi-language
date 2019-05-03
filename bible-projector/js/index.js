@@ -43,28 +43,6 @@ function ajuda() {
     window.open('ajuda.html', 'Ajuda');
 }
 
-function interpretarPesquisa(pesquisa = '') {
-    let livro, capitulo, versiculo;
-
-    pesquisa = pesquisa.replace(/:/g, ' ');
-
-    while (pesquisa.indexOf('  ') != -1) { // Remover espaços múltiplos
-        pesquisa = pesquisa.replace(/  /g, ' ');
-    }
-
-    if (pesquisa[pesquisa.length - 1] == ' ') pesquisa = pesquisa.substring(0, pesquisa.length - 1);
-    if (pesquisa[0] == ' ') pesquisa = pesquisa.substring(1);
-
-    pesquisa = pesquisa.split(' ');
-
-    versiculo = parseInt(pesquisa.pop());
-    capitulo = parseInt(pesquisa.pop());
-    livro = pesquisa.toString().replace(/,/g, ' ');
-    livro = getLivro(livro);
-
-    return { livro, capitulo, versiculo }
-}
-
 function avancarVerso() {
     if (!queryTexto(biblia, livro, capitulo, Number(versiculo) + 1)) {
         preview.value = 'Não há versículos posteriores';
@@ -126,9 +104,11 @@ function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
         capitulo = referencia.capitulo;
         versiculo = referencia.versiculo;
 
+        let texto = '';
+
         if (!!livro && !!capitulo && !!versiculo) pesquisarTexto.value = `${livro} ${capitulo}:${versiculo}`;
 
-        let texto = queryTexto(biblia, livro, capitulo, versiculo);
+        texto = queryTexto(biblia, livro, capitulo, versiculo);
 
         if (texto != null) {
             ultimaPesquisa.innerHTML = `${livro} ${capitulo}:${versiculo}`;
@@ -139,11 +119,24 @@ function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
             }
         }
         else {
-            if (projetar) {
-                preview.value = '';
-                atualizar();
+            const query = queryBible(biblia, pesquisa);
+
+            if (!query) {
+                if (projetar) {
+                    preview.value = '';
+                    atualizar();
+                }
+                preview.value = 'Texto inexistente';
             }
-            preview.value = 'Texto inexistente';
+            else {
+                livro = query.livro;
+                capitulo = query.capitulo;
+                versiculo = query.versiculo;
+                texto = query.texto;
+                preview.value = texto;
+                ultimaPesquisa.innerHTML = `${livro} ${capitulo}:${versiculo}`;
+                preview.value = texto + getRepresentacao(livro, capitulo, versiculo);
+            }
         }
     }
 }

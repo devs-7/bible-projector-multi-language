@@ -86,3 +86,49 @@ function getLivro(pesquisa = '') {
 function getRepresentacao(livro, capitulo, versiculo) {
     return '\n(' + livro + ' ' + capitulo + ':' + versiculo + ')';
 }
+
+function interpretarPesquisa(pesquisa = '') {
+    let livro, capitulo, versiculo;
+
+    pesquisa = pesquisa.replace(/:/g, ' ');
+
+    while (pesquisa.indexOf('  ') != -1) { // Remover espaços múltiplos
+        pesquisa = pesquisa.replace(/  /g, ' ');
+    }
+
+    if (pesquisa[pesquisa.length - 1] == ' ') pesquisa = pesquisa.substring(0, pesquisa.length - 1);
+    if (pesquisa[0] == ' ') pesquisa = pesquisa.substring(1);
+
+    pesquisa = pesquisa.split(' ');
+
+    versiculo = parseInt(pesquisa.pop());
+    capitulo = parseInt(pesquisa.pop());
+    livro = pesquisa.toString().replace(/,/g, ' ');
+    livro = getLivro(livro);
+
+    return { livro, capitulo, versiculo }
+}
+
+function queryBible(biblia, pesquisa = '') {
+    let indice = normalizar(biblia).indexOf(pesquisa);
+    if (indice != -1) {
+        let referencia, livro, capitulo, versiculo, texto;
+
+        while (indice >= 0) {
+            indice--;
+            if (biblia[indice] == '[') break;
+        }
+
+        referencia = biblia.substring(indice + 1, biblia.indexOf(']', indice));
+        referencia = interpretarPesquisa(referencia);
+        livro = referencia.livro;
+        capitulo = referencia.capitulo;
+        versiculo = referencia.versiculo;
+        texto = queryTexto(biblia, livro, capitulo, versiculo);
+
+        return { livro, capitulo, versiculo, texto };
+    }
+    else {
+        return null;
+    }
+}
