@@ -98,26 +98,26 @@ function atualizarHistorico() {
 }
 
 function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
+    function pesquisaEncontrada(livro, capitulo, versiculo, texto) {
+        ultimaPesquisa.innerHTML = `${livro} ${capitulo}:${versiculo}`;
+        preview.value = texto + getRepresentacao(livro, capitulo, versiculo);
+        if (projetar) {
+            atualizar();
+            atualizarHistorico();
+        }
+    }
+
     if (!!pesquisa) {
         let referencia = interpretarPesquisa(pesquisa);
         livro = referencia.livro;
         capitulo = referencia.capitulo;
         versiculo = referencia.versiculo;
 
-        let texto = '';
-
         if (!!livro && !!capitulo && !!versiculo) pesquisarTexto.value = `${livro} ${capitulo}:${versiculo}`;
 
-        texto = queryTexto(biblia, livro, capitulo, versiculo);
+        let texto = queryTexto(biblia, livro, capitulo, versiculo);
 
-        if (texto != null) {
-            ultimaPesquisa.innerHTML = `${livro} ${capitulo}:${versiculo}`;
-            preview.value = texto + getRepresentacao(livro, capitulo, versiculo);
-            if (projetar) {
-                atualizar();
-                atualizarHistorico();
-            }
-        }
+        if (texto != null) pesquisaEncontrada(livro, capitulo, versiculo, texto);
         else {
             const query = queryBible(biblia, pesquisa);
 
@@ -133,13 +133,7 @@ function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
                 capitulo = query.capitulo;
                 versiculo = query.versiculo;
                 texto = query.texto;
-                preview.value = texto;
-                ultimaPesquisa.innerHTML = `${livro} ${capitulo}:${versiculo}`;
-                preview.value = texto + getRepresentacao(livro, capitulo, versiculo);
-                if (projetar) {
-                    atualizar();
-                    atualizarHistorico();
-                }
+                pesquisaEncontrada(livro, capitulo, versiculo, texto);
             }
         }
     }
