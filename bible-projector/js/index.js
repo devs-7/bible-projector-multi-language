@@ -14,6 +14,8 @@ var capitulo;
 var versiculo;
 var biblia;
 
+const fs = require('fs');
+
 function salvarPreferencias(livro, capitulo, versiculo, texto) {
     const preferencias = {
         fonte: Number(tamanhoFonteTexto.value),
@@ -176,8 +178,7 @@ document.addEventListener('keydown', e => {
     if (e.keyCode == 112) ajuda(); // F1
 });
 
-// Ao iniciar
-const fs = require('fs');
-
-biblia = fs.readFileSync('data/bibles/ara.txt', 'utf-8');
-tamanhoFonteTexto.value = JSON.parse(fs.readFileSync('data/preferencias.json', 'utf-8')).fonte;
+const preferencias = JSON.parse(fs.readFileSync('data/preferencias.json', 'utf-8'));
+tamanhoFonteTexto.value = preferencias.fonte;
+biblia = fs.readFileSync('data/bibles/' + preferencias.versao + '.txt', 'utf-8');
+versoes.value = preferencias.versao;
