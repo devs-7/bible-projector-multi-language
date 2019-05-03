@@ -23,7 +23,7 @@ function createWindow() {
     });
 
     win.once('close', () => {
-        process.abort();
+        process.exit();
     });
 }
 
