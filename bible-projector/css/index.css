@@ -54,6 +54,7 @@ main textarea {
     font-size: 1em;
     resize: none;
     margin: 0 10px;
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
 }
 
 main label {
