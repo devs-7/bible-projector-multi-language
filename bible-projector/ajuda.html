@@ -55,6 +55,12 @@
             <b>Exemplo:</b> "A palavra {texto} está destacada".
             Para ativar o destaque na tela de projeção, clique em "Atualizar" ou pressione a tecla "F6".</p>
     </div>
+    <div id="desenvolvedor">Desenvolvido por Silveira_L<br>GitHub: <a href="">https://github.com/SilveiraL/Bible-projector</a></div>
+    <script>
+        document.querySelector('#desenvolvedor > a').onclick = () => {
+            require('electron').shell.openExternal('https://github.com/SilveiraL/Bible-projector');
+        }
+    </script>
 </body>
 
 </html>
