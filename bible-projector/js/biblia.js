@@ -110,7 +110,8 @@ function interpretarPesquisa(pesquisa = '') {
 }
 
 function queryBible(biblia, pesquisa = '') {
-    let indice = normalizar(biblia).indexOf(pesquisa);
+    let indice = normalizar(biblia).indexOf(normalizar(pesquisa));
+
     if (indice != -1) {
         let referencia, livro, capitulo, versiculo, texto;
 

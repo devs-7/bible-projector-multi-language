@@ -136,6 +136,10 @@ function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
                 preview.value = texto;
                 ultimaPesquisa.innerHTML = `${livro} ${capitulo}:${versiculo}`;
                 preview.value = texto + getRepresentacao(livro, capitulo, versiculo);
+                if (projetar) {
+                    atualizar();
+                    atualizarHistorico();
+                }
             }
         }
     }
