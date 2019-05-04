@@ -45,15 +45,19 @@ function projetar() {
         width: 800, height: 600,
         autoHideMenuBar: true,
         icon: './data/icon.png',
-        show: true
+        show: false
     });
 
     win.loadFile('projetar.html');
     win.setFullScreen(true);
 
-    if(screen.getAllDisplays().length > 1) {
+    if (screen.getAllDisplays().length > 1) {
         win.setPosition(window.innerWidth, 0);
     }
+
+    win.once('ready-to-show', () => {
+        win.show();
+    });
 }
 
 function ajuda() {
