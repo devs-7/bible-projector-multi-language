@@ -72,7 +72,19 @@ function criarTelaProjetor() {
 }
 
 function ajuda() {
-    window.open('ajuda.html', 'Ajuda');
+    const winAjuda = new BrowserWindow({
+        title: 'Ajuda',
+        width: 800, height: 600,
+        autoHideMenuBar: true,
+        icon: './data/icon.png',
+        show: false
+    });
+
+    winAjuda.loadFile('ajuda.html');
+
+    winAjuda.once('ready-to-show', () => {
+        winAjuda.show();
+    });
 }
 
 function avancarVerso() {
