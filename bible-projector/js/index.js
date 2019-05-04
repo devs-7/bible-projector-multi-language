@@ -13,6 +13,7 @@ var livro;
 var capitulo;
 var versiculo;
 var biblia;
+var texto;
 var winProjetor;
 
 const electron = require('electron');
@@ -35,7 +36,7 @@ function salvarPreferencias(livro, capitulo, versiculo, texto) {
 
     fs.writeFile('data/preferencias.json', JSON.stringify(preferencias), erro => {
         if (erro) {
-            preview.value = 'Erro ao enviar texto para o projetor.';
+            preview.value = 'Erro ao enviar informações para o projetor.';
         }
     });
 }
@@ -146,7 +147,7 @@ function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
 
         if (!!livro && !!capitulo && !!versiculo) pesquisarTexto.value = `${livro} ${capitulo}:${versiculo}`;
 
-        let texto = queryTexto(biblia, livro, capitulo, versiculo);
+        texto = queryTexto(biblia, livro, capitulo, versiculo);
 
         if (texto != null) pesquisaEncontrada(livro, capitulo, versiculo, texto);
         else {
@@ -172,7 +173,14 @@ function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
 
 pesquisarButton.onclick = () => pesquisar(true);
 atualizarButton.onclick = atualizar;
-tamanhoFonteTexto.onchange = salvarPreferencias;
+tamanhoFonteTexto.onchange = () => {
+    try {
+        salvarPreferencias(livro, capitulo, versiculo, texto);
+    }
+    catch (e) {
+        preview.value = e;
+    }
+};
 projetarButton.onclick = projetar;
 ajudaButton.onclick = ajuda;
 
