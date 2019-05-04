@@ -32,22 +32,15 @@
     </div>
     <h1>Teclas de atalho:</h1>
     <div>
-        <h2>Tela principal:</h2>
         <p><b>F1:</b> abre a janela de ajuda.</p>
         <p><b>F4:</b> seleciona o campo de pesquisa.</p>
         <p><b>F9 e Page Down:</b> retrocede para o versículo anterior.</p>
         <p><b>F10 e Page Up:</b> avança para o próximo versículo.</p>
         <p><b>F5:</b> projeta o conteúdo da pré-visualização.</p>
+        <p><b>ESC:</b> fecha tela de projeção.</p>
         <p><b>Enter:</b> realiza a pesquisa caso o campo de pesquisa esteja selecionado.</p>
         <p><b>Ctrl + Enter:</b> realiza a pesquisa <b>anonimamente</b> caso o campo de pesquisa esteja selecionado. (O
             resultado da pesquisa será exibido somente na pré-visualização).</p>
-        <h2>Tela de projeção:</h2>
-        <p><b>ESC:</b> fecha a janela.</p>
-        <p><b>F5:</b> ativa e desativa o modo de tela cheia.</p>
-        <p><b>Seta para esquerda, F9 e Page Down:</b> retrocede para o versículo anterior.</p>
-        <p><b>Seta para direita, F10 e Page Up:</b> avança para o próximo versículo.</p>
-        <p><b>Seta para cima:</b> aumenta a fonte da letra.</p>
-        <p><b>Seta para baixo:</b> diminui a fonte da letra.</p>
     </div>
     <h1>Exibição de textos:</h1>
     <div>
@@ -55,7 +48,8 @@
             <b>Exemplo:</b> "A palavra {texto} está destacada".
             Para ativar o destaque na tela de projeção, clique em "Atualizar" ou pressione a tecla "F6".</p>
     </div>
-    <div id="desenvolvedor">Desenvolvido por Silveira_L<br>GitHub: <a href="">https://github.com/SilveiraL/Bible-projector</a></div>
+    <div id="desenvolvedor">Desenvolvido por Silveira_L<br>GitHub: <a
+            href="">https://github.com/SilveiraL/Bible-projector</a></div>
     <script>
         document.querySelector('#desenvolvedor > a').onclick = () => {
             require('electron').shell.openExternal('https://github.com/SilveiraL/Bible-projector');
