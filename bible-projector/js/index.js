@@ -41,37 +41,40 @@ function salvarPreferencias(livro, capitulo, versiculo, texto) {
 }
 
 function projetar() {
-    if (!winProjetor) {
-        winProjetor = new BrowserWindow({
-            title: 'Projetor',
-            width: 800, height: 600,
-            autoHideMenuBar: true,
-            icon: './data/icon.png',
-            show: false
-        });
-
-        winProjetor.loadFile('projetar.html');
-        winProjetor.setFullScreen(true);
-
-        if (screen.getAllDisplays().length > 1) {
-            winProjetor.setPosition(window.innerWidth, 0);
-        }
-
-        winProjetor.once('ready-to-show', () => {
-            winProjetor.show();
-        });
-
-        winProjetor.once('close', () => winProjetor = null);
-    }
-    else {
+    if (winProjetor.isVisible()) {
         if (winProjetor.isFullScreen()) winProjetor.setFullScreen(false);
         else winProjetor.setFullScreen(true);
+    }
+    else {
+        // winProjetor = new BrowserWindow();
+        winProjetor.showInactive();
     }
 }
 
 function fecharProjetor() {
-    winProjetor.destroy();
-    winProjetor = null;
+    winProjetor.hide();
+}
+
+function criarTelaProjetor() {
+    winProjetor = new BrowserWindow({
+        title: 'Projetor',
+        width: 800, height: 600,
+        autoHideMenuBar: true,
+        icon: './data/icon.png',
+        show: false
+    });
+
+    winProjetor.loadFile('projetar.html');
+
+    winProjetor.setFullScreen(true);
+
+    if (screen.getAllDisplays().length > 1) {
+        winProjetor.setPosition(window.innerWidth, 0);
+    }
+
+    winProjetor.once('closed', () => {
+        criarTelaProjetor();
+    });
 }
 
 function ajuda() {
@@ -209,3 +212,5 @@ const preferencias = JSON.parse(fs.readFileSync('data/preferencias.json', 'utf-8
 tamanhoFonteTexto.value = preferencias.fonte;
 biblia = fs.readFileSync('data/bibles/' + preferencias.versao + '.txt', 'utf-8');
 versoes.value = preferencias.versao;
+
+criarTelaProjetor();
