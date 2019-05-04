@@ -13,6 +13,7 @@ var livro;
 var capitulo;
 var versiculo;
 var biblia;
+var winProjetor;
 
 const electron = require('electron');
 const fs = require('fs');
@@ -40,24 +41,37 @@ function salvarPreferencias(livro, capitulo, versiculo, texto) {
 }
 
 function projetar() {
-    let win = new BrowserWindow({
-        title: 'Projetor',
-        width: 800, height: 600,
-        autoHideMenuBar: true,
-        icon: './data/icon.png',
-        show: false
-    });
+    if (!winProjetor) {
+        winProjetor = new BrowserWindow({
+            title: 'Projetor',
+            width: 800, height: 600,
+            autoHideMenuBar: true,
+            icon: './data/icon.png',
+            show: false
+        });
 
-    win.loadFile('projetar.html');
-    win.setFullScreen(true);
+        winProjetor.loadFile('projetar.html');
+        winProjetor.setFullScreen(true);
 
-    if (screen.getAllDisplays().length > 1) {
-        win.setPosition(window.innerWidth, 0);
+        if (screen.getAllDisplays().length > 1) {
+            winProjetor.setPosition(window.innerWidth, 0);
+        }
+
+        winProjetor.once('ready-to-show', () => {
+            winProjetor.show();
+        });
+
+        winProjetor.once('close', () => winProjetor = null);
     }
+    else {
+        if (winProjetor.isFullScreen()) winProjetor.setFullScreen(false);
+        else winProjetor.setFullScreen(true);
+    }
+}
 
-    win.once('ready-to-show', () => {
-        win.show();
-    });
+function fecharProjetor() {
+    winProjetor.destroy();
+    winProjetor = null;
 }
 
 function ajuda() {
@@ -188,6 +202,7 @@ document.addEventListener('keydown', e => {
     if (e.keyCode == 120 || e.keyCode == 34) voltarVerso(); // F9 e PageDown
     if (e.keyCode == 121 || e.keyCode == 33) avancarVerso(); // F10 e PageUp
     if (e.keyCode == 112) ajuda(); // F1
+    if (e.keyCode == 27) fecharProjetor(); // ESC
 });
 
 const preferencias = JSON.parse(fs.readFileSync('data/preferencias.json', 'utf-8'));

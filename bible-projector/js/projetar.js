@@ -97,11 +97,8 @@ document.addEventListener('keydown', e => {
 
 const fs = require('fs');
 const electron = require('electron');
-const { screen } = require('electron');
 const texto = document.querySelector('p');
 let biblia = fs.readFileSync('data/bibles/' + getPreferencias().versao + '.txt', 'utf-8');
-
-const displays = screen.getAllDisplays();
 
 setInterval(() => {
     texto.innerHTML = aplicarAlteracoes(getPreferencias().textoAtual.texto);
