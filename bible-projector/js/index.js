@@ -14,7 +14,10 @@ var capitulo;
 var versiculo;
 var biblia;
 
+const electron = require('electron');
 const fs = require('fs');
+
+const BrowserWindow = electron.remote.BrowserWindow;
 
 function salvarPreferencias(livro, capitulo, versiculo, texto) {
     const preferencias = {
@@ -36,7 +39,14 @@ function salvarPreferencias(livro, capitulo, versiculo, texto) {
 }
 
 function projetar() {
-    window.open('projetar.html', 'Projetor', 'fullscreen=no');
+    let win = new BrowserWindow({
+        title: 'Projetor',
+        width: 800, height: 600,
+        autoHideMenuBar: true,
+        icon: './data/icon.png',
+    });
+
+    win.loadFile('projetar.html');
 }
 
 function ajuda() {

@@ -27,4 +27,4 @@ function createWindow() {
     });
 }
 
-app.on('ready', createWindow);
+app.once('ready', createWindow);
