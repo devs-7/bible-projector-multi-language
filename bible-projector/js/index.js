@@ -18,6 +18,7 @@ const electron = require('electron');
 const fs = require('fs');
 
 const BrowserWindow = electron.remote.BrowserWindow;
+const screen = electron.screen;
 
 function salvarPreferencias(livro, capitulo, versiculo, texto) {
     const preferencias = {
@@ -44,9 +45,15 @@ function projetar() {
         width: 800, height: 600,
         autoHideMenuBar: true,
         icon: './data/icon.png',
+        show: true
     });
 
     win.loadFile('projetar.html');
+    win.setFullScreen(true);
+
+    if(screen.getAllDisplays().length > 1) {
+        win.setPosition(window.innerWidth, 0);
+    }
 }
 
 function ajuda() {
