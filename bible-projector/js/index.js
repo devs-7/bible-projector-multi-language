@@ -41,18 +41,11 @@ function salvarPreferencias(livro, capitulo, versiculo, texto) {
 }
 
 function projetar() {
-    if (winProjetor.isVisible()) {
-        if (winProjetor.isFullScreen()) winProjetor.setFullScreen(false);
-        else winProjetor.setFullScreen(true);
-    }
-    else {
-        // winProjetor = new BrowserWindow();
-        winProjetor.showInactive();
-    }
+    winProjetor.showInactive();
 }
 
 function fecharProjetor() {
-    winProjetor.hide();
+    winProjetor.destroy();
 }
 
 function criarTelaProjetor() {
