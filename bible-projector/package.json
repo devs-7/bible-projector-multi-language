@@ -42,5 +42,8 @@
   "devDependencies": {
     "electron": "^4.0.5",
     "electron-builder": "^20.39.0"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1"
   }
 }
