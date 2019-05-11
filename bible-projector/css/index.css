@@ -71,6 +71,10 @@ main label {
     height: 35px;
 }
 
+.button:hover {
+    cursor: pointer;
+}
+
 .preview > textarea {
     width: calc(100vw * 2 / 3 - 20px);
 }
