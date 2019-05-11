@@ -59,6 +59,7 @@ input {
 main {
     height: calc(100vh - 50px);
     background-color: #eee;
+    padding-bottom: 10px;
     display: grid;
 
     grid-template-columns: 2fr 1fr;
@@ -69,7 +70,7 @@ main {
 }
 
 main textarea {
-    height: calc(100vh - 100px);
+    height: 100%;
     font-size: 1em;
     resize: none;
     margin: 0 10px;
@@ -104,6 +105,10 @@ main label {
     grid-area: historico;
     display: flex;
     flex-direction: column;
+}
+
+.pesquisa {
+    grid-area: pesquisa;
 }
 
 @media(max-width: 780px) {
