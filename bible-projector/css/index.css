@@ -50,7 +50,7 @@ main {
 }
 
 main textarea {
-    height: 90%;
+    height: calc(100vh - 100px);
     font-size: 1em;
     resize: none;
     margin: 0 10px;
