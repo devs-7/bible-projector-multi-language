@@ -38,6 +38,19 @@ input {
     margin: 0px 5px;
 }
 
+#tamanhoFonte {
+    max-width: 50px;
+}
+
+#pesquisarTexto {
+    flex-grow: 1;
+}
+
+#ultimaPesquisa {
+    flex-grow: 1;
+    text-align: right;
+}
+
 .bordaRedonda {
     padding: 5px;
     border-radius: 5px;
@@ -46,7 +59,13 @@ input {
 main {
     height: calc(100vh - 50px);
     background-color: #eee;
-    display: flex;
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+        'preview historico'
+        'preview historico';
 }
 
 main textarea {
@@ -75,33 +94,16 @@ main label {
     cursor: pointer;
 }
 
-.preview > textarea {
-    width: calc(100vw * 2 / 3 - 20px);
+.preview {
+    grid-area: preview;
+    display: flex;
+    flex-direction: column;
 }
 
-.historico > textarea {
-    width: calc(100vw / 3 - 20px);
-}
-
-/* .preview > label {
-    grid-area: previewLabel;
-}
-
-.historico > label {
-    grid-area: historicoLabel;
-} */
-
-#tamanhoFonte {
-    max-width: 50px;
-}
-
-#pesquisarTexto {
-    flex-grow: 1;
-}
-
-#ultimaPesquisa {
-    flex-grow: 1;
-    text-align: right;
+.historico {
+    grid-area: historico;
+    display: flex;
+    flex-direction: column;
 }
 
 @media(max-width: 780px) {
