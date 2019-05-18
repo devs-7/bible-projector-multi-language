@@ -6,6 +6,7 @@ const pesquisarTexto = document.getElementById('pesquisarTexto');
 const tamanhoFonteTexto = document.getElementById('tamanhoFonte');
 const preview = document.getElementById('textoSelecionado');
 const historico = document.getElementById('historico');
+const capituloTextarea = document.getElementById('capitulo');
 const ultimaPesquisa = document.getElementById('ultimaPesquisa');
 const versoes = document.getElementById('versoes');
 
@@ -148,6 +149,15 @@ function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
         if (projetar) {
             atualizar();
             atualizarHistorico();
+        }
+
+        capituloTextarea.innerHTML = '';
+
+        for (let n = 1; ; n++) {
+            const temp = queryTexto(biblia, livro, capitulo, n);
+
+            if (!!temp) capituloTextarea.innerHTML += `${n} ${temp}`
+            else break;
         }
     }
 
