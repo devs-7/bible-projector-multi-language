@@ -58,7 +58,7 @@ function criarTelaProjetor() {
         show: false
     });
 
-    winProjetor.loadFile('projetar.html');
+    winProjetor.loadFile('windows/projetar.html');
 
     winProjetor.setFullScreen(true);
 
@@ -80,7 +80,7 @@ function ajuda() {
         show: false
     });
 
-    winAjuda.loadFile('ajuda.html');
+    winAjuda.loadFile('windows/ajuda.html');
 
     winAjuda.once('ready-to-show', () => {
         winAjuda.show();

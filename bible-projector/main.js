@@ -16,7 +16,7 @@ function createWindow() {
 
     win.maximize();
 
-    win.loadFile('index.html');
+    win.loadFile('windows/index.html');
 
     win.once('ready-to-show', () => {
         win.show();
