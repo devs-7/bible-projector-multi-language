@@ -8,7 +8,7 @@ function createWindow() {
     let win = new BrowserWindow({
         title: 'Bíblia projector',
         width: 800, height: 600,
-        autoHideMenuBar: true,
+        autoHideMenuBar: false,
         icon: './data/icon.png',
         minWidth: 600, minHeight: 500,
         show: false
