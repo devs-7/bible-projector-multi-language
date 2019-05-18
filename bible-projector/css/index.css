@@ -17,6 +17,7 @@ html, body {
 body {
     display: grid;
     grid-template-rows: 50px 1fr;
+    overflow: hidden;
 }
 
 header {
@@ -69,7 +70,7 @@ main {
         'capitulo historico';
 }
 
-main textarea {
+main textarea, #capitulo {
     height: 100%;
     font-size: 1em;
     resize: none;
@@ -111,8 +112,12 @@ main textarea {
     grid-area: capitulo;
 }
 
-.pesquisa {
-    grid-area: pesquisa;
+#capitulo {
+    overflow: scroll;
+    background-color: white;
+    max-height: 100%;
+    border: solid #999 1px;
+    padding: 5px;
 }
 
 @media(max-width: 780px) {
