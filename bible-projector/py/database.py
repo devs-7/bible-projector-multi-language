@@ -6,6 +6,7 @@ def insertBibleInDatabase(versao, local):
     livro = ''
     capitulo = 0
     versiculo = 0
+    cont = 0
 
     for linha in bible:
         if linha.find('[') > -1:
@@ -21,6 +22,11 @@ def insertBibleInDatabase(versao, local):
             texto = linha.replace('\n', '')
             cursor.execute("insert into %s(livro, capitulo, versiculo, texto) values('%s', %d, %d, '%s')" % (
                 versao, livro, int(capitulo), int(versiculo), texto))
+            cont += 1
+            if cont == 1000:
+                cont = 0
+                connection.commit()
+                print(livro, capitulo, versiculo)
 
     print('fim')
     bible.close()
