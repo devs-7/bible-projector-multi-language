@@ -1,5 +1,3 @@
-a = 'ss dg\n'
+linha = '1 3 4'
 
-b = a.split(' ')
-
-print('%d' %(1))
+print(linha.count(' '))

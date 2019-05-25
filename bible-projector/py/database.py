@@ -2,19 +2,20 @@ import sqlite3
 
 
 def insertBibleInDatabase(versao, local):
-    bible = open(local, 'r')
+    bible = open(local, 'r', encoding='UTF-8')
     livro = ''
     capitulo = 0
     versiculo = 0
     cont = 0
+
+    print('Instalando versão "%s"...' % versao)
 
     for linha in bible:
         if linha.find('[') > -1:
             linha = linha.replace('[', '')
             linha = linha.replace(']', '')
             linha = linha.replace('\n', '')
-            linha = linha.replace(':', ' ')
-            linha = linha.split(' ')
+            linha = linha.split(':')
             livro = linha[0]
             capitulo = linha[1]
             versiculo = linha[2]
@@ -26,9 +27,8 @@ def insertBibleInDatabase(versao, local):
             if cont == 1000:
                 cont = 0
                 connection.commit()
-                print(livro, capitulo, versiculo)
 
-    print('fim')
+    print('A versão "%s" foi instalada com sucesso.' % versao)
     bible.close()
 
 
@@ -38,4 +38,4 @@ cursor = connection.cursor()
 cursor.execute(
     'create table if not exists ara(livro varchar, capitulo integer, versiculo integer, texto varchar)')
 
-insertBibleInDatabase('ara', 'data/bibles/ara.txt')
+insertBibleInDatabase('ara', 'data/bibles/ara-py.txt')
