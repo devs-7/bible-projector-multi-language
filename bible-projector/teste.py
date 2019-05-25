@@ -1,3 +1,3 @@
-x = 'teste'
+x = [1, 2, 3]
 
-print(x[::-1])
+print(['1'] + x)

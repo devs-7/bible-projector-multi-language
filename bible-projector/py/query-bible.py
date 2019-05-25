@@ -1,38 +1,67 @@
 import sqlite3
 
 
+def isInt(s):
+    try:
+        int(s)
+        return True
+    except:
+        return False
+
+
 def interpretarPesquisa(pesquisa=''):
-    pesquisa = pesquisa.replace(':', ' ')
-    pesquisa = pesquisa[::-1].replace(' ', ':', 2)[::-1]
-    pesquisa = pesquisa.split(':')
+    try:
+        referencia = pesquisa.replace(':', ' ')
+        referencia = referencia[::-1].replace(' ', ':', 2)[::-1]
+        referencia = referencia.split(':')
 
-    return pesquisa
+        if isInt(referencia[1]) and isInt(referencia[2]):
+            return ['referencia'] + referencia
+        else:
+            return ['texto'] + [pesquisa]
+    except:
+        return ['texto'] + [pesquisa]
 
 
-def pesquisar(pesquisa):
-    versao = 'ara'
-
-    pesquisa = interpretarPesquisa(pesquisa)
-    livro = pesquisa[0]
-    capitulo = pesquisa[1]
-    versiculo = pesquisa[2]
-
+def pesquisarPorReferencia(versao, livro, capitulo, versiculo):
     livro = '%' + livro + '%'
     capitulo = str(capitulo)
     versiculo = str(versiculo)
     cursor.execute("select * from %s where livro like '%s' and capitulo = %s and versiculo = %s"
                    % (versao, livro, capitulo, versiculo))
 
-    pesquisa = cursor.fetchall()
-    send = []
-    send.append(pesquisa[0][0] + ' ' +
-                str(pesquisa[0][1]) + ':' + str(pesquisa[0][2]))
-    send.append(pesquisa[0][3])
+    return cursor.fetchall()
 
-    return send
+
+def pesquisarPorTexto(versao, pesquisa):
+    pesquisa = '%' + pesquisa + '%'
+    cursor.execute("select * from %s where texto like '%s'" %
+                   (versao, pesquisa))
+
+    return cursor.fetchall()
+
+
+def pesquisar(pesquisa):
+    versao = 'ara'
+
+    pesquisa = interpretarPesquisa(pesquisa)
+    send = []
+
+    if pesquisa[0] == 'referencia':
+        livro = pesquisa[1]
+        capitulo = pesquisa[2]
+        versiculo = pesquisa[3]
+        return pesquisarPorReferencia(versao, livro, capitulo, versiculo)
+    else:
+        return pesquisarPorTexto(versao, pesquisa[1])
 
 
 connection = sqlite3.connect('data/biblia.db')
 cursor = connection.cursor()
 
-print(pesquisar('gên 1 2'))
+p = pesquisar('Deus é bom')
+
+for n in p:
+    print(n)
+
+# connection.create_collation()
