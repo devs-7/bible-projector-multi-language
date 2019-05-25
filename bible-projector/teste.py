@@ -1,3 +1,3 @@
-linha = '1 3 4'
+x = 'teste'
 
-print(linha.count(' '))
+print(x[::-1])
