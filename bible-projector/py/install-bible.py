@@ -27,6 +27,7 @@ def insertBibleInDatabase(versao, local):
             if cont == 1000:
                 cont = 0
                 connection.commit()
+    connection.commit()
 
     print('A versão "%s" foi instalada com sucesso.' % versao)
     bible.close()

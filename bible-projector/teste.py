@@ -1,3 +1,7 @@
-x = [1, 2, 3]
+def funcao(callback):
+    callback('x', 'y')
 
-print(['1'] + x)
+
+funcao(lambda x, y:
+       print(x, y)
+       )

@@ -30,7 +30,7 @@ def pesquisarPorReferencia(versao, livro, capitulo, versiculo):
     cursor.execute("select * from %s where livro like '%s' and capitulo = %s and versiculo = %s"
                    % (versao, livro, capitulo, versiculo))
 
-    return cursor.fetchall()
+    return [cursor.fetchone()]
 
 
 def pesquisarPorTexto(versao, pesquisa):
@@ -59,7 +59,7 @@ def pesquisar(pesquisa):
 connection = sqlite3.connect('data/biblia.db')
 cursor = connection.cursor()
 
-p = pesquisar('Deus é bom')
+p = pesquisar('apoca 22 21')
 
 for n in p:
     print(n)
