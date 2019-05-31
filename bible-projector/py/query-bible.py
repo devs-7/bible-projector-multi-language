@@ -47,7 +47,6 @@ def pesquisarPorReferencia(versao, livro, capitulo, versiculo):
     resultado = cursor.fetchone()
 
     if resultado == None:
-        print('opa')
         cursor.execute("select livro, capitulo, versiculo, texto from %s where livroSemAcento like '%s' and capitulo = %s and versiculo = %s"
                        % (versao, livro, capitulo, versiculo))
         resultado = cursor.fetchone()
@@ -57,8 +56,8 @@ def pesquisarPorReferencia(versao, livro, capitulo, versiculo):
 
 def pesquisarPorTexto(versao, pesquisa):
     pesquisa = '%' + pesquisa + '%'
-    cursor.execute("select * from %s where texto like '%s'" %
-                   (versao, pesquisa))
+    cursor.execute("select * from %s where textoSemAcento like '%s'" %
+                   (versao, removerAcentos(pesquisa)))
 
     return cursor.fetchall()
 
@@ -81,7 +80,7 @@ def pesquisar(pesquisa):
 connection = sqlite3.connect('data/biblia.db')
 cursor = connection.cursor()
 
-p = pesquisar('gen 22 21'.lower())
+p = pesquisar('no principio'.lower())
 
 for n in p:
     print(n)
