@@ -37,9 +37,9 @@ def interpretarPesquisa(pesquisa=''):
         if referencia[-1] == ' ':
             referencia = referencia[0:-1]
         referencia = referencia[::-1].replace(' ', ':', 2)[::-1]
+        referencia = adicionarEspacoNomeLivro(referencia)
         referencia = referencia.split(':')
 
-        referencia = adicionarEspacoNomeLivro(referencia)
 
         if isInt(referencia[1]) and isInt(referencia[2]):
             return ['referencia'] + referencia
@@ -94,7 +94,7 @@ def pesquisar(pesquisa):
 connection = sqlite3.connect('data/biblia.db')
 cursor = connection.cursor()
 
-p = pesquisar('mt 11 28'.lower())
+p = pesquisar('1 joa 3 4'.lower())
 
 for n in p:
     print(n)
