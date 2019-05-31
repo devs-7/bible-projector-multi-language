@@ -1,4 +1,5 @@
 import sqlite3
+from unicodedata import normalize
 
 
 def isInt(s):
@@ -7,6 +8,10 @@ def isInt(s):
         return True
     except:
         return False
+
+
+def removerAcentos(texto):
+    return normalize('NFKD', texto).encode('ASCII', 'ignore').decode('ASCII')
 
 
 def interpretarPesquisa(pesquisa=''):
@@ -31,13 +36,23 @@ def interpretarPesquisa(pesquisa=''):
 
 
 def pesquisarPorReferencia(versao, livro, capitulo, versiculo):
-    livro = '%' + livro + '%'
+    sigla = removerAcentos(livro)
+    livro = '%' + sigla + '%'
     capitulo = str(capitulo)
     versiculo = str(versiculo)
-    cursor.execute("select * from %s where livro like '%s' and capitulo = %s and versiculo = %s"
-                   % (versao, livro, capitulo, versiculo))
 
-    return [cursor.fetchone()]
+    cursor.execute("select livro, capitulo, versiculo, texto from %s where sigla = '%s' and capitulo = %s and versiculo = %s"
+                   % (versao, sigla, capitulo, versiculo))
+
+    resultado = cursor.fetchone()
+
+    if resultado == None:
+        print('opa')
+        cursor.execute("select livro, capitulo, versiculo, texto from %s where livroSemAcento like '%s' and capitulo = %s and versiculo = %s"
+                       % (versao, livro, capitulo, versiculo))
+        resultado = cursor.fetchone()
+
+    return [resultado]
 
 
 def pesquisarPorTexto(versao, pesquisa):
@@ -66,7 +81,7 @@ def pesquisar(pesquisa):
 connection = sqlite3.connect('data/biblia.db')
 cursor = connection.cursor()
 
-p = pesquisar('Jesus')
+p = pesquisar('gen 22 21'.lower())
 
 for n in p:
     print(n)
