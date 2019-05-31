@@ -23,7 +23,7 @@ def adicionarEspacoNomeLivro(x=''):
                     x = list(x)
                     x.insert(n + 1, ' ')
                     break
-    return x
+    return ''.join(x)
 
 
 def interpretarPesquisa(pesquisa=''):
