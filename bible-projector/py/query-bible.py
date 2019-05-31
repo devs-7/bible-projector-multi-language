@@ -14,6 +14,18 @@ def removerAcentos(texto):
     return normalize('NFKD', texto).encode('ASCII', 'ignore').decode('ASCII')
 
 
+def adicionarEspacoNomeLivro(x=''):
+    for n in range(len(x)):
+            if x[n] != ' ' and not isInt(x[n]):
+                break
+            else:
+                if isInt(x[n]) and x[n + 1] != ' ' and not isInt(x[n + 1]):
+                    x = list(x)
+                    x.insert(n + 1, ' ')
+                    break
+    return x
+
+
 def interpretarPesquisa(pesquisa=''):
     try:
         referencia = ''
@@ -26,6 +38,8 @@ def interpretarPesquisa(pesquisa=''):
             referencia = referencia[0:-1]
         referencia = referencia[::-1].replace(' ', ':', 2)[::-1]
         referencia = referencia.split(':')
+
+        referencia = adicionarEspacoNomeLivro(referencia)
 
         if isInt(referencia[1]) and isInt(referencia[2]):
             return ['referencia'] + referencia
@@ -80,7 +94,7 @@ def pesquisar(pesquisa):
 connection = sqlite3.connect('data/biblia.db')
 cursor = connection.cursor()
 
-p = pesquisar('no principio'.lower())
+p = pesquisar('mt 11 28'.lower())
 
 for n in p:
     print(n)
