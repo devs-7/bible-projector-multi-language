@@ -11,7 +11,14 @@ def isInt(s):
 
 def interpretarPesquisa(pesquisa=''):
     try:
+        referencia = ''
         referencia = pesquisa.replace(':', ' ')
+        while referencia.find('  ') > -1:
+            referencia = referencia.replace('  ', ' ')
+        if referencia[0] == ' ':
+            referencia = referencia[1:]
+        if referencia[-1] == ' ':
+            referencia = referencia[0:-1]
         referencia = referencia[::-1].replace(' ', ':', 2)[::-1]
         referencia = referencia.split(':')
 
@@ -59,7 +66,7 @@ def pesquisar(pesquisa):
 connection = sqlite3.connect('data/biblia.db')
 cursor = connection.cursor()
 
-p = pesquisar('apoca 22 21')
+p = pesquisar('Jesus')
 
 for n in p:
     print(n)
