@@ -1,4 +1,5 @@
 import sqlite3
+from unicodedata import normalize
 
 
 def isInt(s):
@@ -7,6 +8,22 @@ def isInt(s):
         return True
     except:
         return False
+
+
+def removerAcentos(texto):
+    return normalize('NFKD', texto).encode('ASCII', 'ignore').decode('ASCII')
+
+
+def adicionarEspacoNomeLivro(x=''):
+    for n in range(len(x)):
+            if x[n] != ' ' and not isInt(x[n]):
+                break
+            else:
+                if isInt(x[n]) and x[n + 1] != ' ' and not isInt(x[n + 1]):
+                    x = list(x)
+                    x.insert(n + 1, ' ')
+                    break
+    return ''.join(x)
 
 
 def interpretarPesquisa(pesquisa=''):
@@ -20,7 +37,9 @@ def interpretarPesquisa(pesquisa=''):
         if referencia[-1] == ' ':
             referencia = referencia[0:-1]
         referencia = referencia[::-1].replace(' ', ':', 2)[::-1]
+        referencia = adicionarEspacoNomeLivro(referencia)
         referencia = referencia.split(':')
+
 
         if isInt(referencia[1]) and isInt(referencia[2]):
             return ['referencia'] + referencia
@@ -31,19 +50,28 @@ def interpretarPesquisa(pesquisa=''):
 
 
 def pesquisarPorReferencia(versao, livro, capitulo, versiculo):
-    livro = '%' + livro + '%'
+    sigla = removerAcentos(livro)
+    livro = '%' + sigla + '%'
     capitulo = str(capitulo)
     versiculo = str(versiculo)
-    cursor.execute("select * from %s where livro like '%s' and capitulo = %s and versiculo = %s"
-                   % (versao, livro, capitulo, versiculo))
 
-    return [cursor.fetchone()]
+    cursor.execute("select livro, capitulo, versiculo, texto from %s where sigla = '%s' and capitulo = %s and versiculo = %s"
+                   % (versao, sigla, capitulo, versiculo))
+
+    resultado = cursor.fetchone()
+
+    if resultado == None:
+        cursor.execute("select livro, capitulo, versiculo, texto from %s where livroSemAcento like '%s' and capitulo = %s and versiculo = %s"
+                       % (versao, livro, capitulo, versiculo))
+        resultado = cursor.fetchone()
+
+    return [resultado]
 
 
 def pesquisarPorTexto(versao, pesquisa):
     pesquisa = '%' + pesquisa + '%'
-    cursor.execute("select * from %s where texto like '%s'" %
-                   (versao, pesquisa))
+    cursor.execute("select * from %s where textoSemAcento like '%s'" %
+                   (versao, removerAcentos(pesquisa)))
 
     return cursor.fetchall()
 
@@ -66,7 +94,7 @@ def pesquisar(pesquisa):
 connection = sqlite3.connect('data/biblia.db')
 cursor = connection.cursor()
 
-p = pesquisar('Jesus')
+p = pesquisar('1 joa 3 4'.lower())
 
 for n in p:
     print(n)
