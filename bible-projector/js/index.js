@@ -1,6 +1,8 @@
 const electron = require('electron');
 const fs = require('fs');
-const { PythonShell } = require('python-shell')
+const { PythonShell } = require('python-shell');
+const base64 = require('base-64');
+
 
 const pesquisarButton = document.getElementById('pesquisarButton');
 const projetarButton = document.getElementById('projetarButton');
@@ -144,61 +146,14 @@ function atualizarHistorico() {
 }
 
 function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
-    function pesquisaEncontrada(livro, capitulo, versiculo, texto) {
-        ultimaPesquisa.innerHTML = `${livro} ${capitulo}:${versiculo}`;
-        preview.value = texto + getRepresentacao(livro, capitulo, versiculo);
-        if (projetar) {
-            atualizar();
-            atualizarHistorico();
-        }
+    const python = new PythonShell('query-bible.py', {
+        scriptPath: __dirname + '/../py/',
+        args: [pesquisa]
+    });
 
-        capituloDiv.innerHTML = '';
-
-        for (let n = 1; ; n++) {
-            const temp = queryTexto(biblia, livro, capitulo, n);
-
-            if (!!temp) {
-                if (n == versiculo) {
-                    capituloDiv.innerHTML += `<span style="color: rgb(20, 66, 165)">${n} ${temp}</span><br>`;
-                }
-                else {
-                    capituloDiv.innerHTML += `${n} ${temp}<br>`;
-                }
-            }
-            else break;
-        }
-    }
-
-    if (!!pesquisa) {
-        let referencia = interpretarPesquisa(pesquisa);
-        livro = referencia.livro;
-        capitulo = referencia.capitulo;
-        versiculo = referencia.versiculo;
-
-        if (!!livro && !!capitulo && !!versiculo) pesquisarTexto.value = `${livro} ${capitulo}:${versiculo}`;
-
-        texto = queryTexto(biblia, livro, capitulo, versiculo);
-
-        if (texto != null) pesquisaEncontrada(livro, capitulo, versiculo, texto);
-        else {
-            const query = queryBible(biblia, pesquisa);
-
-            if (!query) {
-                if (projetar) {
-                    preview.value = '';
-                    atualizar();
-                }
-                preview.value = 'Texto inexistente';
-            }
-            else {
-                livro = query.livro;
-                capitulo = query.capitulo;
-                versiculo = query.versiculo;
-                texto = query.texto;
-                pesquisaEncontrada(livro, capitulo, versiculo, texto);
-            }
-        }
-    }
+    python.on('message', function (message) {
+        preview.value = message;
+    });
 }
 
 pesquisarButton.onclick = () => pesquisar(true);

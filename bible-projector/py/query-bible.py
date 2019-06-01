@@ -1,5 +1,7 @@
+import base64
 import sqlite3
 from unicodedata import normalize
+import sys
 
 
 def isInt(s):
@@ -93,9 +95,8 @@ def pesquisar(pesquisa):
 connection = sqlite3.connect('data/biblia.db')
 cursor = connection.cursor()
 
-p = pesquisar('1 tm 1 1'.lower())
-
-for n in p:
-    print(n)
-
-# connection.create_collation()
+pesquisa = sys.argv[1]
+q = pesquisar(pesquisa.lower())
+q = q[0][3]
+q = q.encode()
+print(q)
