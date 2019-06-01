@@ -1,3 +1,7 @@
+const electron = require('electron');
+const fs = require('fs');
+const { PythonShell } = require('python-shell')
+
 const pesquisarButton = document.getElementById('pesquisarButton');
 const projetarButton = document.getElementById('projetarButton');
 const atualizarButton = document.getElementById('atualizarButton');
@@ -16,9 +20,6 @@ var versiculo;
 var biblia;
 var texto;
 var winProjetor;
-
-const electron = require('electron');
-const fs = require('fs');
 
 const BrowserWindow = electron.remote.BrowserWindow;
 const screen = electron.screen;
@@ -157,7 +158,7 @@ function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
             const temp = queryTexto(biblia, livro, capitulo, n);
 
             if (!!temp) {
-                if(n == versiculo) {
+                if (n == versiculo) {
                     capituloDiv.innerHTML += `<span style="color: rgb(20, 66, 165)">${n} ${temp}</span><br>`;
                 }
                 else {
