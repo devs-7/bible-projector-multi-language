@@ -26,12 +26,12 @@ nomeLivros = [
     'Tiago', 'Judas', 'Apocalipse'
 ]
 
-siglasLivros = ['gn', 'ex', 'lv', 'nm', 'dt', 'js', 'jz', 'rt', '1sm',
-                '2sm', '1ss', '2ss', '1cr', '2cr', 'ed', 'ne', 'et', 'jo', 'sl', 'pv', 'ec',
+siglasLivros = ['gn', 'ex', 'lv', 'nm', 'dt', 'js', 'jz', 'rt', '1 sm',
+                '2 sm', '1 ss', '2 ss', '1 cr', '2 cr', 'ed', 'ne', 'et', 'jo', 'sl', 'pv', 'ec',
                 'ct', 'is', 'jr', 'lm', 'ez', 'dn', 'os', 'jl', 'am', 'ob', 'jn', 'mq', 'na',
-                'hc', 'sf', 'ag', 'zc', 'ml', 'mt', 'mc', 'lc', 'jo', 'at', 'rm', '1co', '2co',
-                'gl', 'ef', 'fp', 'cl', '1ts', '2ts', '1tm', '2tm', 'tt', 'fm', '1pe', '2pe',
-                '1jo', '2jo', '3jo', 'hb', 'tg', 'jd', 'ap']
+                'hc', 'sf', 'ag', 'zc', 'ml', 'mt', 'mc', 'lc', 'jo', 'at', 'rm', '1 co', '2 co',
+                'gl', 'ef', 'fp', 'cl', '1 ts', '2 ts', '1 tm', '2 tm', 'tt', 'fm', '1 pe', '2 pe',
+                '1 jo', '2 jo', '3 jo', 'hb', 'tg', 'jd', 'ap']
 
 
 def removerAcentos(texto):
