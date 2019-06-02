@@ -1,8 +1,6 @@
 const electron = require('electron');
 const fs = require('fs');
 const { PythonShell } = require('python-shell');
-const base64 = require('base-64');
-
 
 const pesquisarButton = document.getElementById('pesquisarButton');
 const projetarButton = document.getElementById('projetarButton');
@@ -148,11 +146,14 @@ function atualizarHistorico() {
 function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
     const python = new PythonShell('query-bible.py', {
         scriptPath: __dirname + '/../py/',
+        mode: 'text',
+        encoding: 'utf8',
+        pythonOptions: ['-u'],
         args: [pesquisa]
     });
 
     python.on('message', function (message) {
-        preview.value = message;
+        preview.value = Base64.decode(message);
     });
 }
 

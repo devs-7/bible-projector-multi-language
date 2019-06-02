@@ -44,7 +44,6 @@
     "electron-builder": "^20.39.0"
   },
   "dependencies": {
-    "base-64": "^0.1.0",
     "jquery": "^3.4.1",
     "python-shell": "^1.0.7"
   }

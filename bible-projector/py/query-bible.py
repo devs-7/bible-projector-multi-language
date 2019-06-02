@@ -1,3 +1,5 @@
+#coding=UTF-8
+
 import base64
 import sqlite3
 from unicodedata import normalize
@@ -98,5 +100,7 @@ cursor = connection.cursor()
 pesquisa = sys.argv[1]
 q = pesquisar(pesquisa.lower())
 q = q[0][3]
-q = q.encode()
+q = q.encode('utf-8')
+q = base64.b64encode(q)
+q = q.decode('utf-8')
 print(q)
