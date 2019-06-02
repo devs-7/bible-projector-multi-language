@@ -143,6 +143,64 @@ function atualizarHistorico() {
     historico.value = temp;
 }
 
+function pesquisaEncontrada(livro, capitulo, versiculo, texto) {
+    ultimaPesquisa.innerHTML = `${livro} ${capitulo}:${versiculo}`;
+    preview.value = texto + getRepresentacao(livro, capitulo, versiculo);
+    if (projetar) {
+        atualizar();
+        atualizarHistorico();
+    }
+
+    capituloDiv.innerHTML = '';
+
+    for (let n = 1; ; n++) {
+        const temp = queryTexto(biblia, livro, capitulo, n);
+
+        if (!!temp) {
+            if (n == versiculo) {
+                capituloDiv.innerHTML += `<span style="color: rgb(20, 66, 165)">${n} ${temp}</span><br>`;
+            }
+            else {
+                capituloDiv.innerHTML += `${n} ${temp}<br>`;
+            }
+        }
+        else break;
+    }
+}
+
+function pesquisarOld(projetar = true, pesquisa = pesquisarTexto.value) {
+    if (!!pesquisa) {
+        let referencia = interpretarPesquisa(pesquisa);
+        livro = referencia.livro;
+        capitulo = referencia.capitulo;
+        versiculo = referencia.versiculo;
+
+        if (!!livro && !!capitulo && !!versiculo) pesquisarTexto.value = `${livro} ${capitulo}:${versiculo}`;
+
+        texto = queryTexto(biblia, livro, capitulo, versiculo);
+
+        if (texto != null) pesquisaEncontrada(livro, capitulo, versiculo, texto);
+        else {
+            const query = queryBible(biblia, pesquisa);
+
+            if (!query) {
+                if (projetar) {
+                    preview.value = '';
+                    atualizar();
+                }
+                preview.value = 'Texto inexistente';
+            }
+            else {
+                livro = query.livro;
+                capitulo = query.capitulo;
+                versiculo = query.versiculo;
+                texto = query.texto;
+                pesquisaEncontrada(livro, capitulo, versiculo, texto);
+            }
+        }
+    }
+}
+
 function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
     const python = new PythonShell('query-bible.py', {
         scriptPath: __dirname + '/../py/',
@@ -152,11 +210,22 @@ function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
         args: [pesquisa]
     });
 
-    python.on('message', function (message) {
+    python.once('message', function (message) {
         message = Base64.decode(message);
         message = message.split('<@#$&>');
-        console.log(message)
-        preview.value = message;
+
+        livro = message[0];
+        capitulo = message[1];
+        versiculo = message[2];
+        texto = message[3];
+
+        ultimaPesquisa.innerHTML = `${livro} ${capitulo}:${versiculo}`;
+        preview.value = texto;
+
+        if (projetar) {
+            atualizar();
+            atualizarHistorico();
+        }
     });
 }
 
