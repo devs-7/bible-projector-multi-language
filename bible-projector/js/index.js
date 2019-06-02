@@ -220,7 +220,7 @@ function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
         texto = message[3];
 
         ultimaPesquisa.innerHTML = `${livro} ${capitulo}:${versiculo}`;
-        preview.value = texto;
+        preview.value = `${texto}\n(${livro} ${capitulo}:${versiculo})`;
 
         if (projetar) {
             atualizar();
