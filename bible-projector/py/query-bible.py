@@ -1,4 +1,4 @@
-#coding=UTF-8
+# coding=UTF-8
 
 import base64
 import sqlite3
@@ -99,8 +99,14 @@ cursor = connection.cursor()
 
 pesquisa = sys.argv[1]
 q = pesquisar(pesquisa.lower())
-q = q[0][3]
-q = q.encode('utf-8')
-q = base64.b64encode(q)
-q = q.decode('utf-8')
-print(q)
+
+message = ''
+
+for n in range(len(q[0])):
+    message += str(q[0][n])
+
+    if n < len(q[0]) - 1:
+         message += '<@#$&>'
+
+message = base64.b64encode(message.encode('utf-8')).decode('utf-8')
+print(message)

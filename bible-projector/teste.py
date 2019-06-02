@@ -1,6 +1,4 @@
-import base64
+a = (1, 2, 3, 4)
 
-q = 'No princípio'
-q = base64.encodestring(q.encode())
-# q = q[2:-1]
-print(q.decode())
+for n in a:
+    print(n)

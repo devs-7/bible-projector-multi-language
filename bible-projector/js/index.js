@@ -153,7 +153,10 @@ function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
     });
 
     python.on('message', function (message) {
-        preview.value = Base64.decode(message);
+        message = Base64.decode(message);
+        message = message.split('<@#$&>');
+        console.log(message)
+        preview.value = message;
     });
 }
 
