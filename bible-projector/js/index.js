@@ -168,7 +168,7 @@ function pesquisaEncontrada(livro, capitulo, versiculo, texto) {
     }
 }
 
-function pesquisarOld(projetar = true, pesquisa = pesquisarTexto.value) {
+function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
     if (!!pesquisa) {
         let referencia = interpretarPesquisa(pesquisa);
         livro = referencia.livro;
@@ -201,7 +201,7 @@ function pesquisarOld(projetar = true, pesquisa = pesquisarTexto.value) {
     }
 }
 
-function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
+function pesquisarPython(projetar = true, pesquisa = pesquisarTexto.value) {
     const python = new PythonShell('query-bible.py', {
         scriptPath: __dirname + '/../py/',
         mode: 'text',
