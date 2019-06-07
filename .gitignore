@@ -2,3 +2,4 @@
 bible-projector/node_modules
 
 bible-projector/dist
+bible-projector/data/preferencias.json
