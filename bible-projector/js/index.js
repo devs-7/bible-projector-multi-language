@@ -169,35 +169,12 @@ function pesquisaEncontrada(livro, capitulo, versiculo, texto) {
 }
 
 function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
-    if (!!pesquisa) {
-        let referencia = interpretarPesquisa(pesquisa);
-        livro = referencia.livro;
-        capitulo = referencia.capitulo;
-        versiculo = referencia.versiculo;
+    var { livro, capitulo, versiculo, texto } = pesquisarReferencia(biblia, pesquisa);
 
-        if (!!livro && !!capitulo && !!versiculo) pesquisarTexto.value = `${livro} ${capitulo}:${versiculo}`;
-
-        texto = queryTexto(biblia, livro, capitulo, versiculo);
-
-        if (texto != null) pesquisaEncontrada(livro, capitulo, versiculo, texto);
-        else {
-            const query = queryBible(biblia, pesquisa);
-
-            if (!query) {
-                if (projetar) {
-                    preview.value = '';
-                    atualizar();
-                }
-                preview.value = 'Texto inexistente';
-            }
-            else {
-                livro = query.livro;
-                capitulo = query.capitulo;
-                versiculo = query.versiculo;
-                texto = query.texto;
-                pesquisaEncontrada(livro, capitulo, versiculo, texto);
-            }
-        }
+    if (!!livro && !!capitulo && !!versiculo && !!texto)
+        pesquisaEncontrada(livro, capitulo, versiculo, texto);
+    else {
+        preview.value = 'Pesquisa inválida.';
     }
 }
 

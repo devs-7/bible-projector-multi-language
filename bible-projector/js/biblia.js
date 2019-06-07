@@ -133,3 +133,25 @@ function queryBible(biblia, pesquisa = '') {
         return null;
     }
 }
+
+function pesquisarReferencia(biblia, pesquisa = '') {
+    let livro, capitulo, versiculo;
+
+    if (!!pesquisa) {
+        let referencia = interpretarPesquisa(pesquisa);
+        livro = referencia.livro;
+        capitulo = referencia.capitulo;
+        versiculo = referencia.versiculo;
+
+        if (!!livro && !!capitulo && !!versiculo) pesquisarTexto.value = `${livro} ${capitulo}:${versiculo}`;
+
+        texto = queryTexto(biblia, livro, capitulo, versiculo);
+
+        return {
+            livro,
+            capitulo,
+            versiculo,
+            texto
+        }
+    }
+}
