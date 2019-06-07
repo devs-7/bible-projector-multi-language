@@ -90,18 +90,18 @@ function ajuda() {
 }
 
 function avancarVerso() {
-    if (!queryTexto(biblia, livro, capitulo, Number(versiculo) + 1)) {
+    if (!getTextoBible(biblia, livro, capitulo, Number(versiculo) + 1)) {
         preview.value = 'Não há versículos posteriores';
     }
     else {
-        preview.value = queryTexto(biblia, livro, capitulo, ++versiculo) + getRepresentacao(livro, capitulo, versiculo);
+        preview.value = getTextoBible(biblia, livro, capitulo, ++versiculo) + getRepresentacao(livro, capitulo, versiculo);
         atualizarButton.click();
     }
 }
 
 function voltarVerso() {
     if (versiculo > 1) {
-        preview.value = queryTexto(biblia, livro, capitulo, --versiculo) + getRepresentacao(livro, capitulo, versiculo);
+        preview.value = getTextoBible(biblia, livro, capitulo, --versiculo) + getRepresentacao(livro, capitulo, versiculo);
         atualizarButton.click();
     }
     else {
@@ -110,11 +110,11 @@ function voltarVerso() {
 }
 
 function adicionarVerso() { // Em processo............
-    if (!queryTexto(biblia, livro, capitulo, Number(versiculo) + 1)) {
+    if (!getTextoBible(biblia, livro, capitulo, Number(versiculo) + 1)) {
         preview.value = 'Não há versículos posteriores';
     }
     else {
-        preview.value += '<br>' + queryTexto(biblia, livro, capitulo, ++versiculo) + getRepresentacao(livro, capitulo, versiculo);
+        preview.value += '<br>' + getTextoBible(biblia, livro, capitulo, ++versiculo) + getRepresentacao(livro, capitulo, versiculo);
         atualizarButton.click();
     }
 }
@@ -144,8 +144,10 @@ function atualizarHistorico() {
 }
 
 function pesquisaEncontrada(livro, capitulo, versiculo, texto) {
-    ultimaPesquisa.innerHTML = `${livro} ${capitulo}:${versiculo}`;
+    ultimaPesquisa.innerHTML = getRepresentacao(livro, capitulo, versiculo, false);
+    pesquisarTexto.value = getRepresentacao(livro, capitulo, versiculo, false);
     preview.value = texto + getRepresentacao(livro, capitulo, versiculo);
+
     if (projetar) {
         atualizar();
         atualizarHistorico();
@@ -154,7 +156,7 @@ function pesquisaEncontrada(livro, capitulo, versiculo, texto) {
     capituloDiv.innerHTML = '';
 
     for (let n = 1; ; n++) {
-        const temp = queryTexto(biblia, livro, capitulo, n);
+        const temp = getTextoBible(biblia, livro, capitulo, n);
 
         if (!!temp) {
             if (n == versiculo) {
@@ -169,7 +171,11 @@ function pesquisaEncontrada(livro, capitulo, versiculo, texto) {
 }
 
 function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
-    var { livro, capitulo, versiculo, texto } = pesquisarReferencia(biblia, pesquisa);
+    const resultado = pesquisarReferencia(biblia, pesquisa);
+    livro = resultado.livro;
+    capitulo = resultado.capitulo;
+    versiculo = resultado.versiculo;
+    texto = resultado.texto;
 
     if (!!livro && !!capitulo && !!versiculo && !!texto)
         pesquisaEncontrada(livro, capitulo, versiculo, texto);
@@ -196,13 +202,7 @@ function pesquisarPython(projetar = true, pesquisa = pesquisarTexto.value) {
         versiculo = message[2];
         texto = message[3];
 
-        ultimaPesquisa.innerHTML = `${livro} ${capitulo}:${versiculo}`;
-        preview.value = `${texto}\n(${livro} ${capitulo}:${versiculo})`;
-
-        if (projetar) {
-            atualizar();
-            atualizarHistorico();
-        }
+        pesquisaEncontrada(livro, capitulo, versiculo, texto);
     });
 }
 

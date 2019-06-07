@@ -1,4 +1,4 @@
-function queryTexto(biblia, livro = '', capitulo = 1, versiculo = 1) {
+function getTextoBible(biblia, livro = '', capitulo = 1, versiculo = 1) {
     let indice = biblia.indexOf(`[${livro} ${capitulo}:${versiculo}]`);
 
     if (indice == -1) return null;
@@ -83,8 +83,9 @@ function getLivro(pesquisa = '') {
     }
 }
 
-function getRepresentacao(livro, capitulo, versiculo) {
-    return '\n(' + livro + ' ' + capitulo + ':' + versiculo + ')';
+function getRepresentacao(livro, capitulo, versiculo, parenteses = true) {
+    if (parenteses) return '\n(' + livro + ' ' + capitulo + ':' + versiculo + ')';
+    else return livro + ' ' + capitulo + ':' + versiculo;
 }
 
 function interpretarPesquisa(pesquisa = '') {
@@ -109,7 +110,7 @@ function interpretarPesquisa(pesquisa = '') {
     return { livro, capitulo, versiculo }
 }
 
-function queryBible(biblia, pesquisa = '') {
+function pesquisaParteTexto(biblia, pesquisa = '') {
     let indice = normalizar(biblia).indexOf(normalizar(pesquisa));
 
     if (indice != -1) {
@@ -125,7 +126,7 @@ function queryBible(biblia, pesquisa = '') {
         livro = referencia.livro;
         capitulo = referencia.capitulo;
         versiculo = referencia.versiculo;
-        texto = queryTexto(biblia, livro, capitulo, versiculo);
+        texto = getTextoBible(biblia, livro, capitulo, versiculo);
 
         return { livro, capitulo, versiculo, texto };
     }
@@ -143,9 +144,7 @@ function pesquisarReferencia(biblia, pesquisa = '') {
         capitulo = referencia.capitulo;
         versiculo = referencia.versiculo;
 
-        if (!!livro && !!capitulo && !!versiculo) pesquisarTexto.value = `${livro} ${capitulo}:${versiculo}`;
-
-        texto = queryTexto(biblia, livro, capitulo, versiculo);
+        texto = getTextoBible(biblia, livro, capitulo, versiculo);
 
         return {
             livro,
