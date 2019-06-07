@@ -110,7 +110,7 @@ function interpretarPesquisa(pesquisa = '') {
     return { livro, capitulo, versiculo }
 }
 
-function pesquisaParteTexto(biblia, pesquisa = '') {
+function pesquisaParteTextoJs(biblia, pesquisa = '') {
     let indice = normalizar(biblia).indexOf(normalizar(pesquisa));
 
     if (indice != -1) {

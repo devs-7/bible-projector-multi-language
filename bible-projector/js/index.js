@@ -143,7 +143,7 @@ function atualizarHistorico() {
     historico.value = temp;
 }
 
-function pesquisaEncontrada(livro, capitulo, versiculo, texto) {
+function pesquisaEncontrada(livro, capitulo, versiculo, texto, projetar) {
     ultimaPesquisa.innerHTML = getRepresentacao(livro, capitulo, versiculo, false);
     pesquisarTexto.value = getRepresentacao(livro, capitulo, versiculo, false);
     preview.value = texto + getRepresentacao(livro, capitulo, versiculo);
@@ -178,13 +178,11 @@ function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
     texto = resultado.texto;
 
     if (!!livro && !!capitulo && !!versiculo && !!texto)
-        pesquisaEncontrada(livro, capitulo, versiculo, texto);
-    else {
-        preview.value = 'Pesquisa inválida.';
-    }
+        pesquisaEncontrada(livro, capitulo, versiculo, texto, projetar);
+    else pesquisaParteTexto(pesquisa, projetar);
 }
 
-function pesquisarPython(projetar = true, pesquisa = pesquisarTexto.value) {
+function pesquisaParteTexto(pesquisa = pesquisarTexto.value, projetar) {
     const python = new PythonShell('query-bible.py', {
         scriptPath: __dirname + '/../py/',
         mode: 'text',
@@ -197,12 +195,13 @@ function pesquisarPython(projetar = true, pesquisa = pesquisarTexto.value) {
         message = Base64.decode(message);
         message = message.split('<@#$&>');
 
-        livro = message[0];
-        capitulo = message[1];
-        versiculo = message[2];
-        texto = message[3];
+        livro = message[1];
+        capitulo = message[2];
+        versiculo = message[3];
+        texto = message[4];
 
-        pesquisaEncontrada(livro, capitulo, versiculo, texto);
+        if (!!message) pesquisaEncontrada(livro, capitulo, versiculo, texto, projetar);
+        else preview.value = 'Pesquisa inválida.';
     });
 }
 
