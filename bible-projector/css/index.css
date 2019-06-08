@@ -25,9 +25,7 @@ textarea {
     overflow: scroll;
     background-color: white;
     height: calc(100vh - 43px - 3rem - 220px);;
-    /* max-height: calc((100vh - 43px) / 2); */
-    border: solid #999 1px;
-    padding: 5px;
+    border: solid #343a40 1px;
 }
 
 .button {
