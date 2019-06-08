@@ -172,7 +172,7 @@ function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
 
 function pesquisaParteTexto(pesquisa = pesquisarTexto.value, projetar) {
     const python = new PythonShell('query-bible.py', {
-        scriptPath: __dirname + '/../py/',
+        scriptPath: './py/',
         mode: 'text',
         encoding: 'utf8',
         pythonOptions: ['-u'],
