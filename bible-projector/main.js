@@ -1,14 +1,17 @@
 const electron = require('electron');
-const { app, BrowserWindow } = electron;
+const { app, BrowserWindow, Menu } = electron;
 
 function createWindow() {
     let win = new BrowserWindow({
         title: 'Bíblia projector',
         width: 800, height: 600,
-        autoHideMenuBar: true,
+        // autoHideMenuBar: true,
         icon: './data/icon.png',
         minWidth: 600, minHeight: 500,
-        show: false
+        show: false,
+        webPreferences: {
+            nodeIntegration: true
+        }
     });
 
     win.maximize();
@@ -20,8 +23,40 @@ function createWindow() {
     });
 
     win.once('close', () => {
-        process.exit();
+        app.quit();
     });
 }
 
-app.once('ready', createWindow);
+app.once('ready', () => {
+    createWindow();
+
+    Menu.setApplicationMenu(Menu.buildFromTemplate([
+        {
+            label: 'File',
+            submenu: [
+                { id: 'novo', label: 'Novo', click: () => { } },
+                { id: 'abrir', label: 'Abrir' },
+                { type: 'separator' },
+                { id: 'salvar', label: 'Salvar' },
+                { type: 'separator' },
+                {
+                    label: 'Sair',
+                    click: () => {
+                        app.quit();
+                    }
+                }
+            ]
+        },
+        {
+            label: 'Desenvolvedor',
+            submenu: [
+                {
+                    role: 'toggledevtools'
+                },
+                {
+                    role: 'reload'
+                }
+            ]
+        }
+    ]));
+});
