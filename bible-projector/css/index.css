@@ -10,13 +10,17 @@
 }
 
 main {
-    height: calc(100vh - 43px);
+    height: calc(100vh - 52px);
+}
+
+#textoSelecionado {
+    height: 125px;
 }
 
 #capitulo {
     overflow: scroll;
     background-color: white;
-    max-height: 100px;
+    max-height: calc((100vh - 43px) / 2);
     border: solid #999 1px;
     padding: 5px;
 }
