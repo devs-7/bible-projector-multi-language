@@ -1,6 +1,8 @@
 const electron = require('electron');
 const fs = require('fs');
 const { PythonShell } = require('python-shell');
+const BrowserWindow = electron.remote.BrowserWindow;
+const screen = electron.screen;
 
 const pesquisarButton = document.getElementById('pesquisarButton');
 const projetarButton = document.getElementById('projetarButton');
@@ -19,9 +21,6 @@ var capitulo;
 var versiculo;
 var biblia;
 var texto;
-
-const BrowserWindow = electron.remote.BrowserWindow;
-const screen = electron.screen;
 
 const projetor = {
     winProjetor: null,
@@ -109,16 +108,6 @@ function voltarVerso() {
     }
     else {
         preview.value = 'Não há versículos anteriores';
-    }
-}
-
-function adicionarVerso() { // Em processo............
-    if (!getTextoBible(biblia, livro, capitulo, Number(versiculo) + 1)) {
-        preview.value = 'Não há versículos posteriores';
-    }
-    else {
-        preview.value += '<br>' + getTextoBible(biblia, livro, capitulo, ++versiculo) + getRepresentacao(livro, capitulo, versiculo);
-        atualizarButton.click();
     }
 }
 
