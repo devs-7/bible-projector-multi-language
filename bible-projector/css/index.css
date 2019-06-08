@@ -13,6 +13,10 @@ main {
     height: calc(100vh - 52px);
 }
 
+textarea {
+    resize: none;
+}
+
 #textoSelecionado {
     height: 125px;
 }
@@ -20,7 +24,8 @@ main {
 #capitulo {
     overflow: scroll;
     background-color: white;
-    max-height: calc((100vh - 43px) / 2);
+    height: calc(100vh - 43px - 3rem - 220px);;
+    /* max-height: calc((100vh - 43px) / 2); */
     border: solid #999 1px;
     padding: 5px;
 }
@@ -33,6 +38,10 @@ main {
 
 .button:hover {
     cursor: pointer;
+}
+
+#historico {
+    height: calc(100vh - 43px - 1.5rem - 55px);
 }
 
 @media(max-width: 680px) {
