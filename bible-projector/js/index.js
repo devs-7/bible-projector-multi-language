@@ -180,15 +180,17 @@ function pesquisaParteTexto(pesquisa = pesquisarTexto.value, projetar) {
     });
 
     python.once('message', function (message) {
-        message = Base64.decode(message);
-        message = message.split('<@#$&>');
+        if (!!message) {
+            message = Base64.decode(message);
+            message = message.split('<@#$&>');
 
-        livro = message[1];
-        capitulo = message[2];
-        versiculo = message[3];
-        texto = message[4];
+            livro = message[1];
+            capitulo = message[2];
+            versiculo = message[3];
+            texto = message[4];
 
-        if (!!message) pesquisaEncontrada(livro, capitulo, versiculo, texto, projetar);
+            pesquisaEncontrada(livro, capitulo, versiculo, texto, projetar);
+        }
         else preview.value = 'Pesquisa inválida.';
     });
 }
