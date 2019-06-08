@@ -19,12 +19,45 @@ var capitulo;
 var versiculo;
 var biblia;
 var texto;
-var winProjetor;
 
 const BrowserWindow = electron.remote.BrowserWindow;
 const screen = electron.screen;
 
-function salvarPreferencias(livro, capitulo, versiculo, texto) {
+const projetor = {
+    winProjetor: null,
+
+    criarTela() {
+        winProjetor = new BrowserWindow({
+            title: 'Projetor',
+            width: 800, height: 600,
+            autoHideMenuBar: true,
+            icon: './data/icon.png',
+            show: false
+        });
+
+        winProjetor.loadFile('windows/projetar.html');
+
+        winProjetor.setFullScreen(true);
+
+        if (screen.getAllDisplays().length > 1) {
+            winProjetor.setPosition(window.innerWidth, 0);
+        }
+
+        winProjetor.once('closed', () => {
+            projetor.criarTela();
+        });
+    },
+
+    projetar() {
+        winProjetor.showInactive();
+    },
+
+    fechar() {
+        winProjetor.destroy();
+    }
+}
+
+function salvarPreferencias(texto = preview.value) {
     const preferencias = {
         fonte: Number(tamanhoFonteTexto.value),
         textoAtual: {
@@ -40,36 +73,6 @@ function salvarPreferencias(livro, capitulo, versiculo, texto) {
         if (erro) {
             preview.value = 'Erro ao enviar informações para o projetor.';
         }
-    });
-}
-
-function projetar() {
-    winProjetor.showInactive();
-}
-
-function fecharProjetor() {
-    winProjetor.destroy();
-}
-
-function criarTelaProjetor() {
-    winProjetor = new BrowserWindow({
-        title: 'Projetor',
-        width: 800, height: 600,
-        autoHideMenuBar: true,
-        icon: './data/icon.png',
-        show: false
-    });
-
-    winProjetor.loadFile('windows/projetar.html');
-
-    winProjetor.setFullScreen(true);
-
-    if (screen.getAllDisplays().length > 1) {
-        winProjetor.setPosition(window.innerWidth, 0);
-    }
-
-    winProjetor.once('closed', () => {
-        criarTelaProjetor();
     });
 }
 
@@ -119,10 +122,6 @@ function adicionarVerso() { // Em processo............
     }
 }
 
-function atualizar() {
-    salvarPreferencias(livro, capitulo, versiculo, preview.value);
-}
-
 function atualizarHistorico() {
     let textos = [];
     textos = historico.value.split('\n');
@@ -149,7 +148,7 @@ function pesquisaEncontrada(livro, capitulo, versiculo, texto, projetar) {
     preview.value = texto + getRepresentacao(livro, capitulo, versiculo);
 
     if (projetar) {
-        atualizar();
+        salvarPreferencias();
         atualizarHistorico();
     }
 
@@ -206,16 +205,9 @@ function pesquisaParteTexto(pesquisa = pesquisarTexto.value, projetar) {
 }
 
 pesquisarButton.onclick = () => pesquisar(true);
-atualizarButton.onclick = atualizar;
-tamanhoFonteTexto.onchange = () => {
-    try {
-        salvarPreferencias(livro, capitulo, versiculo, texto);
-    }
-    catch (e) {
-        preview.value = e;
-    }
-};
-projetarButton.onclick = projetar;
+atualizarButton.onclick = () => salvarPreferencias();
+tamanhoFonteTexto.onchange = () => salvarPreferencias();
+projetarButton.onclick = projetor.projetar;
 ajudaButton.onclick = ajuda;
 
 versoes.onchange = function () {
@@ -234,13 +226,13 @@ pesquisarTexto.addEventListener('keypress', e => {
 
 document.addEventListener('keydown', e => {
     if (e.keyCode == 115) pesquisarTexto.select(); // F4
-    if (e.keyCode == 116) projetar(); // F5
-    if (e.keyCode == 117) atualizar(); // F6
+    if (e.keyCode == 116) projetor.projetar(); // F5
+    if (e.keyCode == 117) salvarPreferencias(); // F6
     if (e.keyCode == 119) { } // F8
     if (e.keyCode == 120 || e.keyCode == 34) voltarVerso(); // F9 e PageDown
     if (e.keyCode == 121 || e.keyCode == 33) avancarVerso(); // F10 e PageUp
     if (e.keyCode == 112) ajuda(); // F1
-    if (e.keyCode == 27) fecharProjetor(); // ESC
+    if (e.keyCode == 27) projetor.fechar(); // ESC
 });
 
 const preferencias = JSON.parse(fs.readFileSync('data/preferencias.json', 'utf-8'));
@@ -248,4 +240,4 @@ tamanhoFonteTexto.value = preferencias.fonte;
 biblia = fs.readFileSync('data/bibles/' + preferencias.versao + '.txt', 'utf-8');
 versoes.value = preferencias.versao;
 
-criarTelaProjetor();
+projetor.criarTela();
