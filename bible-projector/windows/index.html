@@ -6,41 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bíblia projector</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/index.css">
 </head>
 
-<body>
-    <header>
-        <select id="versoes" class="bordaRedonda">
+<body class="container-fluid">
+    <header class="row align-items-center bg-secondary p-2 text-light">
+        <select id="versoes" class="rounded p-1">
             <option value="ara">ARA</option>
             <option value="arc">ARC</option>
             <option value="ntlh">NTLH</option>
             <option value="nvi">NVI</option>
         </select>
-        <input type="text" id="pesquisarTexto" class="bordaRedonda" placeholder="Referência (F4)">
-        <img src="../data/icons/pesquisar.png" id="pesquisarButton" class="bordaRedonda button"></img>
-        <img src="../data/icons/projetar.png" id="projetarButton" class="bordaRedonda button"></img>
-        <img src="../data/icons/atualizar.png" id="atualizarButton" class="bordaRedonda button"></img>
-        <img src="../data/icons/ajuda.png" id="ajudaButton" class="bordaRedonda button"></img>
-        <label>Fonte: </label>
-        <input type="number" id="tamanhoFonte" class="bordaRedonda">
-        <label id="ultimaPesquisa">Livro n:n</label>
+        <input type="text" id="pesquisarTexto" class="rounded col-4 mx-2 p-1" placeholder="Referência (F4)">
+        <img src="../data/icons/pesquisar.png" id="pesquisarButton" class="rounded button mx-1"></img>
+        <img src="../data/icons/projetar.png" id="projetarButton" class="rounded button mx-1"></img>
+        <img src="../data/icons/atualizar.png" id="atualizarButton" class="rounded button mx-1"></img>
+        <img src="../data/icons/ajuda.png" id="ajudaButton" class="rounded button mx-1"></img>
+        <label class="ml-2">Fonte: </label>
+        <input type="number" id="tamanhoFonte" class="rounded col-1 mx-2 p-1">
+        <label id="ultimaPesquisa" class="flex-grow-1 text-right mx-2">Livro n:n</label>
     </header>
-    <main>
-        <div class="componente preview">
-            <label>Pré-visualização:</label>
-            <textarea id="textoSelecionado" class="bordaRedonda"></textarea>
-        </div>
-        <div class="componente historico">
-            <label>Histórico:</label>
-            <textarea id="historico" class="bordaRedonda"></textarea>
-        </div>
-        <div class="componente capitulo">
-            <label>Capítulo:</label>
-            <div id="capitulo" class="bordaRedonda"></div>
-        </div>
-        <div class="componente pesquisa">
-            <div></div>
+    <main class="container-fluid p-0 py-2 m-0">
+        <div class="row w-100 m-0 p-0">
+            <div class="container-fluid col-9">
+                <div class="row preview">
+                    <label>Pré-visualização:</label>
+                    <textarea id="textoSelecionado" class="rounded w-100 h-100 border-dark p-1"></textarea>
+                </div>
+                <div class="row capitulo">
+                    <label>Capítulo:</label>
+                    <div id="capitulo" class="rounded w-100 h-100 border-dark"></div>
+                </div>
+            </div>
+
+
+            <div class="col-3 w-100 m-0 p-0 pl-3">
+                <label>Histórico:</label>
+                <textarea id="historico" class="rounded w-100 h-100 border-dark p-1"></textarea>
+            </div>
+            <div class="pesquisa">
+                <div></div>
+            </div>
         </div>
     </main>
     <script src="../js/biblia.js"></script>
