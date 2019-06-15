@@ -1,0 +1,52 @@
+{
+  "name": "bible-projector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager ./ --platform=win32 --arch=x64 --electron-version=4.1.4",
+    "pack": "build --dir",
+    "dist": "build"
+  },
+  "author": "Silveira_L",
+  "license": "ISC",
+  "build": {
+    "appId": "enupal-electronv1",
+    "asar": true,
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "img/icon.ico"
+    }
+  },
+  "devDependencies": {
+    "electron": "^4.0.5",
+    "electron-builder": "^20.39.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0",
+    "python-shell": "^1.0.7"
+  }
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bíblia projector</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body class="container-fluid">
+    <header class="row align-items-center bg-secondary p-2 text-light selecao-none">
+        <select id="versoes" class="rounded p-1">
+            <option value="ara">ARA</option>
+            <option value="arc">ARC</option>
+            <option value="ntlh">NTLH</option>
+            <option value="nvi">NVI</option>
+        </select>
+        <input type="text" id="pesquisarTexto" class="rounded col-4 mx-2 p-1" placeholder="Referência (F4)">
+        <img src="../img/icons/pesquisar.png" id="pesquisarButton" class="rounded button mx-1"></img>
+        <img src="../img/icons/projetar.png" id="projetarButton" class="rounded button mx-1"></img>
+        <img src="../img/icons/atualizar.png" id="atualizarButton" class="rounded button mx-1"></img>
+        <img src="../img/icons/ajuda.png" id="ajudaButton" class="rounded button mx-1"></img>
+        <label class="ml-2 m-0">Fonte: </label>
+        <input type="number" id="tamanhoFonte" class="rounded col-1 mx-2 p-1">
+        <label id="ultimaPesquisa" class="flex-grow-1 text-right mx-2 m-0">Livro n:n</label>
+    </header>
+    <main class="container-fluid p-0 py-2 m-0 w-100">
+
+        <div class="row w-100 m-0 p-0">
+            <div class="container-fluid col-9">
+                <div class="row preview">
+                    <label class="text-center text-light bg-info w-100 rounded p-2">Pré-visualização</label>
+                    <textarea id="textoSelecionado" class="rounded w-100 border-dark p-2"></textarea>
+                </div>
+                <div class="row capitulo mt-3">
+                    <label class="text-center text-light bg-info w-100 rounded p-2">Capítulo</label>
+                    <div id="capitulo" class="rounded p-2 w-100"></div>
+                </div>
+            </div>
+
+
+            <div class="col-3 w-100 m-0 p-0 pl-3">
+                <label class="text-center text-light bg-info w-100 rounded p-2">Histórico</label>
+                <textarea id="historico" class="rounded w-100 border-dark p-2"></textarea>
+            </div>
+            <div class="pesquisa">
+                <div></div>
+            </div>
+        </div>
+    </main>
+    <script src="../js/biblia.js"></script>
+    <script src="../js/base64.js"></script>
+    <script src="../js/index.js"></script>
+</body>
+
+</html>
