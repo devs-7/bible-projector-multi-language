@@ -1,5 +1,6 @@
 const electron = require('electron');
 const fs = require('fs');
+const path = require('path');
 const { PythonShell } = require('python-shell');
 const BrowserWindow = electron.remote.BrowserWindow;
 const screen = electron.screen;
@@ -43,7 +44,7 @@ const projetor = {
         }
 
         winProjetor.once('closed', () => {
-            projetor.criarTela();
+            this.criarTela();
         });
     },
 
@@ -68,11 +69,7 @@ function salvarPreferencias(texto = preview.value) {
         versao: versoes.value
     }
 
-    fs.writeFile('data/preferencias.json', JSON.stringify(preferencias), erro => {
-        if (erro) {
-            preview.value = 'Erro ao enviar informações para o projetor.';
-        }
-    });
+    localStorage.setItem('preferences', JSON.stringify(preferencias));
 }
 
 function ajuda() {
@@ -172,7 +169,7 @@ function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
 
 function pesquisaParteTexto(pesquisa = pesquisarTexto.value, projetar) {
     const python = new PythonShell('query-bible.py', {
-        scriptPath: './py/',
+        scriptPath: path.join(__dirname, '../', 'py'),
         mode: 'text',
         encoding: 'utf8',
         pythonOptions: ['-u'],
@@ -226,9 +223,9 @@ document.addEventListener('keydown', e => {
     if (e.keyCode == 27) projetor.fechar(); // ESC
 });
 
-const preferencias = JSON.parse(fs.readFileSync('data/preferencias.json', 'utf-8'));
+const preferencias = JSON.parse(fs.readFileSync(path.join(__dirname, '../', 'data', 'preferencias.json'), 'utf-8'));
 tamanhoFonteTexto.value = preferencias.fonte;
-biblia = fs.readFileSync('data/bibles/' + preferencias.versao + '.txt', 'utf-8');
+biblia = fs.readFileSync(path.join(__dirname, '../', 'data', 'bibles', preferencias.versao + '.txt'), 'utf-8');
 versoes.value = preferencias.versao;
 
 projetor.criarTela();
