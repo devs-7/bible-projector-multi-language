@@ -24,6 +24,12 @@ function aplicarPreferencias() {
     texto.style.fontSize = Number(preferencias.fonte) + 'px';
 }
 
+document.addEventListener('keydown', e => {
+    if (e.keyCode == 27) { // ESC
+        window.close();
+    }
+});
+
 const texto = document.querySelector('p');
 
 setInterval(() => {
