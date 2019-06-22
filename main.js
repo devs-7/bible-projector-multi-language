@@ -10,11 +10,13 @@ function createWindow() {
         minWidth: 600, minHeight: 500,
         show: false,
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            devTools: true,
         }
     });
 
     win.maximize();
+    win.setMenuBarVisibility(false);
 
     win.loadFile('windows/index.html');
 
@@ -44,17 +46,6 @@ app.once('ready', () => {
                     click: () => {
                         app.quit();
                     }
-                }
-            ]
-        },
-        {
-            label: 'Desenvolvedor',
-            submenu: [
-                {
-                    role: 'toggledevtools'
-                },
-                {
-                    role: 'reload'
                 }
             ]
         }
