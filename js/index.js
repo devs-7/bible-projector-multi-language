@@ -199,7 +199,7 @@ projetarButton.onclick = projetor.projetar;
 ajudaButton.onclick = ajuda;
 
 versoes.onchange = function () {
-    biblia = fs.readFileSync('data/bibles/' + versoes.value + '.txt', 'utf-8');
+    biblia = fs.readFileSync(path.join(__dirname, '../', 'data', 'bibles', versoes.value + '.txt'), 'utf-8');
 }
 
 pesquisarTexto.addEventListener('keypress', e => {
