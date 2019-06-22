@@ -24,6 +24,7 @@ var capitulo;
 var versiculo;
 var biblia;
 var texto;
+var preferencias;
 
 const projetor = {
     winProjetor: null,
@@ -60,7 +61,7 @@ const projetor = {
 }
 
 function salvarPreferencias(texto = preview.value) {
-    const preferencias = {
+    const preferences_json = JSON.stringify({
         fonte: Number(tamanhoFonteTexto.value),
         textoAtual: {
             livro: livro,
@@ -69,9 +70,13 @@ function salvarPreferencias(texto = preview.value) {
             texto: texto
         },
         versao: versoes.value
-    }
+    });
 
-    localStorage.setItem('preferences', JSON.stringify(preferencias));
+    fs.writeFile('preferencias.json', preferences_json, e => {
+        if (!!e) preview.value = 'Erro ao salvar modificações.';
+    });
+
+    localStorage.setItem('preferences', preferences_json);
 }
 
 function ajuda() {
@@ -229,9 +234,17 @@ win.once('close', () => {
     fs.writeFileSync('./Histórico.txt', historico.value);
 });
 
-const preferencias = JSON.parse(fs.readFileSync(path.join(__dirname, '../', 'data', 'preferencias.json'), 'utf-8'));
-tamanhoFonteTexto.value = preferencias.fonte;
+try {
+    preferencias = JSON.parse(fs.readFileSync('preferencias.json', 'utf-8'));
+}
+catch {
+    const preferencias_json = fs.readFileSync(path.join(__dirname, '../', 'data', 'preferencias.json'));
+    fs.writeFileSync('preferencias.json', preferencias_json);
+    preferencias = JSON.parse(preferencias_json);
+}
+
 biblia = fs.readFileSync(path.join(__dirname, '../', 'data', 'bibles', preferencias.versao + '.txt'), 'utf-8');
+tamanhoFonteTexto.value = preferencias.fonte;
 versoes.value = preferencias.versao;
 
 projetor.criarTela();

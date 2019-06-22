@@ -15,8 +15,7 @@ function aplicarAlteracoes(texto = '') {
 }
 
 function getPreferencias() {
-    const preferencias = JSON.parse(localStorage.getItem('preferences'));
-    return preferencias;
+    return JSON.parse(localStorage.getItem('preferences'));
 }
 
 function aplicarPreferencias() {
