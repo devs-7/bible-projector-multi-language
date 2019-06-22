@@ -2,7 +2,8 @@ const electron = require('electron');
 const fs = require('fs');
 const path = require('path');
 const { PythonShell } = require('python-shell');
-const BrowserWindow = electron.remote.BrowserWindow;
+const remote = electron.remote;
+const BrowserWindow = remote.BrowserWindow;
 const screen = electron.screen;
 
 const pesquisarButton = document.getElementById('pesquisarButton');
@@ -16,6 +17,7 @@ const historico = document.getElementById('historico');
 const capituloDiv = document.getElementById('capitulo');
 const ultimaPesquisa = document.getElementById('ultimaPesquisa');
 const versoes = document.getElementById('versoes');
+const win = remote.getCurrentWindow();
 
 var livro;
 var capitulo;
@@ -221,6 +223,10 @@ document.addEventListener('keydown', e => {
     if (e.keyCode == 121 || e.keyCode == 33) avancarVerso(); // F10 e PageUp
     if (e.keyCode == 112) ajuda(); // F1
     if (e.keyCode == 27) projetor.fechar(); // ESC
+});
+
+win.once('close', () => {
+    fs.writeFileSync('./Histórico.txt', historico.value);
 });
 
 const preferencias = JSON.parse(fs.readFileSync(path.join(__dirname, '../', 'data', 'preferencias.json'), 'utf-8'));
