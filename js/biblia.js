@@ -49,7 +49,7 @@ function getLivro(pesquisa = '') {
         'Cantares de Salomão', 'Isaías', 'Jeremias',
         'Lamentações', 'Ezequiel', 'Daniel',
         'Oséias', 'Joel', 'Amós',
-        'Obdias', 'Jonas', 'Miquéias',
+        'Obadias', 'Jonas', 'Miquéias',
         'Naum', 'Habacuque', 'Sofonias',
         'Ageu', 'Zacarias', 'Malaquias',
         'Mateus', 'Marcos', 'Lucas',
