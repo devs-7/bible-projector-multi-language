@@ -7,15 +7,15 @@ function toggleFullScreen() {
     }
 }
 
-function aplicarAlteracoes(texto = '') {
-    texto = texto.replace(/{/g, '<span style="color: red">');
-    texto = texto.replace(/}/g, '</span>');
-
-    return texto;
-}
-
 function getPreferencias() {
     return JSON.parse(localStorage.getItem('preferences'));
+}
+
+function getTexto() {
+    let texto = localStorage.getItem('texto');
+    texto = texto.replace(/{/g, '<span style="color: red">');
+    texto = texto.replace(/}/g, '</span>');
+    return texto;
 }
 
 function aplicarPreferencias() {
@@ -32,6 +32,6 @@ document.addEventListener('keydown', e => {
 const texto = document.querySelector('p');
 
 setInterval(() => {
-    texto.innerHTML = aplicarAlteracoes(getPreferencias().textoAtual.texto);
-    aplicarPreferencias(texto);
+    texto.innerHTML = getTexto();
+    aplicarPreferencias();
 }, 10);

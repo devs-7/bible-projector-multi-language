@@ -63,12 +63,6 @@ const projetor = {
 function salvarPreferencias(texto = preview.value) {
     const preferences_json = JSON.stringify({
         fonte: Number(tamanhoFonteTexto.value),
-        textoAtual: {
-            livro: livro,
-            capitulo: Number(capitulo),
-            versiculo: Number(versiculo),
-            texto: texto
-        },
         versao: versoes.value
     });
 
@@ -77,6 +71,7 @@ function salvarPreferencias(texto = preview.value) {
     });
 
     localStorage.setItem('preferences', preferences_json);
+    localStorage.setItem('texto', texto);
 }
 
 function ajuda() {
