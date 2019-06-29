@@ -46,6 +46,7 @@
   "dependencies": {
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
+    "node-web-bluetooth": "^1.0.1",
     "popper.js": "^1.15.0",
     "python-shell": "^1.0.7"
   }
