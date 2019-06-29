@@ -1,4 +1,3 @@
-bible-projector/node_modules
-bible-projector/dist
+node_modules/
+dist/
 Histórico.txt
-node_modules/.bin/detect-libc
