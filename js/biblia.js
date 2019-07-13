@@ -63,12 +63,12 @@ function getLivro(pesquisa = '') {
         'Tiago', 'Judas', 'Apocalipse'
     ];
 
-    const siglasLivros = ['Gn', 'Êx', 'Lv', 'Nm', 'Dt', 'Js', 'Jz', 'Rt', '1Sm',
-        '2Sm', '1Rs', '2Rs', '1Cr', '2Cr', 'Ed', 'Ne', 'Et', 'Jó', 'Sl', 'Pv', 'Ec',
+    const siglasLivros = ['Gn', 'Êx', 'Lv', 'Nm', 'Dt', 'Js', 'Jz', 'Rt', '1 Sm',
+        '2 Sm', '1 Rs', '2 Rs', '1 Cr', '2 Cr', 'Ed', 'Ne', 'Et', 'Jó', 'Sl', 'Pv', 'Ec',
         'Ct', 'Is', 'Jr', 'Lm', 'Ez', 'Dn', 'Os', 'Jl', 'Am', 'Ob', 'Jn', 'Mq', 'Na',
-        'Hc', 'Sf', 'Ag', 'Zc', 'Ml', 'Mt', 'Mc', 'Lc', 'Jo', 'At', 'Rm', '1Co', '2Co',
-        'Gl', 'Ef', 'Fp', 'Cl', '1Ts', '2Ts', '1Tm', '2Tm', 'Tt', 'Fm', '1Pe', '2Pe',
-        '1Jo', '2Jo', '3Jo', 'Hb', 'Tg', 'Jd', 'Ap'];
+        'Hc', 'Sf', 'Ag', 'Zc', 'Ml', 'Mt', 'Mc', 'Lc', 'Jo', 'At', 'Rm', '1 Co', '2 Co',
+        'Gl', 'Ef', 'Fp', 'Cl', '1 Ts', '2 Ts', '1 Tm', '2 Tm', 'Tt', 'Fm', '1 Pe', '2 Pe',
+        '1 Jo', '2 Jo', '3 Jo', 'Hb', 'Tg', 'Jd', 'Ap'];
 
     for (let n in siglasLivros) {
         if (normalizar(siglasLivros[n]) == normalizar(pesquisa)) {
