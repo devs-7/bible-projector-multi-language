@@ -1,3 +1,4 @@
+// Bibliotecas
 const electron = require('electron');
 const fs = require('fs');
 const path = require('path');
@@ -5,6 +6,7 @@ const remote = electron.remote;
 const BrowserWindow = remote.BrowserWindow;
 const screen = electron.screen;
 
+// Recupera componentes
 const pesquisarButton = document.getElementById('pesquisarButton');
 const projetarButton = document.getElementById('projetarButton');
 const atualizarButton = document.getElementById('atualizarButton');
@@ -25,6 +27,7 @@ var biblia;
 var texto;
 var preferencias;
 
+// Cria objeto projetor
 const projetor = {
     winProjetor: null,
 
