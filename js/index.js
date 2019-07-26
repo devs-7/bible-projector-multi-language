@@ -1,7 +1,6 @@
 const electron = require('electron');
 const fs = require('fs');
 const path = require('path');
-const { PythonShell } = require('python-shell');
 const remote = electron.remote;
 const BrowserWindow = remote.BrowserWindow;
 const screen = electron.screen;
@@ -166,32 +165,6 @@ function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
 
     if (!!livro && !!capitulo && !!versiculo && !!texto)
         pesquisaEncontrada(livro, capitulo, versiculo, texto, projetar);
-    else pesquisaParteTexto(pesquisa, projetar);
-}
-
-function pesquisaParteTexto(pesquisa = pesquisarTexto.value, projetar) {
-    const python = new PythonShell('query-bible.py', {
-        scriptPath: path.join(__dirname, '../', 'py'),
-        mode: 'text',
-        encoding: 'utf8',
-        pythonOptions: ['-u'],
-        args: [pesquisa]
-    });
-
-    python.once('message', function (message) {
-        if (!!message) {
-            message = Base64.decode(message);
-            message = message.split('<@#$&>');
-
-            livro = message[1];
-            capitulo = message[2];
-            versiculo = message[3];
-            texto = message[4];
-
-            pesquisaEncontrada(livro, capitulo, versiculo, texto, projetar);
-        }
-        else preview.value = 'Pesquisa inválida.';
-    });
 }
 
 pesquisarButton.onclick = () => pesquisar(true);
