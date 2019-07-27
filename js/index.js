@@ -20,11 +20,6 @@ const ultimaPesquisa = document.getElementById('ultimaPesquisa');
 const versoes = document.getElementById('versoes');
 const win = remote.getCurrentWindow();
 
-var livro;
-var capitulo;
-var versiculo;
-var biblia;
-var texto;
 var preferencias;
 
 // Cria objeto projetor
@@ -93,22 +88,22 @@ function ajuda() {
 }
 
 function avancarVerso() {
-    if (!getTextoBible(biblia, livro, capitulo, Number(versiculo) + 1)) {
-        preview.value = 'Não há versículos posteriores';
-    }
-    else {
-        preview.value = getTextoBible(biblia, livro, capitulo, ++versiculo) + getRepresentacao(livro, capitulo, versiculo);
+    try {
+        bible.next();
+        preview.value = bible.getVerso();
         atualizarButton.click();
+    } catch (e) {
+        preview.value = e.message;
     }
 }
 
 function voltarVerso() {
-    if (versiculo > 1) {
-        preview.value = getTextoBible(biblia, livro, capitulo, --versiculo) + getRepresentacao(livro, capitulo, versiculo);
+    try {
+        bible.prev();
+        preview.value = bible.getVerso();
         atualizarButton.click();
-    }
-    else {
-        preview.value = 'Não há versículos anteriores';
+    } catch (e) {
+        preview.value = e.message;
     }
 }
 
@@ -132,10 +127,10 @@ function atualizarHistorico() {
     historico.value = temp;
 }
 
-function pesquisaEncontrada(livro, capitulo, versiculo, texto, projetar) {
-    ultimaPesquisa.innerHTML = getRepresentacao(livro, capitulo, versiculo, false);
-    pesquisarTexto.value = getRepresentacao(livro, capitulo, versiculo, false);
-    preview.value = texto + getRepresentacao(livro, capitulo, versiculo);
+function pesquisaEncontrada(bible, projetar) {
+    ultimaPesquisa.innerHTML = bible.getRepresentacao(false);
+    pesquisarTexto.value = bible.getRepresentacao(false);
+    preview.value = bible.texto + bible.getRepresentacao();
 
     if (projetar) {
         salvarPreferencias();
@@ -144,31 +139,23 @@ function pesquisaEncontrada(livro, capitulo, versiculo, texto, projetar) {
 
     capituloDiv.innerHTML = '';
 
-    for (let n = 1; ; n++) {
-        const temp = getTextoBible(biblia, livro, capitulo, n);
-
-        if (!!temp) {
-            if (n == versiculo) {
-                capituloDiv.innerHTML += `<span style="color: rgb(20, 66, 165)">${n} ${temp}</span><br>`;
-            }
-            else {
-                capituloDiv.innerHTML += `${n} ${temp}<br>`;
-            }
+    bible.capituloForEach((verso, isAtual, n) => {
+        if (isAtual) {
+            capituloDiv.innerHTML += `<span style="color: rgb(20, 66, 165)">${n} ${verso}</span><br>`;
+        } else {
+            capituloDiv.innerHTML += `${n} ${verso}<br>`;
         }
-        else break;
-    }
+    });
 }
 
 function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
-    const resultado = pesquisarReferencia(biblia, pesquisa);
-    livro = resultado.livro;
-    capitulo = resultado.capitulo;
-    versiculo = resultado.versiculo;
-    texto = resultado.texto;
+    bible.pesquisarReferencia(pesquisa);
 
-    if (!!livro && !!capitulo && !!versiculo && !!texto)
-        pesquisaEncontrada(livro, capitulo, versiculo, texto, projetar);
+    if (bible.isNotVoid())
+        pesquisaEncontrada(bible, projetar);
 }
+
+// Listeners
 
 pesquisarButton.onclick = () => pesquisar(true);
 atualizarButton.onclick = () => salvarPreferencias();
@@ -177,7 +164,7 @@ projetarButton.onclick = projetor.projetar;
 ajudaButton.onclick = ajuda;
 
 versoes.onchange = function () {
-    biblia = fs.readFileSync(path.join(__dirname, '../', 'data', 'bibles', versoes.value + '.txt'), 'utf-8');
+    bible = new Bible(versoes.value);
 }
 
 pesquisarTexto.addEventListener('keypress', e => {
@@ -214,7 +201,7 @@ catch {
     preferencias = JSON.parse(preferencias_json);
 }
 
-biblia = fs.readFileSync(path.join(__dirname, '../', 'data', 'bibles', preferencias.versao + '.txt'), 'utf-8');
+var bible = new Bible(preferencias.versao);
 tamanhoFonteTexto.value = preferencias.fonte;
 versoes.value = preferencias.versao;
 
