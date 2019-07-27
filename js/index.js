@@ -127,32 +127,29 @@ function atualizarHistorico() {
     historico.value = temp;
 }
 
-function pesquisaEncontrada(bible, projetar) {
-    ultimaPesquisa.innerHTML = bible.getRepresentacao(false);
-    pesquisarTexto.value = bible.getRepresentacao(false);
-    preview.value = bible.texto + bible.getRepresentacao();
-
-    if (projetar) {
-        salvarPreferencias();
-        atualizarHistorico();
-    }
-
-    capituloDiv.innerHTML = '';
-
-    bible.capituloForEach((verso, isAtual, n) => {
-        if (isAtual) {
-            capituloDiv.innerHTML += `<span style="color: rgb(20, 66, 165)">${n} ${verso}</span><br>`;
-        } else {
-            capituloDiv.innerHTML += `${n} ${verso}<br>`;
-        }
-    });
-}
-
 function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
     bible.pesquisarReferencia(pesquisa);
 
-    if (bible.isNotVoid())
-        pesquisaEncontrada(bible, projetar);
+    if (bible.isNotVoid()) {
+        ultimaPesquisa.innerHTML = bible.getRepresentacao(false);
+        pesquisarTexto.value = bible.getRepresentacao(false);
+        preview.value = bible.getVerso();
+
+        if (projetar) {
+            salvarPreferencias();
+            atualizarHistorico();
+        }
+
+        capituloDiv.innerHTML = '';
+
+        bible.capituloForEach((verso, isAtual, n) => {
+            if (isAtual) {
+                capituloDiv.innerHTML += `<span style="color: rgb(20, 66, 165)">${n} ${verso}</span><br>`;
+            } else {
+                capituloDiv.innerHTML += `${n} ${verso}<br>`;
+            }
+        });
+    }
 }
 
 // Listeners
