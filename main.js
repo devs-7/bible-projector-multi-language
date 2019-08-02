@@ -32,28 +32,5 @@ function createWindow() {
 app.once('ready', () => {
     createWindow();
 
-    Menu.setApplicationMenu(Menu.buildFromTemplate([
-        {
-            label: 'File',
-            submenu: [
-                { id: 'novo', label: 'Novo', click: () => { } },
-                { id: 'abrir', label: 'Abrir' },
-                { type: 'separator' },
-                { id: 'salvar', label: 'Salvar' },
-                { type: 'separator' },
-                {
-                    label: 'Sair',
-                    click: () => {
-                        app.quit();
-                    }
-                },
-                {
-                    label: 'Desenvolvedor', submenu: [
-                        { role: 'toggledevtools' },
-                        { role: 'reload' }
-                    ]
-                }
-            ]
-        }
-    ]));
+    // Menu.setApplicationMenu(null)
 });
