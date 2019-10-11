@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -35,4 +36,14 @@ public class MainView {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void onKeyPressed(KeyEvent e) {
+        switch (e.getCode()) {
+            case F5:
+                show();
+                break;
+        }
+    }
+
 }
