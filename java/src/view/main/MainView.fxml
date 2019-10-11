@@ -9,6 +9,7 @@
    <children>
       <TextField layoutX="14.0" layoutY="20.0" prefHeight="25.0" prefWidth="188.0" />
       <TextArea fx:id="textArea" layoutX="13.0" layoutY="60.0" prefHeight="326.0" prefWidth="575.0" />
-      <Button fx:id="buttonPesquisar" layoutX="212.0" layoutY="20.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="buttonPesquisar" layoutX="212.0" layoutY="20.0" mnemonicParsing="false" text="Pesquisar" />
+      <Button layoutX="289.0" layoutY="20.0" mnemonicParsing="false" onAction="#show" text="Show" />
    </children>
 </AnchorPane>
