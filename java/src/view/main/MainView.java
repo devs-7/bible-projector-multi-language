@@ -41,7 +41,6 @@ public class MainView implements Initializable {
             root = FXMLLoader.load(getClass().getResource("../projetor/ProjetorView.fxml"));
             stageTextShow.setTitle("Projetor");
             stageTextShow.setScene(new Scene(root));
-            stageTextShow.setFullScreen(true);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -67,6 +66,7 @@ public class MainView implements Initializable {
         if (stageTextShow.isShowing()) {
             stageTextShow.setFullScreen(false);
         } else {
+            stageTextShow.setFullScreen(true);
             stageTextShow.showAndWait();
         }
     }
