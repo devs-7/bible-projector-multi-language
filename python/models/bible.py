@@ -11,6 +11,8 @@ def query_one(q):
 
 def query(q):
     q = q.replace(':', ' ')
+    while q.__contains__('  '):
+        q = q.replace('  ', ' ')
     q = normalizar(q)
     q = q.split(' ')
     ver = q.pop()
