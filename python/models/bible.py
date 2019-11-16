@@ -1,6 +1,5 @@
 import helper.db_controller as db
-import traceback
-
+from helper.strings import normalizar
 
 def query_one(q):
     q = query(q)
@@ -11,6 +10,8 @@ def query_one(q):
 
 
 def query(q):
+    q = q.replace(':', ' ')
+    q = normalizar(q)
     q = q.split(' ')
     ver = q.pop()
     cap = q.pop()
