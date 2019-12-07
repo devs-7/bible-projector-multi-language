@@ -42,16 +42,19 @@ class Main(App):
 
     def pesquisar(self, button):
         try:
+            window_projection.run()
             pesquisa = self.pesquisa_text_input.text
             self.pesquisa_text_input.text = ''
             verso = bible.query_one(pesquisa)
             self.pesquisa_text_input.text = bible.format_dict_ver(verso)
             self.preview.text = verso['text']
+        except IndexError:
+            print('Pesquisa incorreta')
         except:
             traceback.print_exc()
 
 
-Window.maximize()
+# Window.maximize()
 Window.clearcolor = colors.name['dracula_dark']
 
 main = Main()
