@@ -2,6 +2,7 @@ import helper.bible as bible
 import windows.projection as window_projection
 import traceback
 import helper.colors as colors
+import sqlite3
 
 from kivy.app import App
 from kivy.core.window import Window
@@ -48,9 +49,12 @@ class Main(App):
             verso = bible.query_one(pesquisa)
             self.pesquisa_text_input.text = bible.format_dict_ver(verso)
             self.preview.text = verso['text']
-        except IndexError:
-            print('Pesquisa incorreta')
-        except:
+        except (IndexError, sqlite3.OperationalError):
+            self.preview.text = 'Pesquisa incorreta.'
+        except TypeError:
+            self.preview.text = 'Texto não encontrado.'
+        except Exception as e:
+            self.preview.text = ', '.join(e.args)
             traceback.print_exc()
 
 
