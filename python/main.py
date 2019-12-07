@@ -11,21 +11,26 @@ from helper.kivy_componentes import *
 
 class Main(App):
     def build(self):
-        box = BoxLayout(orientation='vertical')
+        self.box = BoxLayout(orientation='vertical')
 
         pesquisar_button = Button(text='pesquisar', on_press=lambda x: print(x))
-        pesquisa_text_input = TextInput()
-
-        pesquisa_text_input.multiline = False
+        pesquisa_text_input = TextInput(multiline=False)
         pesquisa_text_input.cursor_color = (0, 0, 0, 1)
 
-        box.add_widget(Lista(['1', '2', '3']))
-        box.add_widget(pesquisa_text_input)
-        box.add_widget(pesquisar_button)
-        return box
+        pesquisar_button.background_color = (5, 200, 255, 1)
+
+        self.box.add_widget(Lista(['1', '2', '3']))
+        self.box.add_widget(pesquisa_text_input)
+        self.box.add_widget(pesquisar_button)
+        return self.box
+
+    def add_widget(self, widget):
+        self.box.add_widget(widget)
 
 
-Main().run()
+main = Main()
+main.title = 'Bible projector'
+main.run()
 
 # Configuração da tela
 # window.title("Bible projector")
