@@ -1,12 +1,13 @@
 import helper.bible as bible
 import windows.projection as window_projection
 import traceback
+import helper.colors as colors
 
 from kivy.app import App
+from kivy.core.window import Window
+from helper.kivy_componentes import *
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
-
-from helper.kivy_componentes import *
 
 
 class Main(App):
@@ -17,7 +18,7 @@ class Main(App):
         self.box_main = BoxLayout(orientation='horizontal')
 
         # Header
-        self.pesquisar_button = Button(text='pesquisar', on_press=self.pesquisar_button_click)
+        self.pesquisar_button = Button(text='Pesquisar', on_press=self.pesquisar)
         self.pesquisa_text_input = TextInput(multiline=False)
 
         # Main
@@ -26,7 +27,7 @@ class Main(App):
 
         # Estilos
         self.pesquisa_text_input.cursor_color = (0, 0, 0, 1)
-        self.pesquisar_button.background_color = (2, 2, 2, 1)
+        self.pesquisar_button.background_color = colors.name['dracula_light']
 
         self.box_header.add_widget(self.pesquisa_text_input)
         self.box_header.add_widget(self.pesquisar_button)
@@ -39,7 +40,7 @@ class Main(App):
     def add_widget(self, widget):
         self.box.add_widget(widget)
 
-    def pesquisar_button_click(self, button):
+    def pesquisar(self, button):
         try:
             pesquisa = self.pesquisa_text_input.text
             self.pesquisa_text_input.text = ''
@@ -49,30 +50,10 @@ class Main(App):
         except:
             traceback.print_exc()
 
+
+Window.maximize()
+Window.clearcolor = colors.name['dracula_dark']
+
 main = Main()
 main.title = 'Bible projector'
 main.run()
-
-# Configuração da tela
-# window.title("Bible projector")
-# window.geometry('800x600')
-# window.wm_state('zoomed')
-#
-# for i in range(10):
-#     for j in range(10):
-#         Label(text=f'{i + j}').grid(row=i, column=j)
-#
-# window.mainloop()
-
-# while True:
-#     try:
-#         q = input("Digite sua pesquisa: ")
-#         x = bible.query_one(q)
-#         if x is not None:
-#             print()
-#             print(f"{x['liv']} {x['cap']}:{x['ver']}\n{x['text']}")
-#             print()
-#     except IndexError as e:
-#         print('Pesquisa inválida')
-#     except:
-#         traceback.print_exc()
