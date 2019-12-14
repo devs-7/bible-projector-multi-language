@@ -2,12 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="798ca74e-3b97-4043-8fc5-506e7234ad3d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bible_txt_to_pytxt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/teste.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/insert_textos.py" beforeDir="false" afterPath="$PROJECT_DIR$/insert_textos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../python/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../python/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../python/data/Backup dados/dados 1.0.db" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java/.idea/libraries/sqlite_jdbc_3_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java/src/helper/DbController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../java/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../java/java.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/out/production/java/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../java/out/production/java/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/out/production/java/helper/S.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/out/production/java/view/main/MainView$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/out/production/java/view/main/MainView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/out/production/java/view/main/MainView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/out/production/java/view/projetor/ProjetorView$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/out/production/java/view/projetor/ProjetorView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/out/production/java/view/projetor/ProjetorView.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/src/helper/S.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/src/view/main/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../java/src/gui/main/MainView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/src/view/main/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java/src/gui/main/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/src/view/projetor/ProjetorView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../java/src/gui/projetor/ProjetorView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/src/view/projetor/ProjetorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java/src/gui/projetor/ProjetorView.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,16 +28,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/teste.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="1" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/insert_textos.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -75,7 +78,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -83,19 +85,15 @@
               <item name="data" type="b2602c69:ProjectViewProjectNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="data" type="b2602c69:ProjectViewProjectNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="sql" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../python" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -221,13 +219,9 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2496474" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" weight="0.32974428" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32974428" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32974428" />
@@ -235,6 +229,10 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32974428" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -262,13 +260,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/script.py" />
     <entry file="file://$PROJECT_DIR$/bibles_txt/arc_py.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="139">

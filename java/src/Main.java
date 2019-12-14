@@ -8,7 +8,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("view/main/MainView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("gui/main/MainView.fxml"));
         primaryStage.setTitle("Projetor Bíblico");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
