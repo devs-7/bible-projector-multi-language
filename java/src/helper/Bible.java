@@ -1,5 +1,6 @@
 package helper;
 
+import exceptions.QueryBibleException;
 import model.BibleText;
 
 import java.sql.ResultSet;
@@ -9,20 +10,20 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Bible {
-    public static BibleText query(String q) {
-        q = q.replace(":", " ");
-        q = q.replace("  ", " ");
-
-        q = normalizar(q);
-        ArrayList<String> livCapVer = new ArrayList<>(Arrays.asList(q.split(" ")));
-
-        String ver = livCapVer.get(livCapVer.size() - 1);
-        livCapVer.remove(livCapVer.size() - 1);
-        String cap = livCapVer.get(livCapVer.size() - 1);
-        livCapVer.remove(livCapVer.size() - 1);
-        String liv = String.join(" ", livCapVer);
-
+    public static BibleText query(String q) throws QueryBibleException {
         try {
+            q = q.replace(":", " ");
+            q = q.replace("  ", " ");
+
+            q = normalizar(q);
+            ArrayList<String> livCapVer = new ArrayList<>(Arrays.asList(q.split(" ")));
+
+            String ver = livCapVer.get(livCapVer.size() - 1);
+            livCapVer.remove(livCapVer.size() - 1);
+            String cap = livCapVer.get(livCapVer.size() - 1);
+            livCapVer.remove(livCapVer.size() - 1);
+            String liv = String.join(" ", livCapVer);
+
             ResultSet resultSet = DbController.query(addJoin(
                     "livros._sigla like '%" + liv + "%' AND textos.capitulo = " + cap + " AND textos.versiculo = " + ver + ""
             ));
@@ -38,10 +39,8 @@ public class Bible {
             bibleText.setCapitulo(resultSet.getInt("versiculo"));
             bibleText.setTexto(resultSet.getString("texto"));
             return bibleText;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
+        } catch (Exception e) {
+            throw new QueryBibleException("Pesquisa inválida");
         }
     }
 

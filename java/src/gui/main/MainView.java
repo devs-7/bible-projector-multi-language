@@ -1,6 +1,7 @@
 package gui.main;
 
 import com.sun.javafx.stage.StageHelper;
+import exceptions.QueryBibleException;
 import helper.Bible;
 import helper.DbController;
 import javafx.fxml.FXML;
@@ -23,11 +24,11 @@ import java.util.ResourceBundle;
 
 public class MainView implements Initializable {
     @FXML
-    private TextField textFieldPesquisa;
+    private TextField pesquisaTextField;
     @FXML
-    private Button buttonPesquisar;
+    private Button pesquisarButton;
     @FXML
-    private TextArea textArea;
+    private TextArea previewTextArea;
 
     private Stage stageThis;
     private Stage stageTextShow;
@@ -76,10 +77,13 @@ public class MainView implements Initializable {
 
     @FXML
     private void pesquisar() {
-        String pesquisa = "gn 1 1";
-        System.out.println(pesquisa);
-        BibleText bibleText = Bible.query(pesquisa);
-        System.out.println(bibleText.toString());
+        try {
+            String pesquisa = pesquisaTextField.getText();
+            BibleText bibleText = Bible.query(pesquisa);
+            previewTextArea.setText(bibleText.getTexto());
+        } catch (QueryBibleException e) {
+            previewTextArea.setText(e.getMessage());
+        }
     }
 
     private Stage getStage() {
