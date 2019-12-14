@@ -1,3 +1,6 @@
+from unidecode import unidecode
+
+
 def ultima_ocorrencia(string, ocorrencia):
     for n in range(1, len(string) + 1):
         if string[-n] == ocorrencia:
@@ -39,14 +42,17 @@ livros = [
 
 def get_id_liv(liv):
     for n in range(len(livros)):
-        if livros[n] == liv:
+        if unidecode(livros[n]) == unidecode(liv):
             return n + 1
 
 
+versao = 'nvi'
+id_versao = 4
 sql = ''
-with open('bibles_txt/ara_py.txt', encoding='utf-8') as file:
+with open(f'bibles_txt/{versao}_py.txt', encoding='utf-8') as file:
     def readline():
         return file.readline().replace('\n', '')
+
 
     while True:
         ref = readline()
@@ -58,9 +64,10 @@ with open('bibles_txt/ara_py.txt', encoding='utf-8') as file:
             liv = ref[0]
             cap = ref[1]
             ver = ref[2]
-            sql += ("INSERT INTO textos (id_versao, id_livro, capitulo, versiculo, texto) VALUES (%s, %s, %s, %s, '%s');\n" %
-            (1, get_id_liv(liv), cap, ver, text))
+            sql += (
+                        "INSERT INTO textos (id_versao, id_livro, capitulo, versiculo, texto) VALUES (%s, %s, %s, %s, '%s');\n" %
+                        (id_versao, get_id_liv(liv), cap, ver, text))
 
-with open('sql/insert_textos_ara.sql', 'w') as file:
+with open(f'sql/insert_textos_{versao}.sql', 'w') as file:
     file.write(sql)
 input('Pressione enter para continuar...')
