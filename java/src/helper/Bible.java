@@ -36,7 +36,7 @@ public class Bible {
             BibleText bibleText = new BibleText();
             bibleText.setLivro(resultSet.getString("livro"));
             bibleText.setCapitulo(resultSet.getInt("capitulo"));
-            bibleText.setCapitulo(resultSet.getInt("versiculo"));
+            bibleText.setVersiculo(resultSet.getInt("versiculo"));
             bibleText.setTexto(resultSet.getString("texto"));
             return bibleText;
         } catch (Exception e) {

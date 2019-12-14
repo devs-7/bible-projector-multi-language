@@ -80,6 +80,7 @@ public class MainView implements Initializable {
         try {
             String pesquisa = pesquisaTextField.getText();
             BibleText bibleText = Bible.query(pesquisa);
+            pesquisaTextField.setText(bibleText.getReferencia());
             previewTextArea.setText(bibleText.getTexto());
         } catch (QueryBibleException e) {
             previewTextArea.setText(e.getMessage());

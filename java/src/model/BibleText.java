@@ -47,4 +47,8 @@ public class BibleText {
     public void setTexto(String texto) {
         this.texto = texto;
     }
+
+    public String getReferencia() {
+        return getLivro() + " " + getCapitulo() + ":" + getVersiculo();
+    }
 }
