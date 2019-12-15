@@ -26,16 +26,20 @@ public class ProjetorView implements Initializable {
         stageThis = new Stage();
         stageThis.setScene(sceneThis);
 
-        labelTexto.setText("Teste");
+        paneThis.setOnKeyPressed(event -> {
+            switch (event.getCode()) {
+                case F5:
+                    break;
+
+                case F4:
+                    stageThis.close();
+                    break;
+            }
+            System.out.println(event.getCode());
+        });
     }
 
-    @FXML
-    private void onKeyPressed(KeyEvent e) {
-        switch (e.getCode()) {
-            case F5:
-                System.out.println("F5");
-                break;
-        }
-        System.out.println("Press");
+    public void setTexto(String texto) {
+        labelTexto.setText(texto);
     }
 }

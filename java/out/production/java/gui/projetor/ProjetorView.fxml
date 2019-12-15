@@ -14,7 +14,7 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label fx:id="labelTexto" alignment="CENTER" contentDisplay="CENTER" prefHeight="359.0" prefWidth="550.0" text="Label MMMMMMMMMMMM MMMMMMMMMMMMMMMM MM MMMMM M" textFill="WHITE" wrapText="true">
+      <Label fx:id="labelTexto" alignment="CENTER" contentDisplay="CENTER" prefHeight="359.0" prefWidth="550.0" text="Projetor bíblico" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Berlin Sans FB" size="36.0" />
          </font>
