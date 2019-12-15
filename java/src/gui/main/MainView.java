@@ -12,6 +12,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -33,7 +34,9 @@ public class MainView implements Initializable {
     @FXML
     private Button pesquisarButton;
     @FXML
-    private TextArea previewTextArea;
+    private TextArea mainTextArea;
+    @FXML
+    private Label previewLabel;
 
     private Stage stageThis;
     private Stage stageTextShow;
@@ -77,7 +80,7 @@ public class MainView implements Initializable {
                 break;
 
             case F6:
-                projetorView.setTexto(previewTextArea.getText());
+                updateTexto();
                 break;
 
             case ESCAPE:
@@ -103,18 +106,24 @@ public class MainView implements Initializable {
         stageTextShow.close();
     }
 
+    private void updateTexto() {
+        projetorView.setTexto(mainTextArea.getText());
+        previewLabel.setText(mainTextArea.getText());
+    }
+
     @FXML
     private void pesquisar() {
         try {
             String pesquisa = pesquisaTextField.getText();
             BibleText bibleText = Bible.query(pesquisa);
             pesquisaTextField.setText(bibleText.getReferencia());
-            previewTextArea.setText(bibleText.getTexto());
-            projetorView.setTexto(previewTextArea.getText());
+            mainTextArea.setText(bibleText.getTextWithReference());
+            previewLabel.setText(bibleText.getTextWithReference());
+            updateTexto();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (QueryBibleException e) {
-            previewTextArea.setText(e.getMessage());
+            mainTextArea.setText(e.getMessage());
         }
     }
 

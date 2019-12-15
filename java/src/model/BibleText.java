@@ -51,4 +51,8 @@ public class BibleText {
     public String getReferencia() {
         return getLivro() + " " + getCapitulo() + ":" + getVersiculo();
     }
+
+    public String getTextWithReference() {
+        return getTexto() + " (" + getReferencia() + ")";
+    }
 }

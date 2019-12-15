@@ -11,6 +11,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("gui/main/MainView.fxml"));
         primaryStage.setTitle("Projetor Bíblico");
         primaryStage.setScene(new Scene(root));
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 
