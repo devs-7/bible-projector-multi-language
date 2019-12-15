@@ -57,8 +57,9 @@ public class MainView implements Initializable {
             e.printStackTrace();
         }
 
-        // Adiciona versões ao combo box
+        // Adiciona versões ao combo box e seleciona a primeira versão
         versoesComboBox.setItems(FXCollections.observableArrayList(Bible.getVersoes()));
+        versoesComboBox.getSelectionModel().select(0);
 
         // Listeners
         pesquisaTextField.setOnKeyPressed(event -> {
@@ -84,6 +85,14 @@ public class MainView implements Initializable {
 
             case F6:
                 updateTexto();
+                break;
+
+            case PAGE_UP:
+                avancarVerso();
+                break;
+
+            case PAGE_DOWN:
+                voltarVerso();
                 break;
 
             case ESCAPE:
@@ -129,6 +138,14 @@ public class MainView implements Initializable {
         } catch (QueryBibleException e) {
             mainTextArea.setText(e.getMessage());
         }
+    }
+
+    private void avancarVerso() {
+        System.out.println("next");
+    }
+
+    private void voltarVerso() {
+        System.out.println("back");
     }
 
     private Stage getStage() {

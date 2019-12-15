@@ -28,7 +28,6 @@ public class Bible {
             String sql = addJoin(
                     "versao = '" + versao + "' AND livros._sigla like '%" + liv + "%' AND textos.capitulo = " + cap + " AND textos.versiculo = " + ver + ""
             );
-            System.out.println(sql);
             ResultSet resultSet = DbController.query(sql);
 
             if (!resultSet.next()) {
