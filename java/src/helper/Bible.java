@@ -15,7 +15,7 @@ public class Bible {
             q = q.replace(":", " ");
             q = q.replace("  ", " ");
 
-            q = normalizar(q);
+            q = StringHelper.normalizar(q);
             ArrayList<String> livCapVer = new ArrayList<>(Arrays.asList(q.split(" ")));
 
             String ver = livCapVer.get(livCapVer.size() - 1);
@@ -48,9 +48,6 @@ public class Bible {
         }
     }
 
-    private static String normalizar(String str) {
-        return Normalizer.normalize(str, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
-    }
 
     private static String addJoin(String s) {
         return "SELECT livros.nome as livro, textos.capitulo, textos.versiculo, textos.texto \n" +

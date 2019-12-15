@@ -4,6 +4,7 @@ import com.sun.javafx.stage.StageHelper;
 import exceptions.QueryBibleException;
 import helper.Bible;
 import helper.DbController;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import model.BibleText;
@@ -44,6 +46,13 @@ public class MainView implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        // Listeners
+        pesquisaTextField.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                pesquisar();
+            }
+        });
     }
 
     @FXML
@@ -54,6 +63,10 @@ public class MainView implements Initializable {
                     show();
                 }
                 break;
+
+            case F4:
+                pesquisaTextField.requestFocus();
+                pesquisaTextField.selectAll();
 
             case ESCAPE:
                 hide();
