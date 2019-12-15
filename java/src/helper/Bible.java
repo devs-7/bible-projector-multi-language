@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Bible {
-    public static BibleText query(String q) throws QueryBibleException, SQLException {
+    public static BibleText query(String q, String versao) throws QueryBibleException, SQLException {
         try {
             q = q.replace(":", " ");
             q = q.replace("  ", " ");
@@ -24,14 +24,18 @@ public class Bible {
             livCapVer.remove(livCapVer.size() - 1);
             String liv = String.join(" ", livCapVer);
 
-            ResultSet resultSet = DbController.query(addJoin(
-                    "livros._sigla like '%" + liv + "%' AND textos.capitulo = " + cap + " AND textos.versiculo = " + ver + ""
-            ));
+
+            String sql = addJoin(
+                    "versao = '" + versao + "' AND livros._sigla like '%" + liv + "%' AND textos.capitulo = " + cap + " AND textos.versiculo = " + ver + ""
+            );
+            System.out.println(sql);
+            ResultSet resultSet = DbController.query(sql);
 
             if (!resultSet.next()) {
-                resultSet = DbController.query(addJoin(
-                        "livros._nome like '%" + liv + "%' AND textos.capitulo = " + cap + " AND textos.versiculo = " + ver + ""
-                ));
+                sql = addJoin(
+                        "versao = '" + versao + "' AND livros._nome like '%" + liv + "%' AND textos.capitulo = " + cap + " AND textos.versiculo = " + ver + ""
+                );
+                resultSet = DbController.query(sql);
             }
 
             BibleText bibleText = new BibleText();
@@ -48,11 +52,25 @@ public class Bible {
         }
     }
 
+    public static ArrayList<String> getVersoes() {
+        try {
+            ArrayList<String> versoes = new ArrayList<>();
+            ResultSet resultSet = DbController.query("SELECT versao FROM versoes");
+            while (resultSet.next()) {
+                versoes.add(resultSet.getString("versao"));
+            }
+            return versoes;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     private static String addJoin(String s) {
-        return "SELECT livros.nome as livro, textos.capitulo, textos.versiculo, textos.texto \n" +
-                "FROM textos\n" +
-                "JOIN livros on textos.id_livro = livros.id\n" +
+        return "SELECT versoes.versao as versao, livros.nome as livro, textos.capitulo, textos.versiculo, textos.texto " +
+                "FROM textos " +
+                "JOIN livros on textos.id_livro = livros.id " +
+                "JOIN versoes on textos.id_versao = versoes.id " +
                 "WHERE " + s;
     }
 }

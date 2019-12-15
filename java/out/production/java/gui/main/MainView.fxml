@@ -26,12 +26,12 @@
       </Label>
       <HBox layoutX="92.0" layoutY="14.0" prefHeight="25.0" prefWidth="478.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0">
          <children>
-            <ComboBox prefHeight="25.0" prefWidth="97.0" promptText="Versão">
+            <ComboBox fx:id="versoesComboBox" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="97.0" promptText="Versão">
                <HBox.margin>
                   <Insets right="5.0" />
                </HBox.margin>
             </ComboBox>
-            <TextField fx:id="pesquisaTextField" prefHeight="25.0" prefWidth="172.0" HBox.hgrow="SOMETIMES">
+            <TextField fx:id="pesquisaTextField" minWidth="-Infinity" prefHeight="25.0" prefWidth="128.0" HBox.hgrow="SOMETIMES">
                <HBox.margin>
                   <Insets right="5.0" />
                </HBox.margin>
@@ -46,7 +46,7 @@
                   <Insets right="5.0" />
                </HBox.margin>
             </Button>
-            <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Atualizar">
+            <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#updateTexto" text="Atualizar">
                <HBox.margin>
                   <Insets right="5.0" />
                </HBox.margin></Button>
@@ -56,7 +56,7 @@
                </HBox.margin></Button>
             <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="39.0" text="Fonte:" />
             <TextField maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="42.0" HBox.hgrow="SOMETIMES" />
-            <Label alignment="CENTER_RIGHT" prefHeight="24.0" prefWidth="181.0" text="liv cap:ver">
+            <Label alignment="CENTER_RIGHT" maxWidth="-Infinity" prefHeight="24.0" prefWidth="181.0" text="liv cap:ver">
                <font>
                   <Font size="14.0" />
                </font>

@@ -4,6 +4,7 @@ import com.sun.javafx.stage.StageHelper;
 import exceptions.QueryBibleException;
 import gui.projetor.ProjetorView;
 import helper.Bible;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,10 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
@@ -37,6 +35,8 @@ public class MainView implements Initializable {
     private TextArea mainTextArea;
     @FXML
     private Label previewLabel;
+    @FXML
+    private ComboBox<String> versoesComboBox;
 
     private Stage stageThis;
     private Stage stageTextShow;
@@ -56,6 +56,9 @@ public class MainView implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        // Adiciona versões ao combo box
+        versoesComboBox.setItems(FXCollections.observableArrayList(Bible.getVersoes()));
 
         // Listeners
         pesquisaTextField.setOnKeyPressed(event -> {
@@ -116,7 +119,7 @@ public class MainView implements Initializable {
     private void pesquisar() {
         try {
             String pesquisa = pesquisaTextField.getText();
-            BibleText bibleText = Bible.query(pesquisa);
+            BibleText bibleText = Bible.query(pesquisa, versoesComboBox.getSelectionModel().getSelectedItem());
             pesquisaTextField.setText(bibleText.getReferencia());
             mainTextArea.setText(bibleText.getTextWithReference());
             previewLabel.setText(bibleText.getTextWithReference());
