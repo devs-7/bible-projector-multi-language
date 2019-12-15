@@ -41,6 +41,8 @@ public class MainView implements Initializable {
     private Stage stageThis;
     private Stage stageTextShow;
 
+    private Pane paneThis;
+
     private ProjetorView projetorView;
 
     @Override
@@ -61,10 +63,17 @@ public class MainView implements Initializable {
         versoesComboBox.setItems(FXCollections.observableArrayList(Bible.getVersoes()));
         versoesComboBox.getSelectionModel().select(0);
 
+
         // Listeners
         pesquisaTextField.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                pesquisar();
+            switch (event.getCode()) {
+                case ENTER:
+                    pesquisar();
+                    break;
+
+                case F4:
+                    pesquisaTextField.selectAll();
+                    break;
             }
         });
     }
@@ -133,9 +142,7 @@ public class MainView implements Initializable {
             mainTextArea.setText(bibleText.getTextWithReference());
             previewLabel.setText(bibleText.getTextWithReference());
             updateTexto();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (QueryBibleException e) {
+        } catch (Exception e) {
             mainTextArea.setText(e.getMessage());
         }
     }

@@ -44,7 +44,7 @@ public class Bible {
             bibleText.setTexto(resultSet.getString("texto"));
             return bibleText;
         } catch (SQLException e) {
-            throw new SQLException(e);
+            throw new SQLException("Texto inexistente");
         } catch (Exception e) {
             e.printStackTrace();
             throw new QueryBibleException("Pesquisa inválida");
