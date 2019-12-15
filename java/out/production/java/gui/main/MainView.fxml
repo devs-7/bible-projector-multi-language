@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="paneThis" onKeyReleased="#onKeyPressed" prefHeight="459.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.main.MainView">
+<AnchorPane fx:id="paneThis" onKeyReleased="#onKeyPressed" prefHeight="494.0" prefWidth="676.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.main.MainView">
    <children>
       <TextArea fx:id="mainTextArea" layoutX="12.0" layoutY="49.0" onKeyReleased="#onKeyPressed" prefHeight="173.0" prefWidth="88.0" wrapText="true" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="50.0">
          <font>
@@ -36,26 +36,26 @@
                   <Insets right="5.0" />
                </HBox.margin>
             </TextField>
-            <Button fx:id="pesquisarButton" mnemonicParsing="false" onAction="#pesquisar" text="Pesquisar">
+            <Button fx:id="pesquisarButton" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#pesquisar" text="Pesquisar">
                <HBox.margin>
                   <Insets right="5.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#show" text="Show">
+            <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#show" text="Show">
                <HBox.margin>
                   <Insets right="5.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Atualizar">
+            <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Atualizar">
                <HBox.margin>
                   <Insets right="5.0" />
                </HBox.margin></Button>
-            <Button mnemonicParsing="false" text="Ajuda">
+            <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Ajuda">
                <HBox.margin>
                   <Insets right="5.0" />
                </HBox.margin></Button>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="39.0" text="Fonte:" />
-            <TextField prefHeight="25.0" prefWidth="31.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="39.0" text="Fonte:" />
+            <TextField maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="42.0" HBox.hgrow="SOMETIMES" />
             <Label alignment="CENTER_RIGHT" prefHeight="24.0" prefWidth="181.0" text="liv cap:ver">
                <font>
                   <Font size="14.0" />

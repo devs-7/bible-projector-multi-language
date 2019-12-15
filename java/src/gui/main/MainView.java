@@ -106,6 +106,7 @@ public class MainView implements Initializable {
         stageTextShow.close();
     }
 
+    @FXML
     private void updateTexto() {
         projetorView.setTexto(mainTextArea.getText());
         previewLabel.setText(mainTextArea.getText());
