@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Bible {
-    public static BibleText query(String q) throws QueryBibleException {
+    public static BibleText query(String q) throws QueryBibleException, SQLException {
         try {
             q = q.replace(":", " ");
             q = q.replace("  ", " ");
@@ -27,9 +27,10 @@ public class Bible {
             ResultSet resultSet = DbController.query(addJoin(
                     "livros._sigla like '%" + liv + "%' AND textos.capitulo = " + cap + " AND textos.versiculo = " + ver + ""
             ));
-            if (resultSet.getFetchSize() == 0) {
+
+            if (!resultSet.next()) {
                 resultSet = DbController.query(addJoin(
-                        "livros._sigla like '%" + liv + "%' AND textos.capitulo = " + cap + " AND textos.versiculo = " + ver + ""
+                        "livros._nome like '%" + liv + "%' AND textos.capitulo = " + cap + " AND textos.versiculo = " + ver + ""
                 ));
             }
 
@@ -39,7 +40,10 @@ public class Bible {
             bibleText.setVersiculo(resultSet.getInt("versiculo"));
             bibleText.setTexto(resultSet.getString("texto"));
             return bibleText;
+        } catch (SQLException e) {
+            throw new SQLException(e);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new QueryBibleException("Pesquisa inválida");
         }
     }

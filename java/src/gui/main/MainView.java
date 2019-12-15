@@ -82,6 +82,8 @@ public class MainView implements Initializable {
             BibleText bibleText = Bible.query(pesquisa);
             pesquisaTextField.setText(bibleText.getReferencia());
             previewTextArea.setText(bibleText.getTexto());
+        } catch (SQLException e) {
+            e.printStackTrace();
         } catch (QueryBibleException e) {
             previewTextArea.setText(e.getMessage());
         }
