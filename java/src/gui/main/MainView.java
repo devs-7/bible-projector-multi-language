@@ -1,7 +1,6 @@
 package gui.main;
 
 import com.sun.javafx.stage.StageHelper;
-import exceptions.QueryBibleException;
 import gui.projetor.ProjetorView;
 import helper.Bible;
 import javafx.collections.FXCollections;
@@ -13,16 +12,13 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import model.BibleText;
 
-import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
@@ -50,7 +46,7 @@ public class MainView implements Initializable {
         try {
             stageTextShow = new Stage();
             Parent root = null;
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../projetor/ProjetorView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/projetor/ProjetorView.fxml"));
             root = loader.load();
             projetorView = loader.getController();
             stageTextShow.setTitle("Projetor");
@@ -60,8 +56,13 @@ public class MainView implements Initializable {
         }
 
         // Adiciona versões ao combo box e seleciona a primeira versão
-        versoesComboBox.setItems(FXCollections.observableArrayList(Bible.getVersoes()));
-        versoesComboBox.getSelectionModel().select(0);
+        try {
+            versoesComboBox.setItems(FXCollections.observableArrayList(Bible.getVersoes()));
+            versoesComboBox.getSelectionModel().select(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+            mainTextArea.setText("Banco de dados não encontrado");
+        }
 
 
         // Listeners
