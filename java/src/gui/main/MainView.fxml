@@ -16,10 +16,10 @@
          <font>
             <Font size="14.0" />
          </font></TextArea>
-      <TextArea layoutX="12.0" layoutY="235.0" onKeyPressed="#onKeyPressed" prefHeight="189.0" prefWidth="88.0" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="235.0" />
-      <TextArea layoutX="110.0" layoutY="373.0" onKeyPressed="#onKeyPressed" prefHeight="68.0" prefWidth="478.0" AnchorPane.bottomAnchor="18.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="373.0" />
+      <TextArea layoutX="12.0" layoutY="235.0" onKeyPressed="#onKeyPressed" prefHeight="189.0" prefWidth="88.0" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="235.0" />
+      <TextArea layoutX="110.0" layoutY="373.0" onKeyPressed="#onKeyPressed" prefHeight="68.0" prefWidth="478.0" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="373.0" />
       <Label layoutX="110.0" layoutY="60.0" prefHeight="311.0" prefWidth="478.0" style="-fx-background-color: black;" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="50.0" />
-      <Label fx:id="previewLabel" alignment="CENTER" layoutX="312.0" layoutY="71.0" prefHeight="266.0" prefWidth="401.0" style="-fx-background-color: black;" text="Projetor bíblico" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true" AnchorPane.rightAnchor="49.0" AnchorPane.topAnchor="71.0">
+      <Label fx:id="previewLabel" alignment="CENTER" layoutX="312.0" layoutY="71.0" prefHeight="266.0" prefWidth="401.0" style="-fx-background-color: black;" text="Projetor bíblico" textFill="WHITE" wrapText="true" AnchorPane.rightAnchor="49.0" AnchorPane.topAnchor="71.0">
          <font>
             <Font name="Berlin Sans FB" size="20.0" />
          </font>

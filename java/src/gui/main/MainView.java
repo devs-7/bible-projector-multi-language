@@ -153,6 +153,7 @@ public class MainView implements Initializable {
     private void avancarVerso() {
         try {
             bible.avancarVersiculo();
+            mainTextArea.setText(bible.getTextWithReference());
             updateTexto(bible.getTextWithReference());
         } catch (QueryBibleException e) {
             mainTextArea.setText("Não há versículos posteriores");
@@ -162,6 +163,7 @@ public class MainView implements Initializable {
     private void voltarVerso() {
         try {
             bible.voltarVersiculo();
+            mainTextArea.setText(bible.getTextWithReference());
             updateTexto(bible.getTextWithReference());
         } catch (QueryBibleException e) {
             mainTextArea.setText("Não há versículos anteriores");
