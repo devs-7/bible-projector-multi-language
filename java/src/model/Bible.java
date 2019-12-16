@@ -1,16 +1,31 @@
-package helper;
+package model;
 
 import exceptions.QueryBibleException;
-import model.BibleText;
+import helper.DbController;
+import helper.StringHelper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Bible {
-    public static BibleText query(String q, String versao) throws QueryBibleException, SQLException {
+    private String livro;
+    private int capitulo;
+    private int versiculo;
+    private String texto;
+    private String versao;
+
+    public void avancarVersiculo() throws QueryBibleException {
+        query(livro + " " + capitulo + " " + (versiculo + 1), versao);
+    }
+
+    public void voltarVersiculo() throws QueryBibleException {
+        query(livro + " " + capitulo + " " + (versiculo - 1), versao);
+    }
+
+    public void query(String q, String versao) throws QueryBibleException {
+        this.versao = versao;
         try {
             q = q.replace(":", " ");
             q = q.replace("  ", " ");
@@ -37,14 +52,12 @@ public class Bible {
                 resultSet = DbController.query(sql);
             }
 
-            BibleText bibleText = new BibleText();
-            bibleText.setLivro(resultSet.getString("livro"));
-            bibleText.setCapitulo(resultSet.getInt("capitulo"));
-            bibleText.setVersiculo(resultSet.getInt("versiculo"));
-            bibleText.setTexto(resultSet.getString("texto"));
-            return bibleText;
+            this.setLivro(resultSet.getString("livro"));
+            this.setCapitulo(resultSet.getInt("capitulo"));
+            this.setVersiculo(resultSet.getInt("versiculo"));
+            this.setTexto(resultSet.getString("texto"));
         } catch (SQLException e) {
-            throw new SQLException("Texto inexistente");
+            throw new QueryBibleException("Texto inexistente");
         } catch (Exception e) {
             e.printStackTrace();
             throw new QueryBibleException("Pesquisa inválida");
@@ -71,5 +84,55 @@ public class Bible {
                 "JOIN livros on textos.id_livro = livros.id " +
                 "JOIN versoes on textos.id_versao = versoes.id " +
                 "WHERE " + s;
+    }
+
+    @Override
+    public String toString() {
+        return "Bible{" +
+                "livro='" + livro + '\'' +
+                ", capitulo=" + capitulo +
+                ", versiculo=" + versiculo +
+                ", texto='" + texto + '\'' +
+                '}';
+    }
+
+    public String getLivro() {
+        return livro;
+    }
+
+    public void setLivro(String livro) {
+        this.livro = livro;
+    }
+
+    public int getCapitulo() {
+        return capitulo;
+    }
+
+    public void setCapitulo(int capitulo) {
+        this.capitulo = capitulo;
+    }
+
+    public int getVersiculo() {
+        return versiculo;
+    }
+
+    public void setVersiculo(int versiculo) {
+        this.versiculo = versiculo;
+    }
+
+    public String getTexto() {
+        return texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
+    public String getReferencia() {
+        return getLivro() + " " + getCapitulo() + ":" + getVersiculo();
+    }
+
+    public String getTextWithReference() {
+        return getTexto() + " (" + getReferencia() + ")";
     }
 }

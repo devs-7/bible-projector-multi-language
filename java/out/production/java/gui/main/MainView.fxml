@@ -31,7 +31,7 @@
                   <Insets right="5.0" />
                </HBox.margin>
             </ComboBox>
-            <TextField fx:id="pesquisaTextField" minWidth="-Infinity" prefHeight="25.0" prefWidth="128.0" HBox.hgrow="SOMETIMES">
+            <TextField fx:id="pesquisaTextField" minWidth="-Infinity" onKeyPressed="#onKeyPressed" prefHeight="25.0" prefWidth="128.0" HBox.hgrow="SOMETIMES">
                <HBox.margin>
                   <Insets right="5.0" />
                </HBox.margin>

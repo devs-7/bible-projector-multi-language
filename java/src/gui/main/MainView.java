@@ -1,8 +1,9 @@
 package gui.main;
 
 import com.sun.javafx.stage.StageHelper;
+import exceptions.QueryBibleException;
 import gui.projetor.ProjetorView;
-import helper.Bible;
+import model.Bible;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,7 +17,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import model.BibleText;
+import model.Bible;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -34,12 +35,11 @@ public class MainView implements Initializable {
     @FXML
     private ComboBox<String> versoesComboBox;
 
-    private Stage stageThis;
     private Stage stageTextShow;
 
-    private Pane paneThis;
-
     private ProjetorView projetorView;
+
+    private Bible bible;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -55,6 +55,8 @@ public class MainView implements Initializable {
             e.printStackTrace();
         }
 
+        bible = new Bible();
+
         // Adiciona versões ao combo box e seleciona a primeira versão
         try {
             versoesComboBox.setItems(FXCollections.observableArrayList(Bible.getVersoes()));
@@ -66,14 +68,10 @@ public class MainView implements Initializable {
 
 
         // Listeners
-        pesquisaTextField.setOnKeyPressed(event -> {
+        pesquisaTextField.setOnKeyReleased(event -> {
             switch (event.getCode()) {
                 case ENTER:
                     pesquisar();
-                    break;
-
-                case F4:
-                    pesquisaTextField.selectAll();
                     break;
             }
         });
@@ -94,7 +92,7 @@ public class MainView implements Initializable {
                 break;
 
             case F6:
-                updateTexto();
+                updateTexto(mainTextArea.getText());
                 break;
 
             case PAGE_UP:
@@ -130,33 +128,43 @@ public class MainView implements Initializable {
 
     @FXML
     private void updateTexto() {
-        projetorView.setTexto(mainTextArea.getText());
-        previewLabel.setText(mainTextArea.getText());
+        updateTexto(mainTextArea.getText());
+    }
+
+    private void updateTexto(String texto) {
+        projetorView.setTexto(texto);
+        previewLabel.setText(texto);
     }
 
     @FXML
     private void pesquisar() {
         try {
             String pesquisa = pesquisaTextField.getText();
-            BibleText bibleText = Bible.query(pesquisa, versoesComboBox.getSelectionModel().getSelectedItem());
-            pesquisaTextField.setText(bibleText.getReferencia());
-            mainTextArea.setText(bibleText.getTextWithReference());
-            previewLabel.setText(bibleText.getTextWithReference());
-            updateTexto();
-        } catch (Exception e) {
+            bible.query(pesquisa, versoesComboBox.getSelectionModel().getSelectedItem());
+            pesquisaTextField.setText(bible.getReferencia());
+            mainTextArea.setText(bible.getTextWithReference());
+            previewLabel.setText(bible.getTextWithReference());
+            updateTexto(bible.getTextWithReference());
+        } catch (QueryBibleException e) {
             mainTextArea.setText(e.getMessage());
         }
     }
 
     private void avancarVerso() {
-        System.out.println("next");
+        try {
+            bible.avancarVersiculo();
+            updateTexto(bible.getTextWithReference());
+        } catch (QueryBibleException e) {
+            mainTextArea.setText("Não há versículos posteriores");
+        }
     }
 
     private void voltarVerso() {
-        System.out.println("back");
-    }
-
-    private Stage getStage() {
-        return StageHelper.getStages().get(0);
+        try {
+            bible.voltarVersiculo();
+            updateTexto(bible.getTextWithReference());
+        } catch (QueryBibleException e) {
+            mainTextArea.setText("Não há versículos anteriores");
+        }
     }
 }
