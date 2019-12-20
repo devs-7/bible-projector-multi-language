@@ -2,14 +2,21 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="bible:jar" />
+      <artifact name="Bible projector" />
+      <artifact name="jar" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/gui/main/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/main/MainView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/main/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/main/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/projetor/ProjetorView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/projetor/ProjetorView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/javafx.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/pesquisa/PesquisaView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/pesquisa/PesquisaView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../electron/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../electron/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../electron/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/bible_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/bible_jar/bible.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/bible_jar/data/bible.db" beforeDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,71 +77,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/main/MainView.java">
+        <entry file="file://$PROJECT_DIR$/src/gui/pesquisa/PesquisaView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="161" lean-forward="true" selection-start-line="161" selection-end-line="161" />
-              <folding>
-                <element signature="method#initialize#0;class#MainView#0" />
-                <element signature="e#1191#1568#0" />
-                <element signature="e#1589#1633#0" />
-                <element signature="e#1748#1911#0" />
-                <element signature="e#1932#2043#0" />
-                <element signature="e#2109#2535#0" />
-                <element signature="e#2157#2525#0" />
-                <element signature="method#onKeyPressed#0;class#MainView#0" />
-                <element signature="e#2467#3096#0" />
-                <element signature="e#2680#2727#1" />
-                <element signature="method#show#0;class#MainView#0" />
-                <element signature="e#3234#3406#1" />
-                <element signature="method#updateTexto#1;class#MainView#0" />
-                <element signature="method#pesquisar#0;class#MainView#0" />
-                <element signature="e#3827#4232#0" />
-                <element signature="e#4263#4324#0" />
-                <element signature="method#avancarVerso#0;class#MainView#0" />
-                <element signature="e#4218#4386#0" />
-                <element signature="e#4417#4495#0" />
-                <element signature="method#voltarVerso#0;class#MainView#0" />
-                <element signature="e#4548#4715#0" />
-                <element signature="e#4533#4580#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/projetor/ProjetorView.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="311" selection-start-line="6" selection-start-column="311" selection-end-line="6" selection-end-column="311" />
+            <state relative-caret-position="34">
+              <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/gui/main/MainView.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/Bible.java">
+        <entry file="file://$PROJECT_DIR$/src/gui/pesquisa/PesquisaView.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-              <folding>
-                <element signature="method#query#0;class#Bible#0" />
-                <element signature="method#getVersoes#0;class#Bible#0" />
-                <element signature="method#addJoin#0;class#Bible#0" />
-                <element signature="method#toString#0;class#Bible#0" />
-              </folding>
+            <state relative-caret-position="153">
+              <caret line="9" column="45" lean-forward="true" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
             </state>
           </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
     </leaf>
@@ -142,8 +100,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -183,7 +141,6 @@
         <option value="$PROJECT_DIR$/src/Teste.java" />
         <option value="$PROJECT_DIR$/src/exceptions/QueryBibleException.java" />
         <option value="$PROJECT_DIR$/src/helper/PathHelper.java" />
-        <option value="$PROJECT_DIR$/src/helper/DbController.java" />
         <option value="$PROJECT_DIR$/src/model/BibleText.java" />
         <option value="$PROJECT_DIR$/src/helper/Bible.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
@@ -191,6 +148,8 @@
         <option value="$PROJECT_DIR$/src/gui/main/MainView.java" />
         <option value="$PROJECT_DIR$/src/gui/projetor/ProjetorView.fxml" />
         <option value="$PROJECT_DIR$/src/gui/main/MainView.fxml" />
+        <option value="$PROJECT_DIR$/src/helper/DbController.java" />
+        <option value="$PROJECT_DIR$/src/gui/pesquisa/PesquisaView.fxml" />
       </list>
     </option>
   </component>
@@ -212,6 +171,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -235,13 +195,12 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="gui" type="462c0819:PsiDirectoryNode" />
-              <item name="projetor" type="462c0819:PsiDirectoryNode" />
+              <item name="pesquisa" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -256,7 +215,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.24022989" />
@@ -266,11 +225,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Arquivos\Documentos\GitHub\Bible-projector\java\src\data" />
       <recent name="D:\Arquivos\Documentos\GitHub\Bible-projector\java\data" />
       <recent name="D:\Arquivos\Documentos\GitHub\Bible-projector\java" />
       <recent name="D:\Arquivos\Documentos\GitHub\Bible-projector\java\src" />
       <recent name="D:\Arquivos\Documentos\GitHub\Bible-projector\java\src\datas" />
-      <recent name="D:\Arquivos\Documentos\GitHub\Bible-projector\java\src\data" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -431,7 +390,7 @@
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" weight="0.21203439" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.22063038" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -573,16 +532,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/projetor/ProjetorView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-          <folding>
-            <element signature="method#initialize#0;class#ProjetorView#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_212/javafx-src.zip!/javafx/scene/control/Button.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -659,16 +608,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/helper/DbController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="method#getConnection#0;class#DbController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/BibleText.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_212/src.zip!/java/lang/Exception.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -677,16 +616,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/gui/projetor/ProjetorView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        <state relative-caret-position="102">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#605#606#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/main/MainView.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Bible.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -701,52 +647,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/main/MainView.java">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="161" lean-forward="true" selection-start-line="161" selection-end-line="161" />
+        <state relative-caret-position="170">
+          <caret line="10" column="69" selection-start-line="10" selection-start-column="69" selection-end-line="10" selection-end-column="69" />
           <folding>
-            <element signature="method#initialize#0;class#MainView#0" />
-            <element signature="e#1191#1568#0" />
-            <element signature="e#1589#1633#0" />
-            <element signature="e#1748#1911#0" />
-            <element signature="e#1932#2043#0" />
-            <element signature="e#2109#2535#0" />
-            <element signature="e#2157#2525#0" />
-            <element signature="method#onKeyPressed#0;class#MainView#0" />
-            <element signature="e#2467#3096#0" />
-            <element signature="e#2680#2727#1" />
-            <element signature="method#show#0;class#MainView#0" />
-            <element signature="e#3234#3406#1" />
-            <element signature="method#updateTexto#1;class#MainView#0" />
-            <element signature="method#pesquisar#0;class#MainView#0" />
-            <element signature="e#3827#4232#0" />
-            <element signature="e#4263#4324#0" />
-            <element signature="method#avancarVerso#0;class#MainView#0" />
-            <element signature="e#4218#4386#0" />
-            <element signature="e#4417#4495#0" />
-            <element signature="method#voltarVerso#0;class#MainView#0" />
-            <element signature="e#4548#4715#0" />
-            <element signature="e#4533#4580#0" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#577#578#0" expanded="true" />
+            <element signature="e#605#606#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/projetor/ProjetorView.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="6" column="311" selection-start-line="6" selection-start-column="311" selection-end-line="6" selection-end-column="311" />
+          <caret line="6" column="300" selection-start-line="6" selection-start-column="300" selection-end-line="6" selection-end-column="300" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/main/MainView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="50" column="50" selection-start-line="50" selection-start-column="50" selection-end-line="50" selection-end-column="50" />
+          <folding>
+            <element signature="method#show#0;class#MainView#0" />
+            <element signature="method#updateTexto#1;class#MainView#0" />
+            <element signature="method#pesquisar#0;class#MainView#0" />
+            <element signature="method#avancarVerso#0;class#MainView#0" />
+            <element signature="e#4218#4386#0" />
+            <element signature="e#4417#4495#0" />
+            <element signature="method#voltarVerso#0;class#MainView#0" />
+            <element signature="e#4548#4715#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/main/MainView.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+    <entry file="file://$PROJECT_DIR$/src/helper/DbController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="65" selection-start-line="5" selection-start-column="65" selection-end-line="5" selection-end-column="65" />
+          <folding>
+            <element signature="method#getConnection#0;class#DbController#0" />
+            <element signature="e#144#278#0" />
+            <element signature="e#312#375#0" />
+            <element signature="method#getStatement#0;class#DbController#0" />
+            <element signature="method#execute#0;class#DbController#0" />
+            <element signature="method#query#0;class#DbController#0" />
+          </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/pesquisa/PesquisaView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/pesquisa/PesquisaView.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="45" lean-forward="true" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
   </component>
   <component name="masterDetails">
@@ -759,7 +725,7 @@
               <type id="artifact" />
             </show-content>
           </artifact-editor>
-          <last-edited>bible:jar</last-edited>
+          <last-edited>Bible projector</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
