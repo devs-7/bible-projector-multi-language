@@ -39,7 +39,6 @@ public class Bible {
             livCapVer.remove(livCapVer.size() - 1);
             String liv = String.join(" ", livCapVer);
 
-
             String sql = addJoin(
                     "versao = '" + versao + "' AND livros._sigla like '%" + liv + "%' AND textos.capitulo = " + cap + " AND textos.versiculo = " + ver + ""
             );
@@ -84,6 +83,22 @@ public class Bible {
                 "JOIN livros on textos.id_livro = livros.id " +
                 "JOIN versoes on textos.id_versao = versoes.id " +
                 "WHERE " + s;
+    }
+
+    public static ArrayList<String> getLivrosBiblia() {
+        ArrayList<String> livros = new ArrayList<>();
+
+        try {
+            ResultSet resultSet = DbController.query("SELECT nome FROM livros ORDER BY id");
+            while (resultSet.next()) {
+                String livro = resultSet.getString("nome");
+                livros.add(livro);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return livros;
     }
 
     @Override

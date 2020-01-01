@@ -31,11 +31,11 @@
                   <Insets right="5.0" />
                </HBox.margin>
             </ComboBox>
-            <TextField fx:id="pesquisaTextField" minWidth="-Infinity" onKeyPressed="#onKeyPressed" prefHeight="25.0" prefWidth="128.0" HBox.hgrow="SOMETIMES">
+            <ComboBox fx:id="pesquisaComboBox" editable="true" maxWidth="1.7976931348623157E308" onKeyPressed="#onKeyPressed" onKeyReleased="#onKeyReleasedPesquisaComboBox" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets right="5.0" />
                </HBox.margin>
-            </TextField>
+            </ComboBox>
             <Button fx:id="pesquisarButton" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#pesquisar" text="Pesquisar">
                <HBox.margin>
                   <Insets right="5.0" />

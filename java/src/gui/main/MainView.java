@@ -1,6 +1,5 @@
 package gui.main;
 
-import com.sun.javafx.stage.StageHelper;
 import exceptions.QueryBibleException;
 import gui.projetor.ProjetorView;
 import model.Bible;
@@ -14,10 +13,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import model.Bible;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,9 +22,7 @@ import java.util.ResourceBundle;
 
 public class MainView implements Initializable {
     @FXML
-    private TextField pesquisaTextField;
-    @FXML
-    private Button pesquisarButton;
+    private ComboBox<String> pesquisaComboBox;
     @FXML
     private TextArea mainTextArea;
     @FXML
@@ -43,18 +38,7 @@ public class MainView implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            stageTextShow = new Stage();
-            Parent root = null;
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/projetor/ProjetorView.fxml"));
-            root = loader.load();
-            projetorView = loader.getController();
-            stageTextShow.setTitle("Projetor");
-            stageTextShow.setScene(new Scene(root));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        stageTextShow = createStageTextShow();
         bible = new Bible();
 
         // Adiciona versões ao combo box e seleciona a primeira versão
@@ -66,23 +50,24 @@ public class MainView implements Initializable {
             mainTextArea.setText("Banco de dados não encontrado");
         }
 
+//        pesquisaComboBox.setItems(FXCollections.observableArrayList(Bible.getLivrosBiblia()));
+    }
 
-        // Listeners
-        pesquisaTextField.setOnKeyReleased(event -> {
-            switch (event.getCode()) {
-                case ENTER:
-                    pesquisar();
-                    break;
-            }
-        });
+    @FXML
+    private void onKeyReleasedPesquisaComboBox(KeyEvent e) {
+        switch (e.getCode()) {
+            case ENTER:
+                pesquisar();
+                break;
+        }
     }
 
     @FXML
     private void onKeyPressed(KeyEvent e) {
         switch (e.getCode()) {
             case F4:
-                pesquisaTextField.requestFocus();
-                pesquisaTextField.selectAll();
+                pesquisaComboBox.getEditor().requestFocus();
+                pesquisaComboBox.getEditor().selectAll();
                 break;
 
             case F5:
@@ -139,9 +124,9 @@ public class MainView implements Initializable {
     @FXML
     private void pesquisar() {
         try {
-            String pesquisa = pesquisaTextField.getText();
+            String pesquisa = pesquisaComboBox.getEditor().getText();
             bible.query(pesquisa, versoesComboBox.getSelectionModel().getSelectedItem());
-            pesquisaTextField.setText(bible.getReferencia());
+            pesquisaComboBox.getEditor().setText(bible.getReferencia());
             mainTextArea.setText(bible.getTextWithReference());
             previewLabel.setText(bible.getTextWithReference());
             updateTexto(bible.getTextWithReference());
@@ -167,6 +152,22 @@ public class MainView implements Initializable {
             updateTexto(bible.getTextWithReference());
         } catch (QueryBibleException e) {
             mainTextArea.setText("Não há versículos anteriores");
+        }
+    }
+
+    private Stage createStageTextShow() {
+        try {
+            Stage stageTextShow = new Stage();
+            Parent root = null;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/projetor/ProjetorView.fxml"));
+            root = loader.load();
+            projetorView = loader.getController();
+            stageTextShow.setTitle("Projetor");
+            stageTextShow.setScene(new Scene(root));
+            return stageTextShow;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }
