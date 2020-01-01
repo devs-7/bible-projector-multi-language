@@ -8,7 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/gui/list_view_cell/liv_cap_ver_combo_box_list_liew_cell/LivCapVerComboBoxListViewCell.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/list_view_cell/liv_cap_ver_combo_box_list_liew_cell/LivCapVerComboBoxListViewCell.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Livro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java/gui/main/MainView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/gui/main/MainView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java/gui/main/MainView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/gui/main/MainView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java/gui/main/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/gui/main/MainView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/main/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/main/MainView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/main/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/main/MainView.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,8 +79,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/main/MainView.fxml">
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
+            <state relative-caret-position="34">
+              <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
             </state>
           </provider>
           <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
@@ -81,8 +89,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/main/MainView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+            <state relative-caret-position="234">
+              <caret line="58" column="74" selection-start-line="58" selection-start-column="74" selection-end-line="58" selection-end-column="74" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#onKeyReleasedPesquisaComboBox#0;class#MainView#0" />
@@ -93,9 +101,9 @@
                 <element signature="method#show#0;class#MainView#0" />
                 <element signature="e#3074#3246#1" />
                 <element signature="e#3395#3433#1" />
-                <element signature="e#2931#2932#0" expanded="true" />
+                <element signature="e#3248#3249#0" expanded="true" />
                 <element signature="e#3476#3528#1" />
-                <element signature="e#3026#3027#0" expanded="true" />
+                <element signature="e#3343#3344#0" expanded="true" />
                 <element signature="method#updateTexto#1;class#MainView#0" />
                 <element signature="method#pesquisar#0;class#MainView#0" />
                 <element signature="e#3667#4072#0" />
@@ -113,10 +121,32 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/list_view_cell/liv_cap_ver_combo_box_list_liew_cell/LivCapVerComboBoxListViewCell.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="319">
+              <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/list_view_cell/liv_cap_ver_combo_box_list_liew_cell/LivCapVerComboBoxListViewCell.fxml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="141" selection-start-line="8" selection-start-column="141" selection-end-line="8" selection-end-column="141" />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Bible.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="163">
-              <caret line="94" column="34" lean-forward="true" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="34" />
+              <caret line="94" column="34" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="34" />
               <folding>
                 <element signature="method#avancarVersiculo#0;class#Bible#0" />
                 <element signature="method#voltarVersiculo#0;class#Bible#0" />
@@ -138,8 +168,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -188,7 +218,12 @@
         <option value="$PROJECT_DIR$/src/helper/DbController.java" />
         <option value="$PROJECT_DIR$/src/gui/pesquisa/PesquisaView.fxml" />
         <option value="$PROJECT_DIR$/src/model/Bible.java" />
+        <option value="$PROJECT_DIR$/src/gui/list_view_cell/LivCapVerComboBoxListViewCell/LivCapVerComboBoxListViewCell.fxml" />
+        <option value="$PROJECT_DIR$/src/gui/list_view_cell/LivCapVerComboBoxListViewCell/LivCapVerComboBoxListViewCell.java" />
+        <option value="$PROJECT_DIR$/src/model/Livro.java" />
         <option value="$PROJECT_DIR$/src/gui/main/MainView.java" />
+        <option value="$PROJECT_DIR$/src/gui/list_view_cell/liv_cap_ver_combo_box_list_liew_cell/LivCapVerComboBoxListViewCell.fxml" />
+        <option value="$PROJECT_DIR$/src/gui/list_view_cell/liv_cap_ver_combo_box_list_liew_cell/LivCapVerComboBoxListViewCell.java" />
         <option value="$PROJECT_DIR$/src/gui/main/MainView.fxml" />
       </list>
     </option>
@@ -228,6 +263,27 @@
               <item name="java" type="b2602c69:ProjectViewProjectNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+              <item name="list_view_cell" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="java" type="b2602c69:ProjectViewProjectNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+              <item name="list_view_cell" type="462c0819:PsiDirectoryNode" />
+              <item name="liv_cap_ver_combo_box_list_liew_cell" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="java" type="b2602c69:ProjectViewProjectNode" />
@@ -664,18 +720,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="69" selection-start-line="10" selection-start-column="69" selection-end-line="10" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#577#578#0" expanded="true" />
-            <element signature="e#605#606#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/projetor/ProjetorView.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -717,7 +761,7 @@
     <entry file="file://$PROJECT_DIR$/src/model/Bible.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
-          <caret line="94" column="34" lean-forward="true" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="34" />
+          <caret line="94" column="34" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="34" />
           <folding>
             <element signature="method#avancarVersiculo#0;class#Bible#0" />
             <element signature="method#voltarVersiculo#0;class#Bible#0" />
@@ -733,10 +777,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#577#578#0" expanded="true" />
+            <element signature="e#605#606#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Livro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="57" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="57" />
+          <folding>
+            <element signature="e#129#130#0" expanded="true" />
+            <element signature="e#156#157#0" expanded="true" />
+            <element signature="e#196#197#0" expanded="true" />
+            <element signature="e#228#229#0" expanded="true" />
+            <element signature="e#272#273#0" expanded="true" />
+            <element signature="e#313#314#0" expanded="true" />
+            <element signature="e#380#381#0" expanded="true" />
+            <element signature="e#440#441#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/main/MainView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+        <state relative-caret-position="234">
+          <caret line="58" column="74" selection-start-line="58" selection-start-column="74" selection-end-line="58" selection-end-column="74" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#onKeyReleasedPesquisaComboBox#0;class#MainView#0" />
@@ -747,9 +820,9 @@
             <element signature="method#show#0;class#MainView#0" />
             <element signature="e#3074#3246#1" />
             <element signature="e#3395#3433#1" />
-            <element signature="e#2931#2932#0" expanded="true" />
+            <element signature="e#3248#3249#0" expanded="true" />
             <element signature="e#3476#3528#1" />
-            <element signature="e#3026#3027#0" expanded="true" />
+            <element signature="e#3343#3344#0" expanded="true" />
             <element signature="method#updateTexto#1;class#MainView#0" />
             <element signature="method#pesquisar#0;class#MainView#0" />
             <element signature="e#3667#4072#0" />
@@ -765,10 +838,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/list_view_cell/liv_cap_ver_combo_box_list_liew_cell/LivCapVerComboBoxListViewCell.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="141" selection-start-line="8" selection-start-column="141" selection-end-line="8" selection-end-column="141" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/list_view_cell/liv_cap_ver_combo_box_list_liew_cell/LivCapVerComboBoxListViewCell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/main/MainView.fxml">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
+        <state relative-caret-position="34">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
         </state>
       </provider>
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />

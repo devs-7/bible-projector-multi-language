@@ -1,6 +1,7 @@
 package gui.main;
 
 import exceptions.QueryBibleException;
+import gui.list_view_cell.liv_cap_ver_combo_box_list_liew_cell.LivCapVerComboBoxListViewCell;
 import gui.projetor.ProjetorView;
 import model.Bible;
 import javafx.collections.FXCollections;
@@ -15,14 +16,16 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import model.Livro;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 
 public class MainView implements Initializable {
     @FXML
-    private ComboBox<String> pesquisaComboBox;
+    private ComboBox<Livro> pesquisaComboBox;
     @FXML
     private TextArea mainTextArea;
     @FXML
@@ -50,7 +53,11 @@ public class MainView implements Initializable {
             mainTextArea.setText("Banco de dados não encontrado");
         }
 
-//        pesquisaComboBox.setItems(FXCollections.observableArrayList(Bible.getLivrosBiblia()));
+        ArrayList<Livro> livros = new ArrayList<>();
+        livros.add(new Livro("Gn", new int[]{3, 9}));
+
+        pesquisaComboBox.setItems(FXCollections.observableArrayList(livros));
+        pesquisaComboBox.setCellFactory(param -> new LivCapVerComboBoxListViewCell());
     }
 
     @FXML
