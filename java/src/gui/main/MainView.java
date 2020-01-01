@@ -1,7 +1,6 @@
 package gui.main;
 
 import exceptions.QueryBibleException;
-import gui.list_view_cell.liv_cap_ver_combo_box_list_liew_cell.LivCapVerComboBoxListViewCell;
 import gui.projetor.ProjetorView;
 import model.Bible;
 import javafx.collections.FXCollections;
@@ -25,7 +24,7 @@ import java.util.ResourceBundle;
 
 public class MainView implements Initializable {
     @FXML
-    private ComboBox<Livro> pesquisaComboBox;
+    private TextField pesquisaComboBox;
     @FXML
     private TextArea mainTextArea;
     @FXML
@@ -52,16 +51,10 @@ public class MainView implements Initializable {
             e.printStackTrace();
             mainTextArea.setText("Banco de dados não encontrado");
         }
-
-        ArrayList<Livro> livros = new ArrayList<>();
-        livros.add(new Livro("Gn", new int[]{3, 9}));
-
-        pesquisaComboBox.setItems(FXCollections.observableArrayList(livros));
-        pesquisaComboBox.setCellFactory(param -> new LivCapVerComboBoxListViewCell());
     }
 
     @FXML
-    private void onKeyReleasedPesquisaComboBox(KeyEvent e) {
+    private void onKeyReleasedPesquisaTextField(KeyEvent e) {
         switch (e.getCode()) {
             case ENTER:
                 pesquisar();
@@ -73,8 +66,8 @@ public class MainView implements Initializable {
     private void onKeyPressed(KeyEvent e) {
         switch (e.getCode()) {
             case F4:
-                pesquisaComboBox.getEditor().requestFocus();
-                pesquisaComboBox.getEditor().selectAll();
+                pesquisaComboBox.requestFocus();
+                pesquisaComboBox.selectAll();
                 break;
 
             case F5:
@@ -131,9 +124,9 @@ public class MainView implements Initializable {
     @FXML
     private void pesquisar() {
         try {
-            String pesquisa = pesquisaComboBox.getEditor().getText();
+            String pesquisa = pesquisaComboBox.getText();
             bible.query(pesquisa, versoesComboBox.getSelectionModel().getSelectedItem());
-            pesquisaComboBox.getEditor().setText(bible.getReferencia());
+            pesquisaComboBox.setText(bible.getReferencia());
             mainTextArea.setText(bible.getTextWithReference());
             previewLabel.setText(bible.getTextWithReference());
             updateTexto(bible.getTextWithReference());

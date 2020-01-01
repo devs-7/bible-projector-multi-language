@@ -8,13 +8,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/gui/list_view_cell/liv_cap_ver_combo_box_list_liew_cell/LivCapVerComboBoxListViewCell.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/list_view_cell/liv_cap_ver_combo_box_list_liew_cell/LivCapVerComboBoxListViewCell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Livro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java/gui/list_view_cell/liv_cap_ver_combo_box_list_liew_cell/LivCapVerComboBoxListViewCell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java/gui/list_view_cell/liv_cap_ver_combo_box_list_liew_cell/LivCapVerComboBoxListViewCell.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/java/gui/main/MainView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/gui/main/MainView$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/java/gui/main/MainView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/gui/main/MainView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/java/gui/main/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/gui/main/MainView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/list_view_cell/liv_cap_ver_combo_box_list_liew_cell/LivCapVerComboBoxListViewCell.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/list_view_cell/liv_cap_ver_combo_box_list_liew_cell/LivCapVerComboBoxListViewCell.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/main/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/main/MainView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/main/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/main/MainView.java" afterDir="false" />
     </list>
@@ -78,68 +79,47 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/main/MainView.fxml">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+            <state relative-caret-position="-15">
+              <caret line="45" column="10" lean-forward="true" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
             </state>
           </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/main/MainView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="58" column="74" selection-start-line="58" selection-start-column="74" selection-end-line="58" selection-end-column="74" />
+            <state relative-caret-position="199">
+              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#initialize#0;class#MainView#0" />
+                <element signature="e#1289#1452#0" />
+                <element signature="e#1473#1584#0" />
                 <element signature="method#onKeyReleasedPesquisaComboBox#0;class#MainView#0" />
-                <element signature="e#2329#2432#0" />
+                <element signature="e#1966#2053#0" />
                 <element signature="method#onKeyPressed#0;class#MainView#0" />
-                <element signature="e#2307#2936#0" />
-                <element signature="e#2520#2567#1" />
+                <element signature="e#2144#2795#0" />
+                <element signature="e#2379#2426#1" />
                 <element signature="method#show#0;class#MainView#0" />
-                <element signature="e#3074#3246#1" />
-                <element signature="e#3395#3433#1" />
-                <element signature="e#3248#3249#0" expanded="true" />
-                <element signature="e#3476#3528#1" />
-                <element signature="e#3343#3344#0" expanded="true" />
+                <element signature="e#2933#3105#1" />
                 <element signature="method#updateTexto#1;class#MainView#0" />
                 <element signature="method#pesquisar#0;class#MainView#0" />
-                <element signature="e#3667#4072#0" />
-                <element signature="e#4103#4164#0" />
+                <element signature="e#3526#3953#0" />
+                <element signature="e#3984#4045#0" />
                 <element signature="method#avancarVerso#0;class#MainView#0" />
-                <element signature="e#4218#4386#0" />
-                <element signature="e#4417#4495#0" />
+                <element signature="e#4099#4267#0" />
+                <element signature="e#4298#4376#0" />
                 <element signature="method#voltarVerso#0;class#MainView#0" />
-                <element signature="e#4548#4715#0" />
-                <element signature="e#4746#4823#0" />
+                <element signature="e#4429#4596#0" />
+                <element signature="e#4627#4704#0" />
                 <element signature="method#createStageTextShow#0;class#MainView#0" />
+                <element signature="e#4766#5183#0" />
+                <element signature="e#5204#5273#0" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/list_view_cell/liv_cap_ver_combo_box_list_liew_cell/LivCapVerComboBoxListViewCell.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/list_view_cell/liv_cap_ver_combo_box_list_liew_cell/LivCapVerComboBoxListViewCell.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="141" selection-start-line="8" selection-start-column="141" selection-end-line="8" selection-end-column="141" />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -151,11 +131,7 @@
                 <element signature="method#avancarVersiculo#0;class#Bible#0" />
                 <element signature="method#voltarVersiculo#0;class#Bible#0" />
                 <element signature="method#query#0;class#Bible#0" />
-                <element signature="e#2217#2325#0" />
                 <element signature="method#getVersoes#0;class#Bible#0" />
-                <element signature="e#2396#2691#0" />
-                <element signature="e#2578#2653#1" />
-                <element signature="e#2712#2781#0" />
                 <element signature="method#addJoin#0;class#Bible#0" />
                 <element signature="method#toString#0;class#Bible#0" />
               </folding>
@@ -180,6 +156,8 @@
       <find>catch (</find>
       <find>String</find>
       <find>apoca</find>
+      <find>ComboBox</find>
+      <find>Menu</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -221,9 +199,9 @@
         <option value="$PROJECT_DIR$/src/gui/list_view_cell/LivCapVerComboBoxListViewCell/LivCapVerComboBoxListViewCell.fxml" />
         <option value="$PROJECT_DIR$/src/gui/list_view_cell/LivCapVerComboBoxListViewCell/LivCapVerComboBoxListViewCell.java" />
         <option value="$PROJECT_DIR$/src/model/Livro.java" />
-        <option value="$PROJECT_DIR$/src/gui/main/MainView.java" />
         <option value="$PROJECT_DIR$/src/gui/list_view_cell/liv_cap_ver_combo_box_list_liew_cell/LivCapVerComboBoxListViewCell.fxml" />
         <option value="$PROJECT_DIR$/src/gui/list_view_cell/liv_cap_ver_combo_box_list_liew_cell/LivCapVerComboBoxListViewCell.java" />
+        <option value="$PROJECT_DIR$/src/gui/main/MainView.java" />
         <option value="$PROJECT_DIR$/src/gui/main/MainView.fxml" />
       </list>
     </option>
@@ -246,7 +224,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -275,27 +253,13 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="gui" type="462c0819:PsiDirectoryNode" />
-              <item name="list_view_cell" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
-              <item name="list_view_cell" type="462c0819:PsiDirectoryNode" />
-              <item name="liv_cap_ver_combo_box_list_liew_cell" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -484,7 +448,7 @@
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" weight="0.22636104" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.22636104" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -493,7 +457,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32974428" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2732167" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2732167" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -721,12 +685,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/projetor/ProjetorView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="300" selection-start-line="6" selection-start-column="300" selection-end-line="6" selection-end-column="300" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/helper/DbController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -751,41 +715,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/pesquisa/PesquisaView.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Bible.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="94" column="34" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="34" />
-          <folding>
-            <element signature="method#avancarVersiculo#0;class#Bible#0" />
-            <element signature="method#voltarVersiculo#0;class#Bible#0" />
-            <element signature="method#query#0;class#Bible#0" />
-            <element signature="e#2217#2325#0" />
-            <element signature="method#getVersoes#0;class#Bible#0" />
-            <element signature="e#2396#2691#0" />
-            <element signature="e#2578#2653#1" />
-            <element signature="e#2712#2781#0" />
-            <element signature="method#addJoin#0;class#Bible#0" />
-            <element signature="method#toString#0;class#Bible#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#577#578#0" expanded="true" />
-            <element signature="e#605#606#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -806,63 +739,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/main/MainView.java">
+    <entry file="file://$PROJECT_DIR$/src/gui/list_view_cell/liv_cap_ver_combo_box_list_liew_cell/LivCapVerComboBoxListViewCell.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="141" selection-start-line="7" selection-start-column="141" selection-end-line="7" selection-end-column="141" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="58" column="74" selection-start-line="58" selection-start-column="74" selection-end-line="58" selection-end-column="74" />
+        <state relative-caret-position="238">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#onKeyReleasedPesquisaComboBox#0;class#MainView#0" />
-            <element signature="e#2329#2432#0" />
-            <element signature="method#onKeyPressed#0;class#MainView#0" />
-            <element signature="e#2307#2936#0" />
-            <element signature="e#2520#2567#1" />
-            <element signature="method#show#0;class#MainView#0" />
-            <element signature="e#3074#3246#1" />
-            <element signature="e#3395#3433#1" />
-            <element signature="e#3248#3249#0" expanded="true" />
-            <element signature="e#3476#3528#1" />
-            <element signature="e#3343#3344#0" expanded="true" />
-            <element signature="method#updateTexto#1;class#MainView#0" />
-            <element signature="method#pesquisar#0;class#MainView#0" />
-            <element signature="e#3667#4072#0" />
-            <element signature="e#4103#4164#0" />
-            <element signature="method#avancarVerso#0;class#MainView#0" />
-            <element signature="e#4218#4386#0" />
-            <element signature="e#4417#4495#0" />
-            <element signature="method#voltarVerso#0;class#MainView#0" />
-            <element signature="e#4548#4715#0" />
-            <element signature="e#4746#4823#0" />
-            <element signature="method#createStageTextShow#0;class#MainView#0" />
+            <element signature="e#577#578#0" expanded="true" />
+            <element signature="e#605#606#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/list_view_cell/liv_cap_ver_combo_box_list_liew_cell/LivCapVerComboBoxListViewCell.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="141" selection-start-line="8" selection-start-column="141" selection-end-line="8" selection-end-column="141" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/list_view_cell/liv_cap_ver_combo_box_list_liew_cell/LivCapVerComboBoxListViewCell.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
+        <state relative-caret-position="254">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/main/MainView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#initialize#0;class#MainView#0" />
+            <element signature="e#1289#1452#0" />
+            <element signature="e#1473#1584#0" />
+            <element signature="method#onKeyReleasedPesquisaComboBox#0;class#MainView#0" />
+            <element signature="e#1966#2053#0" />
+            <element signature="method#onKeyPressed#0;class#MainView#0" />
+            <element signature="e#2144#2795#0" />
+            <element signature="e#2379#2426#1" />
+            <element signature="method#show#0;class#MainView#0" />
+            <element signature="e#2933#3105#1" />
+            <element signature="method#updateTexto#1;class#MainView#0" />
+            <element signature="method#pesquisar#0;class#MainView#0" />
+            <element signature="e#3526#3953#0" />
+            <element signature="e#3984#4045#0" />
+            <element signature="method#avancarVerso#0;class#MainView#0" />
+            <element signature="e#4099#4267#0" />
+            <element signature="e#4298#4376#0" />
+            <element signature="method#voltarVerso#0;class#MainView#0" />
+            <element signature="e#4429#4596#0" />
+            <element signature="e#4627#4704#0" />
+            <element signature="method#createStageTextShow#0;class#MainView#0" />
+            <element signature="e#4766#5183#0" />
+            <element signature="e#5204#5273#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Bible.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="94" column="34" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="34" />
+          <folding>
+            <element signature="method#avancarVersiculo#0;class#Bible#0" />
+            <element signature="method#voltarVersiculo#0;class#Bible#0" />
+            <element signature="method#query#0;class#Bible#0" />
+            <element signature="method#getVersoes#0;class#Bible#0" />
+            <element signature="method#addJoin#0;class#Bible#0" />
+            <element signature="method#toString#0;class#Bible#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/main/MainView.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        <state relative-caret-position="-15">
+          <caret line="45" column="10" lean-forward="true" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
   </component>
   <component name="masterDetails">
