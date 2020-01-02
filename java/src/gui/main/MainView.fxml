@@ -13,86 +13,75 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="paneThis" onKeyPressed="#onKeyPressed" prefHeight="600.0" prefWidth="800.0"
-            xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.172-ea"
-            fx:controller="gui.main.MainView">
+<AnchorPane fx:id="paneThis" onKeyPressed="#onKeyPressed" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.main.MainView">
     <children>
-        <TextArea fx:id="mainTextArea" layoutX="12.0" layoutY="49.0" onKeyPressed="#onKeyPressed" prefHeight="173.0"
-                  wrapText="true" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="500.0"
-                  AnchorPane.topAnchor="50.0">
+        <TextArea fx:id="mainTextArea" layoutX="12.0" layoutY="49.0" onKeyPressed="#onKeyPressed" prefHeight="173.0" wrapText="true" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="50.0">
             <font>
-                <Font size="14.0"/>
+                <Font size="14.0" />
             </font>
         </TextArea>
-        <TextArea layoutX="12.0" layoutY="235.0" onKeyPressed="#onKeyPressed" prefHeight="189.0" prefWidth="88.0"
-                  AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="500.0"
-                  AnchorPane.topAnchor="235.0"/>
-        <TextArea layoutX="110.0" layoutY="373.0" onKeyPressed="#onKeyPressed" prefHeight="68.0" prefWidth="478.0"
-                  AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="373.0"/>
-        <Label layoutX="110.0" layoutY="60.0" prefHeight="311.0" prefWidth="478.0" style="-fx-background-color: black;"
-               AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="50.0"/>
-        <Label fx:id="previewLabel" alignment="CENTER" layoutX="312.0" layoutY="71.0" prefHeight="266.0"
-               prefWidth="401.0" style="-fx-background-color: black;" text="Projetor bíblico" textFill="WHITE"
-               wrapText="true" AnchorPane.rightAnchor="49.0" AnchorPane.topAnchor="71.0">
+        <TextArea layoutX="12.0" layoutY="235.0" onKeyPressed="#onKeyPressed" prefHeight="189.0" prefWidth="88.0" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="235.0" />
+        <TextArea layoutX="110.0" layoutY="373.0" onKeyPressed="#onKeyPressed" prefHeight="68.0" prefWidth="478.0" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="373.0" />
+        <Label layoutX="110.0" layoutY="60.0" prefHeight="311.0" prefWidth="478.0" style="-fx-background-color: black;" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="50.0" />
+        <Label fx:id="previewLabel" alignment="CENTER" layoutX="312.0" layoutY="71.0" prefHeight="266.0" prefWidth="401.0" style="-fx-background-color: black;" text="Projetor bíblico" textFill="WHITE" wrapText="true" AnchorPane.rightAnchor="49.0" AnchorPane.topAnchor="71.0">
             <font>
-                <Font name="Berlin Sans FB" size="20.0"/>
+                <Font name="Berlin Sans FB" size="20.0" />
             </font>
         </Label>
-        <HBox layoutX="92.0" layoutY="14.0" onKeyPressed="#onKeyPressed" spacing="8.0" AnchorPane.leftAnchor="12.0"
-              AnchorPane.rightAnchor="12.0">
+        <HBox alignment="CENTER" layoutX="92.0" layoutY="14.0" onKeyPressed="#onKeyPressed" spacing="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <ComboBox fx:id="versoesComboBox" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0"
-                          prefWidth="97.0" promptText="Versão">
+                <ComboBox fx:id="versoesComboBox" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="97.0" promptText="Versão">
                     <HBox.margin>
-                        <Insets right="5.0"/>
+                        <Insets right="5.0" />
                     </HBox.margin>
                 </ComboBox>
-                <TextField fx:id="pesquisaComboBox" editable="true" maxWidth="1.7976931348623157E308"
-                           onKeyPressed="#onKeyPressed" onKeyReleased="#onKeyReleasedPesquisaTextField"
-                           HBox.hgrow="ALWAYS">
-                    <HBox.margin>
-                        <Insets/>
-                    </HBox.margin>
-                </TextField>
-                <MenuButton mnemonicParsing="false" text="Textos">
+                <MenuButton maxWidth="1.7976931348623157E308" mnemonicParsing="false" HBox.hgrow="ALWAYS">
                     <items>
                         <Menu mnemonicParsing="false" text="Gênesis">
                             <items>
-                                <MenuItem mnemonicParsing="false" text="1"/>
-                                <MenuItem mnemonicParsing="false" text="2"/>
+                                <MenuItem mnemonicParsing="false" text="1" />
+                                <MenuItem mnemonicParsing="false" text="2" />
                             </items>
                         </Menu>
-                        <MenuItem mnemonicParsing="false" text="Action 1"/>
-                        <MenuItem mnemonicParsing="false" text="Action 2"/>
+                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                        <MenuItem mnemonicParsing="false" text="Action 2" />
                     </items>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <graphic>
+                      <TextField fx:id="pesquisaComboBox" editable="true" onKeyPressed="#onKeyPressed" onKeyReleased="#onKeyReleasedPesquisaTextField" />
+               </graphic>
+               <padding>
+                  <Insets bottom="-4.0" left="-8.0" top="-4.0" />
+               </padding>
                 </MenuButton>
-                <Button fx:id="pesquisarButton" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
-                        onAction="#pesquisar" text="Pesquisar">
+                <Button fx:id="pesquisarButton" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#pesquisar" text="Pesquisar">
                     <HBox.margin>
-                        <Insets/>
+                        <Insets />
                     </HBox.margin>
                 </Button>
                 <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#show" text="Show">
                     <HBox.margin>
-                        <Insets/>
+                        <Insets />
                     </HBox.margin>
                 </Button>
-                <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#updateTexto"
-                        text="Atualizar">
+                <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#updateTexto" text="Atualizar">
                     <HBox.margin>
-                        <Insets/>
+                        <Insets />
                     </HBox.margin>
                 </Button>
                 <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="Ajuda">
                     <HBox.margin>
-                        <Insets/>
+                        <Insets />
                     </HBox.margin>
                 </Button>
-                <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity"
-                       prefHeight="25.0" prefWidth="39.0" text="Fonte:"/>
-                <TextField maxWidth="-Infinity" minWidth="-Infinity" onKeyPressed="#onKeyPressed" prefHeight="25.0"
-                           prefWidth="42.0" HBox.hgrow="SOMETIMES"/>
+                <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="39.0" text="Fonte:" />
+                <TextField maxWidth="-Infinity" minWidth="-Infinity" onKeyPressed="#onKeyPressed" prefWidth="42.0" HBox.hgrow="SOMETIMES" />
             </children>
+            <padding>
+                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+            </padding>
         </HBox>
     </children>
 </AnchorPane>

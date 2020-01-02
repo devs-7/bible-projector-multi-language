@@ -2,28 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19ad6275-3baf-4711-ac0a-4eb393606654" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../java/.idea/libraries/sqlite_jdbc_3_7_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/src/Teste.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/src/helper/Bible.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../java/src/helper/DbController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../data/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../java/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../java/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../java/java.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/out/production/java/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../java/out/production/java/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/out/production/java/helper/S.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/out/production/java/view/main/MainView$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/out/production/java/view/main/MainView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/out/production/java/view/main/MainView.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/out/production/java/view/projetor/ProjetorView$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/out/production/java/view/projetor/ProjetorView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/out/production/java/view/projetor/ProjetorView.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/src/helper/S.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/src/view/main/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../java/src/gui/main/MainView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/src/view/main/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java/src/gui/main/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/src/view/projetor/ProjetorView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../java/src/gui/projetor/ProjetorView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/src/view/projetor/ProjetorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java/src/gui/projetor/ProjetorView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/out/production/java/gui/main/MainView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../java/out/production/java/gui/main/MainView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/out/production/java/gui/main/MainView.class" beforeDir="false" afterPath="$PROJECT_DIR$/../java/out/production/java/gui/main/MainView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/out/production/java/gui/main/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../java/out/production/java/gui/main/MainView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/src/gui/main/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../java/src/gui/main/MainView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/src/gui/main/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java/src/gui/main/MainView.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,8 +20,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="48" column="29" lean-forward="true" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+            <state relative-caret-position="646">
+              <caret line="48" column="29" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -49,7 +33,7 @@
         <entry file="file://$PROJECT_DIR$/helper/bible.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
-              <caret line="27" column="21" lean-forward="true" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+              <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
               <folding>
                 <element signature="e#1040#1186#0" />
                 <element signature="e#1053#1185#0" />
@@ -114,6 +98,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -125,7 +110,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -215,7 +199,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15585332" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -369,8 +352,8 @@
     <entry file="file://$PROJECT_DIR$/teste.py" />
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="48" column="29" lean-forward="true" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+        <state relative-caret-position="646">
+          <caret line="48" column="29" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -387,7 +370,7 @@
     <entry file="file://$PROJECT_DIR$/helper/bible.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
-          <caret line="27" column="21" lean-forward="true" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
           <folding>
             <element signature="e#1040#1186#0" />
             <element signature="e#1053#1185#0" />
