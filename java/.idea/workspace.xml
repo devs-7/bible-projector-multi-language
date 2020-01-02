@@ -8,10 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java/gui/main/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/gui/main/MainView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../python/fxml.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../python/script.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/main/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/main/MainView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/main/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/main/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../python/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../python/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -74,9 +75,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/main/MainView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-85">
-              <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+            <state relative-caret-position="395">
+              <caret line="171" selection-start-line="171" selection-end-line="171" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="method#initialize#0;class#MainView#0" />
                 <element signature="method#onKeyReleasedPesquisaTextField#0;class#MainView#0" />
                 <element signature="method#onKeyPressed#0;class#MainView#0" />
@@ -93,10 +95,13 @@
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/main/MainView.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="51" column="24" lean-forward="true" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
+              <folding>
+                <element signature="n#padding#0;n#HBox#0;n#children#0;n#AnchorPane#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -204,6 +209,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -238,7 +244,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -427,7 +432,7 @@
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.22922637" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.23280802" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -436,7 +441,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32974428" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2395693" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2395693" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -664,12 +669,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/projetor/ProjetorView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="300" selection-start-line="6" selection-start-column="300" selection-end-line="6" selection-end-column="300" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/helper/DbController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -694,12 +699,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/pesquisa/PesquisaView.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Livro.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -749,9 +754,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/main/MainView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-85">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+        <state relative-caret-position="395">
+          <caret line="171" selection-start-line="171" selection-end-line="171" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#initialize#0;class#MainView#0" />
             <element signature="method#onKeyReleasedPesquisaTextField#0;class#MainView#0" />
             <element signature="method#onKeyPressed#0;class#MainView#0" />
@@ -766,12 +772,15 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/main/MainView.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="51" column="24" lean-forward="true" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
+          <folding>
+            <element signature="n#padding#0;n#HBox#0;n#children#0;n#AnchorPane#0;n#!!top" />
+          </folding>
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
   </component>
   <component name="masterDetails">
