@@ -1,7 +1,8 @@
 class Bible {
     constructor(versao) {
         const fs = require('fs');
-        this.biblia = fs.readFileSync(path.join(__dirname, '../', '../', '../', 'data', 'bibles', versao + '.txt'), 'utf-8');
+        console.log(path.join(__dirname, `/../../data/bibles/${versao}.txt`))
+        this.biblia = fs.readFileSync(path.join(__dirname, `/../../data/bibles/${versao}.txt`), 'utf-8');
         this.livro = '';
         this.capitulo = 1;
         this.versiculo = 1;
@@ -203,3 +204,5 @@ function normalizar(newStringComAcento) {
 
     return string;
 }
+
+module.exports = Bible

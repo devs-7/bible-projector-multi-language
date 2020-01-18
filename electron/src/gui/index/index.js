@@ -6,6 +6,9 @@ const remote = electron.remote;
 const BrowserWindow = remote.BrowserWindow;
 const screen = electron.screen;
 
+const Bible = require('../../models/biblia')
+console.log(new Bible('ara'))
+
 // Recupera componentes
 const pesquisarButton = document.getElementById('pesquisarButton');
 const projetarButton = document.getElementById('projetarButton');
