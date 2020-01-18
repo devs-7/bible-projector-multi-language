@@ -23,7 +23,6 @@ const win = remote.getCurrentWindow();
 var preferencias;
 
 let winProjetor = null
-preview.value = path.join(__dirname, '/../projetor/projetor.html')
 
 // Cria objeto projetor
 const projetor = {
@@ -49,8 +48,7 @@ const projetor = {
     },
 
     projetar() {
-        // winProjetor.showInactive()
-        winProjetor.show()
+        winProjetor.showInactive()
     },
 
     fechar() {
@@ -77,11 +75,11 @@ function ajuda() {
         title: 'Ajuda',
         width: 800, height: 600,
         autoHideMenuBar: true,
-        icon: '../../../assets/img/icon.png',
+        icon: path.join(__dirname, '/../../../assets/img/icon.png'),
         show: false
     });
 
-    winAjuda.loadFile('../ajuda/ajuda.html');
+    winAjuda.loadFile(path.join(__dirname, '/../ajuda/ajuda.html'));
 
     winAjuda.once('ready-to-show', () => {
         winAjuda.show();

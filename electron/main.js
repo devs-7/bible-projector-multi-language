@@ -16,17 +16,7 @@ function createWindow() {
     })
 
     win.maximize()
-    win.setMenuBarVisibility(true)
-
-    Menu.setApplicationMenu(Menu.buildFromTemplate([
-        {
-            label: 'Devtools',
-            click: () => {
-                win.webContents.toggleDevTools()
-
-            }
-        }
-    ]))
+    win.setMenuBarVisibility(false)
 
     win.loadFile('./src/gui/index/index.html')
 
