@@ -31,11 +31,11 @@ const projetor = {
             title: 'Projetor',
             width: 800, height: 600,
             autoHideMenuBar: true,
-            icon: './data/icon.png',
+            icon: '../../../assets/img/icon.png',
             show: false
         });
 
-        winProjetor.loadFile('windows/projetar.html');
+        winProjetor.loadFile('../projetor/projetor.html');
 
         winProjetor.setFullScreen(true);
 
@@ -76,11 +76,11 @@ function ajuda() {
         title: 'Ajuda',
         width: 800, height: 600,
         autoHideMenuBar: true,
-        icon: './data/icon.png',
+        icon: '../../../assets/img/icon.png',
         show: false
     });
 
-    winAjuda.loadFile('windows/ajuda.html');
+    winAjuda.loadFile('../ajuda/ajuda.html');
 
     winAjuda.once('ready-to-show', () => {
         winAjuda.show();
