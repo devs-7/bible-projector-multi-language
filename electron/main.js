@@ -1,5 +1,5 @@
-const electron = require('electron');
-const { app, BrowserWindow, Menu } = electron;
+const electron = require('electron')
+const { app, BrowserWindow, Menu } = electron
 
 function createWindow() {
     let win = new BrowserWindow({
@@ -13,24 +13,32 @@ function createWindow() {
             nodeIntegration: true,
             devTools: true
         }
-    });
+    })
 
-    win.maximize();
-    win.setMenuBarVisibility(false);
+    win.maximize()
+    win.setMenuBarVisibility(true)
 
-    win.loadFile('./src/gui/index/index.html');
+    Menu.setApplicationMenu(Menu.buildFromTemplate([
+        {
+            label: 'Devtools',
+            click: () => {
+                win.webContents.toggleDevTools()
+
+            }
+        }
+    ]))
+
+    win.loadFile('./src/gui/index/index.html')
 
     win.once('ready-to-show', () => {
         win.show();
-    });
+    })
 
     win.once('close', () => {
         app.quit();
-    });
+    })
 }
 
 app.once('ready', () => {
-    createWindow();
-
-    // Menu.setApplicationMenu(null)
+    createWindow()
 });
