@@ -22,21 +22,21 @@ const win = remote.getCurrentWindow();
 
 var preferencias;
 
+let winProjetor = null
+preview.value = path.join(__dirname, '/../projetor/projetor.html')
+
 // Cria objeto projetor
 const projetor = {
-    winProjetor: null,
-
     criarTela() {
         winProjetor = new BrowserWindow({
             title: 'Projetor',
             width: 800, height: 600,
             autoHideMenuBar: true,
-            icon: '../../../assets/img/icon.png',
+            icon: __dirname + '../../../assets/img/icon.png',
             show: false
         });
 
-        winProjetor.loadFile(path.join(__dirname, '../', 'projetor', 'projetor.html'));
-
+        winProjetor.loadFile(path.join(__dirname, '/../projetor/projetor.html'));
         winProjetor.setFullScreen(true);
 
         if (screen.getAllDisplays().length > 1) {
@@ -49,7 +49,8 @@ const projetor = {
     },
 
     projetar() {
-        winProjetor.showInactive();
+        // winProjetor.showInactive()
+        winProjetor.show()
     },
 
     fechar() {
@@ -63,7 +64,7 @@ function salvarPreferencias(texto = preview.value) {
         versao: versoes.value
     });
 
-    fs.writeFile('preferencias.json', preferences_json, e => {
+    fs.writeFile(path.join(__dirname, '/../../../data/preferencias.json'), preferences_json, e => {
         if (!!e) preview.value = 'Erro ao salvar modificações.';
     });
 
@@ -190,11 +191,11 @@ win.once('close', () => {
 });
 
 try {
-    preferencias = JSON.parse(fs.readFileSync('preferencias.json', 'utf-8'));
+    preferencias = JSON.parse(fs.readFileSync(path.join(__dirname, '/../../../data/preferencias.json'), 'utf-8'));
 }
 catch {
-    const preferencias_json = fs.readFileSync(path.join(__dirname, '../', 'data', 'preferencias.json'));
-    fs.writeFileSync('preferencias.json', preferencias_json);
+    const preferencias_json = fs.readFileSync(path.join(__dirname, '/../../../data/preferencias.json'));
+    fs.writeFileSync(path.join(__dirname, '/../../../data/preferencias.json'), preferencias_json);
     preferencias = JSON.parse(preferencias_json);
 }
 
