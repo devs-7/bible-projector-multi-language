@@ -1,7 +1,6 @@
 class Bible {
     constructor(versao) {
         const fs = require('fs');
-        console.log(path.join(__dirname, `/../../data/bibles/${versao}.txt`))
         this.biblia = fs.readFileSync(path.join(__dirname, `/../../data/bibles/${versao}.txt`), 'utf-8');
         this.livro = '';
         this.capitulo = 1;
