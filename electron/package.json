@@ -36,7 +36,7 @@
     },
     "win": {
       "target": "NSIS",
-      "icon": "img/icon.ico"
+      "icon": "assets/img/icon.ico"
     }
   },
   "devDependencies": {
@@ -46,7 +46,6 @@
   "dependencies": {
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
-    "popper.js": "^1.15.0",
-    "python-shell": "^1.0.7"
+    "popper.js": "^1.15.0"
   }
 }

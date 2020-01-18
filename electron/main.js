@@ -6,7 +6,7 @@ function createWindow() {
         title: 'Bible projector',
         width: 800, height: 600,
         autoHideMenuBar: true,
-        icon: './assets/img/icon.png',
+        icon: './assets/img/icon.ico',
         minWidth: 600, minHeight: 500,
         show: false,
         webPreferences: {
@@ -18,7 +18,7 @@ function createWindow() {
     win.maximize();
     win.setMenuBarVisibility(false);
 
-    win.loadFile('./src/gui/main/main.html');
+    win.loadFile('./src/gui/index/index.html');
 
     win.once('ready-to-show', () => {
         win.show();

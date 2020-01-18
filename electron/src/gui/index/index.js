@@ -35,7 +35,7 @@ const projetor = {
             show: false
         });
 
-        winProjetor.loadFile('../projetor/projetor.html');
+        winProjetor.loadFile(path.join(__dirname, '../', 'projetor', 'projetor.html'));
 
         winProjetor.setFullScreen(true);
 
