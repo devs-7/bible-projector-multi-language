@@ -11,15 +11,30 @@ function getPreferencias() {
     return JSON.parse(localStorage.getItem('preferences'))
 }
 
+function configureColors(texto, textoNew = '', min = 0) {
+    if (textoNew == '') {
+        texto = texto.replace(/{b:/g, '{deepskyblue:')
+        texto = texto.replace(/{r:/g, '{red:')
+        texto = texto.replace(/{g:/g, '{green:')
+        texto = texto.replace(/{y:/g, '{yellow:')
+        texto = texto.replace(/}/g, '</span>')
+        textoNew = texto
+    }
+    let index1 = texto.indexOf('{', min)
+    let index2 = texto.indexOf(':', min)
+    if (index1 > -1 && index2 > -1) {
+        let s = texto.substring(index1, index2 + 1)
+        const color = s.substring(1, s.length - 1)
+        textoNew = textoNew.replace(s, `<span style="color: ${color}">`)
+        return configureColors(texto, textoNew, index2 + 1)
+    } else {
+        return textoNew
+    }
+}
+
 function getTexto() {
     let texto = localStorage.getItem('texto')
-    texto = texto.replace(/{r: /g, '<span style="color: red">')
-    texto = texto.replace(/{g: /g, '<span style="color: green">')
-    texto = texto.replace(/{b: /g, '<span style="color: deepskyblue">')
-    texto = texto.replace(/{y: /g, '<span style="color: yellow">')
-    texto = texto.replace(/{/g, '<span style="color: red">')
-
-    texto = texto.replace(/}/g, '</span>')
+    texto = configureColors(texto)
     return texto
 }
 
