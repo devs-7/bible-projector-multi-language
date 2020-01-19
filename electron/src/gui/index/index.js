@@ -83,19 +83,19 @@ function salvarPreferencias() {
 
 function avancarVerso() {
     try {
-        bible.next();
-        preview.value = bible.getVerso();
-        atualizarButton.click();
+        bible.next()
+        preview.value = bible.getVerso()
+        atualizarButton.click()
     } catch (e) {
-        preview.value = e.message;
+        preview.value = e.message
     }
 }
 
 function voltarVerso() {
     try {
-        bible.prev();
-        preview.value = bible.getVerso();
-        atualizarButton.click();
+        bible.prev()
+        preview.value = bible.getVerso()
+        atualizarButton.click()
     } catch (e) {
         preview.value = e.message;
     }
@@ -122,27 +122,27 @@ function atualizarHistorico() {
 }
 
 function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
-    bible.pesquisarReferencia(pesquisa);
+    bible.pesquisarReferencia(pesquisa)
 
     if (bible.isNotVoid()) {
-        ultimaPesquisa.innerHTML = bible.getRepresentacao(false);
-        pesquisarTexto.value = bible.getRepresentacao(false);
-        preview.value = bible.getVerso();
+        ultimaPesquisa.innerHTML = bible.getRepresentacao(false)
+        pesquisarTexto.value = bible.getRepresentacao(false)
+        preview.value = bible.getVerso()
 
         if (projetar) {
-            salvarPreferencias();
-            atualizarHistorico();
+            salvarPreferencias()
+            atualizarHistorico()
         }
 
-        capituloDiv.innerHTML = '';
+        capituloDiv.innerHTML = ''
 
         bible.capituloForEach((verso, isAtual, n) => {
             if (isAtual) {
-                capituloDiv.innerHTML += `<span style="color: rgb(20, 66, 165)">${n} ${verso}</span><br>`;
+                capituloDiv.innerHTML += `<span style="color: rgb(20, 66, 165)">${n} ${verso}</span><br>`
             } else {
-                capituloDiv.innerHTML += `${n} ${verso}<br>`;
+                capituloDiv.innerHTML += `${n} ${verso}<br>`
             }
-        });
+        })
     }
 }
 

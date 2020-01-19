@@ -8,6 +8,10 @@ class Bible {
         this.texto = '';
     }
 
+    atualizarTextoLocalStorage() {
+        localStorage.setItem('texto', `${this.texto} (${this.livro} ${this.capitulo}:${this.versiculo})`)
+    }
+
     getVerso() {
         return this.texto + this.getRepresentacao();
     }
@@ -106,12 +110,13 @@ class Bible {
 
     pesquisarReferencia(pesquisa = '') {
         if (!!pesquisa) {
-            let referencia = this.interpretarPesquisa(pesquisa);
-            this.livro = referencia.livro;
-            this.capitulo = referencia.capitulo;
-            this.versiculo = referencia.versiculo;
+            let referencia = this.interpretarPesquisa(pesquisa)
+            this.livro = referencia.livro
+            this.capitulo = referencia.capitulo
+            this.versiculo = referencia.versiculo
 
-            this.texto = this.getTexto(this.biblia, this.livro, this.capitulo, this.versiculo);
+            this.texto = this.getTexto(this.biblia, this.livro, this.capitulo, this.versiculo)
+            this.atualizarTextoLocalStorage()
         }
     }
 
@@ -135,8 +140,9 @@ class Bible {
         if (!this.getTextoParametros(this.livro, this.capitulo, this.versiculo + 1)) {
             throw new Error('Não há versículos posteriores')
         } else {
-            this.versiculo += 1;
-            this.texto = this.getTexto();
+            this.versiculo += 1
+            this.texto = this.getTexto()
+            this.atualizarTextoLocalStorage(this.texto)
         }
     }
 
@@ -144,8 +150,9 @@ class Bible {
         if (!this.getTextoParametros(this.livro, this.capitulo, this.versiculo - 1)) {
             throw new Error('Não há versículos anteriores')
         } else {
-            this.versiculo -= 1;
-            this.texto = this.getTexto();
+            this.versiculo -= 1
+            this.texto = this.getTexto()
+            this.atualizarTextoLocalStorage(this.texto)
         }
     }
 
