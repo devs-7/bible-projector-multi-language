@@ -6,12 +6,12 @@ const BrowserWindow = remote.BrowserWindow
 const screen = electron.screen
 
 class BrowserWindowController {
-    constructor(path, props) {
+    constructor(filePath, props) {
         this.win = null
-        this.create(path, props)
+        this.create(filePath, props)
     }
 
-    create(path, props) {
+    create(filePath, props) {
         this.win = new BrowserWindow(Object.assign({
             title: 'Title',
             width: 800, height: 600,
@@ -20,7 +20,19 @@ class BrowserWindowController {
             show: false
         }, props))
 
-        this.win.loadFile(path.join(__dirname, path))
+        this.win.loadFile(path.join(__dirname, filePath))
+
+        this.win.once('closed', () => {
+            this.create(filePath)
+        })
+    }
+
+    show() {
+        this.win.show()
+    }
+
+    showInactive() {
+        this.win.showInactive()
     }
 }
 

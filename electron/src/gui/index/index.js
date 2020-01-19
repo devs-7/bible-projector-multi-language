@@ -109,9 +109,7 @@ pesquisarButton.onclick = () => pesquisar(true)
 atualizarButton.onclick = () => salvarPreferencias()
 tamanhoFonteTexto.onchange = () => salvarPreferencias()
 projetarButton.onclick = projetorBrowserWindow.showInactive
-ajudaButton.onclick = () => {
-    ajudaBrowserWindow.win.show()
-}
+ajudaButton.onclick = () => ajudaBrowserWindow.show()
 
 versoes.onchange = function () {
     bible = new Bible(versoes.value);
@@ -134,7 +132,7 @@ document.addEventListener('keydown', e => {
     if (e.keyCode == 119) { } // F8
     if (e.keyCode == 120 || e.keyCode == 34) voltarVerso(); // F9 e PageDown
     if (e.keyCode == 121 || e.keyCode == 33) avancarVerso(); // F10 e PageUp
-    if (e.keyCode == 112) browserWindowControllers.ajuda(); // F1
+    if (e.keyCode == 112) ajudaBrowserWindow.show(); // F1
     if (e.keyCode == 27) projetorBrowserWindow.close(); // ESC
 });
 
