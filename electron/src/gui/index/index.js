@@ -8,18 +8,23 @@ const screen = electron.screen
 const Bible = require('../../models/bible')
 const browserWindowControllers = require('../../helper/browser_windows_controllers')
 
-const pesquisarButton = document.getElementById('pesquisarButton');
-const projetarButton = document.getElementById('projetarButton');
-const atualizarButton = document.getElementById('atualizarButton');
-const ajudaButton = document.getElementById('ajudaButton');
-const pesquisarTexto = document.getElementById('pesquisarTexto');
-const tamanhoFonteTexto = document.getElementById('tamanhoFonte');
-const preview = document.getElementById('textoSelecionado');
-const historico = document.getElementById('historico');
-const capituloDiv = document.getElementById('capitulo');
-const ultimaPesquisa = document.getElementById('ultimaPesquisa');
-const versoes = document.getElementById('versoes');
-const win = remote.getCurrentWindow();
+const pesquisarButton = document.getElementById('pesquisarButton')
+const projetarButton = document.getElementById('projetarButton')
+const atualizarButton = document.getElementById('atualizarButton')
+const ajudaButton = document.getElementById('ajudaButton')
+const pesquisarTexto = document.getElementById('pesquisarTexto')
+const tamanhoFonteTexto = document.getElementById('tamanhoFonte')
+const preview = document.getElementById('textoSelecionado')
+const historico = document.getElementById('historico')
+const capituloDiv = document.getElementById('capitulo')
+const ultimaPesquisa = document.getElementById('ultimaPesquisa')
+const versoes = document.getElementById('versoes')
+const corPadrao = document.getElementById('corPadrao')
+
+const win = remote.getCurrentWindow()
+
+localStorage.setItem('preferences', recuperarPreferencias())
+console.log(localStorage.getItem('preferences'))
 
 var preferencias = JSON.parse(localStorage.getItem('preferences'))
 var bible = new Bible(preferencias.versao)
@@ -31,6 +36,7 @@ function main() {
     pesquisarButton.onclick = () => pesquisar(true)
     atualizarButton.onclick = () => bible.atualizarTextoLocalStorage(preview.value)
     tamanhoFonteTexto.onchange = () => salvarPreferencias()
+    corPadrao.onchange = () => salvarPreferencias()
     projetarButton.onclick = () => projetorBrowserWindow.showInactive()
     ajudaButton.onclick = () => ajudaBrowserWindow.show()
 
@@ -48,6 +54,21 @@ function main() {
         }
     });
 
+    preview.addEventListener('keypress', e => {
+        switch (e.keyCode) {
+            case 16:
+                const indexStart = preview.selectionStart
+                const indexEnd = preview.selectionEnd
+                const text = preview.value
+                const start = text.substring(0, indexStart)
+                const end = text.substring(indexEnd)
+                const half = `{${preferencias.cor}:${text.substring(indexStart, indexEnd)}}`
+                preview.value = start + half + end
+                atualizarButton.click()
+                break
+        }
+    })
+
     document.addEventListener('keydown', e => {
         if (e.keyCode == 115) pesquisarTexto.select() // F4
         if (e.keyCode == 116) projetorBrowserWindow.showInactive() // F5
@@ -63,22 +84,28 @@ function main() {
         fs.writeFileSync('./Histórico.txt', historico.value);
     })
 
-    if (!localStorage.getItem('preferences')) {
-        localStorage.setItem('preferences', JSON.stringify({
-            fonte: 50,
-            versao: "ara"
-        }))
-    }
-
     tamanhoFonteTexto.value = preferencias.fonte
     versoes.value = preferencias.versao
+    corPadrao.value = preferencias.cor
+}
+
+function recuperarPreferencias() {
+    const conteudo = fs.readFileSync(path.join(__dirname, '/../../../data/preferencias.json'), 'utf-8')
+    return conteudo
 }
 
 function salvarPreferencias() {
-    localStorage.setItem('preferences', JSON.stringify({
+    preferencias = {
         fonte: tamanhoFonteTexto.value,
-        versao: versoes.value
-    }))
+        versao: versoes.value,
+        cor: corPadrao.value
+    }
+    const preferenciasJSON = JSON.stringify(preferencias)
+    localStorage.setItem('preferences', preferenciasJSON)
+
+    fs.writeFile(path.join(__dirname, '/../../../data/preferencias.json'), preferenciasJSON, erro => {
+        if (erro) throw erro
+    })
 }
 
 function avancarVerso() {
