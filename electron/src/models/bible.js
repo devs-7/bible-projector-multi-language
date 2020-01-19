@@ -8,8 +8,12 @@ class Bible {
         this.texto = '';
     }
 
-    atualizarTextoLocalStorage() {
-        localStorage.setItem('texto', `${this.texto} (${this.livro} ${this.capitulo}:${this.versiculo})`)
+    atualizarTextoLocalStorage(texto) {
+        if (texto) {
+            localStorage.setItem('texto', texto)
+        } else {
+            localStorage.setItem('texto', `${this.texto} (${this.livro} ${this.capitulo}:${this.versiculo})`)
+        }
     }
 
     getVerso() {

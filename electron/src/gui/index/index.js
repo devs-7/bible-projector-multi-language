@@ -29,13 +29,13 @@ function main() {
     var projetorBrowserWindow = new browserWindowControllers.Projetor()
 
     pesquisarButton.onclick = () => pesquisar(true)
-    atualizarButton.onclick = () => salvarPreferencias()
+    atualizarButton.onclick = () => bible.atualizarTextoLocalStorage(preview.value)
     tamanhoFonteTexto.onchange = () => salvarPreferencias()
     projetarButton.onclick = () => projetorBrowserWindow.showInactive()
     ajudaButton.onclick = () => ajudaBrowserWindow.show()
 
     versoes.onchange = function () {
-        bible = new Bible(versoes.value);
+        bible = new Bible(versoes.value)
     }
 
     pesquisarTexto.addEventListener('keypress', e => {
@@ -49,19 +49,19 @@ function main() {
     });
 
     document.addEventListener('keydown', e => {
-        if (e.keyCode == 115) pesquisarTexto.select(); // F4
-        if (e.keyCode == 116) projetorBrowserWindow.showInactive(); // F5
-        if (e.keyCode == 117) salvarPreferencias(); // F6
+        if (e.keyCode == 115) pesquisarTexto.select() // F4
+        if (e.keyCode == 116) projetorBrowserWindow.showInactive() // F5
+        if (e.keyCode == 117) atualizarButton.click() // F6
         if (e.keyCode == 119) { } // F8
-        if (e.keyCode == 120 || e.keyCode == 34) voltarVerso(); // F9 e PageDown
-        if (e.keyCode == 121 || e.keyCode == 33) avancarVerso(); // F10 e PageUp
-        if (e.keyCode == 112) ajudaBrowserWindow.show(); // F1
-        if (e.keyCode == 27) projetorBrowserWindow.close(); // ESC
-    });
+        if (e.keyCode == 120 || e.keyCode == 34) voltarVerso() // F9 e PageDown
+        if (e.keyCode == 121 || e.keyCode == 33) avancarVerso() // F10 e PageUp
+        if (e.keyCode == 112) ajudaBrowserWindow.show() // F1
+        if (e.keyCode == 27) projetorBrowserWindow.close() // ESC
+    })
 
     win.once('close', () => {
         fs.writeFileSync('./Histórico.txt', historico.value);
-    });
+    })
 
     if (!localStorage.getItem('preferences')) {
         localStorage.setItem('preferences', JSON.stringify({
