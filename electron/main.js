@@ -1,5 +1,5 @@
 const electron = require('electron')
-const { app, BrowserWindow, Menu } = electron
+const { app, BrowserWindow } = electron
 
 function createWindow() {
     let win = new BrowserWindow({
