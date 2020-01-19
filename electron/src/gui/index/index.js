@@ -24,7 +24,6 @@ const corPadrao = document.getElementById('corPadrao')
 const win = remote.getCurrentWindow()
 
 localStorage.setItem('preferences', recuperarPreferencias())
-console.log(localStorage.getItem('preferences'))
 
 var preferencias = JSON.parse(localStorage.getItem('preferences'))
 var bible = new Bible(preferencias.versao)
