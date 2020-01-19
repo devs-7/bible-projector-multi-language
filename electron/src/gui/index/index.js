@@ -21,6 +21,59 @@ const ultimaPesquisa = document.getElementById('ultimaPesquisa');
 const versoes = document.getElementById('versoes');
 const win = remote.getCurrentWindow();
 
+var preferencias = JSON.parse(localStorage.getItem('preferences'))
+var bible = new Bible(preferencias.versao)
+
+function main() {
+    var ajudaBrowserWindow = new browserWindowControllers.Ajuda()
+    var projetorBrowserWindow = new browserWindowControllers.Projetor()
+
+    pesquisarButton.onclick = () => pesquisar(true)
+    atualizarButton.onclick = () => salvarPreferencias()
+    tamanhoFonteTexto.onchange = () => salvarPreferencias()
+    projetarButton.onclick = () => projetorBrowserWindow.showInactive()
+    ajudaButton.onclick = () => ajudaBrowserWindow.show()
+
+    versoes.onchange = function () {
+        bible = new Bible(versoes.value);
+    }
+
+    pesquisarTexto.addEventListener('keypress', e => {
+        if (e.keyCode == 10) {
+            pesquisar(false);
+        }
+
+        if (e.keyCode == 13) {
+            pesquisar(true);
+        }
+    });
+
+    document.addEventListener('keydown', e => {
+        if (e.keyCode == 115) pesquisarTexto.select(); // F4
+        if (e.keyCode == 116) projetorBrowserWindow.showInactive(); // F5
+        if (e.keyCode == 117) salvarPreferencias(); // F6
+        if (e.keyCode == 119) { } // F8
+        if (e.keyCode == 120 || e.keyCode == 34) voltarVerso(); // F9 e PageDown
+        if (e.keyCode == 121 || e.keyCode == 33) avancarVerso(); // F10 e PageUp
+        if (e.keyCode == 112) ajudaBrowserWindow.show(); // F1
+        if (e.keyCode == 27) projetorBrowserWindow.close(); // ESC
+    });
+
+    win.once('close', () => {
+        fs.writeFileSync('./Histórico.txt', historico.value);
+    });
+
+    if (!localStorage.getItem('preferences')) {
+        localStorage.setItem('preferences', JSON.stringify({
+            fonte: 50,
+            versao: "ara"
+        }))
+    }
+
+    tamanhoFonteTexto.value = preferencias.fonte
+    versoes.value = preferencias.versao
+}
+
 function salvarPreferencias() {
     localStorage.setItem('preferences', JSON.stringify({
         fonte: tamanhoFonteTexto.value,
@@ -93,60 +146,4 @@ function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
     }
 }
 
-
-var ajudaBrowserWindow = new browserWindowControllers.Ajuda()
-var projetorBrowserWindow = null
-function createProjetorBrowserWindow() {
-    projetorBrowserWindow = browserWindowControllers.projetor()
-    projetorBrowserWindow.once('closed', () => {
-        createProjetorBrowserWindow()
-    })
-}
-createProjetorBrowserWindow()
-
-
-pesquisarButton.onclick = () => pesquisar(true)
-atualizarButton.onclick = () => salvarPreferencias()
-tamanhoFonteTexto.onchange = () => salvarPreferencias()
-projetarButton.onclick = projetorBrowserWindow.showInactive
-ajudaButton.onclick = () => ajudaBrowserWindow.show()
-
-versoes.onchange = function () {
-    bible = new Bible(versoes.value);
-}
-
-pesquisarTexto.addEventListener('keypress', e => {
-    if (e.keyCode == 10) {
-        pesquisar(false);
-    }
-
-    if (e.keyCode == 13) {
-        pesquisar(true);
-    }
-});
-
-document.addEventListener('keydown', e => {
-    if (e.keyCode == 115) pesquisarTexto.select(); // F4
-    if (e.keyCode == 116) projetorBrowserWindow.showInactive(); // F5
-    if (e.keyCode == 117) salvarPreferencias(); // F6
-    if (e.keyCode == 119) { } // F8
-    if (e.keyCode == 120 || e.keyCode == 34) voltarVerso(); // F9 e PageDown
-    if (e.keyCode == 121 || e.keyCode == 33) avancarVerso(); // F10 e PageUp
-    if (e.keyCode == 112) ajudaBrowserWindow.show(); // F1
-    if (e.keyCode == 27) projetorBrowserWindow.close(); // ESC
-});
-
-win.once('close', () => {
-    fs.writeFileSync('./Histórico.txt', historico.value);
-});
-
-localStorage.setItem('preferences', JSON.stringify({
-    fonte: 50,
-    versao: "ara"
-}))
-
-var preferencias = JSON.parse(localStorage.getItem('preferences'))
-
-const bible = new Bible(preferencias.versao)
-tamanhoFonteTexto.value = preferencias.fonte
-versoes.value = preferencias.versao
+main()

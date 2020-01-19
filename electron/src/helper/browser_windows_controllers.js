@@ -34,31 +34,31 @@ class BrowserWindowController {
     showInactive() {
         this.win.showInactive()
     }
+
+    close() {
+        this.win.close()
+    }
 }
 
 class Ajuda extends BrowserWindowController {
     constructor() {
-        super('/../gui/ajuda/ajuda.html')
+        super('/../gui/ajuda/ajuda.html', { title: 'Ajuda' })
     }
 }
 
-function projetor() {
-    const win = new BrowserWindow({
-        title: 'Projetor',
-        width: 800, height: 600,
-        autoHideMenuBar: true,
-        icon: path.join(__dirname, '/../../assets/img/icon.png'),
-        show: false
-    })
-
-    win.loadFile(path.join(__dirname, '/../gui/projetor/projetor.html'))
-    win.setFullScreen(true)
-
-    if (screen.getAllDisplays().length > 1) {
-        win.setPosition(window.innerWidth, 0)
+class Projetor extends BrowserWindowController {
+    constructor() {
+        super('/../gui/projetor/projetor.html', { title: 'Projetor' })
     }
 
-    return win
+    create(filePath, props) {
+        super.create(filePath, props)
+        this.win.setFullScreen(true)
+
+        if (screen.getAllDisplays().length > 1) {
+            win.setPosition(window.innerWidth, 0)
+        }
+    }
 }
 
-module.exports = { Ajuda, projetor }
+module.exports = { Ajuda, Projetor }
