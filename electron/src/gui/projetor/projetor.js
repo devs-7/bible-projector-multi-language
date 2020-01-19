@@ -13,7 +13,12 @@ function getPreferencias() {
 
 function getTexto() {
     let texto = localStorage.getItem('texto')
+    texto = texto.replace(/{r: /g, '<span style="color: red">')
+    texto = texto.replace(/{g: /g, '<span style="color: green">')
+    texto = texto.replace(/{b: /g, '<span style="color: deepskyblue">')
+    texto = texto.replace(/{y: /g, '<span style="color: yellow">')
     texto = texto.replace(/{/g, '<span style="color: red">')
+
     texto = texto.replace(/}/g, '</span>')
     return texto
 }
