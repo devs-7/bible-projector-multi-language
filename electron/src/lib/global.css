@@ -9,10 +9,10 @@
 
 @font-face {
     font-family: oswald;
-    src: url('../fonts/Oswald-Regular.ttf');
+    src: url('../../assets/fonts/Oswald-Regular.ttf');
 }
 
 @font-face {
     font-family: 'Franklin Gothic Medium';
-    src: url('../fonts/FRADM.TTF');
+    src: url('../../assets/fonts/FRADM.TTF');
 }
