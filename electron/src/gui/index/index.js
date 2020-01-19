@@ -1,15 +1,13 @@
-// Bibliotecas
-const electron = require('electron');
-const fs = require('fs');
-const path = require('path');
-const remote = electron.remote;
-const BrowserWindow = remote.BrowserWindow;
-const screen = electron.screen;
+const electron = require('electron')
+const fs = require('fs')
+const path = require('path')
+const remote = electron.remote
+const BrowserWindow = remote.BrowserWindow
+const screen = electron.screen
 
-const Bible = require('../../models/biblia')
-console.log(new Bible('ara'))
+const Bible = require('../../models/bible')
+const browserWindowControllers = require('../../helper/browser_windows_controllers')
 
-// Recupera componentes
 const pesquisarButton = document.getElementById('pesquisarButton');
 const projetarButton = document.getElementById('projetarButton');
 const atualizarButton = document.getElementById('atualizarButton');
@@ -23,70 +21,11 @@ const ultimaPesquisa = document.getElementById('ultimaPesquisa');
 const versoes = document.getElementById('versoes');
 const win = remote.getCurrentWindow();
 
-var preferencias;
-
-let winProjetor = null
-
-// Cria objeto projetor
-const projetor = {
-    criarTela() {
-        winProjetor = new BrowserWindow({
-            title: 'Projetor',
-            width: 800, height: 600,
-            autoHideMenuBar: true,
-            icon: __dirname + '../../../assets/img/icon.png',
-            show: false
-        });
-
-        winProjetor.loadFile(path.join(__dirname, '/../projetor/projetor.html'));
-        winProjetor.setFullScreen(true);
-
-        if (screen.getAllDisplays().length > 1) {
-            winProjetor.setPosition(window.innerWidth, 0);
-        }
-
-        winProjetor.once('closed', () => {
-            this.criarTela();
-        });
-    },
-
-    projetar() {
-        winProjetor.showInactive()
-    },
-
-    fechar() {
-        winProjetor.destroy();
-    }
-}
-
-function salvarPreferencias(texto = preview.value) {
-    const preferences_json = JSON.stringify({
-        fonte: Number(tamanhoFonteTexto.value),
+function salvarPreferencias() {
+    localStorage.setItem('preferences', JSON.stringify({
+        fonte: tamanhoFonteTexto.value,
         versao: versoes.value
-    });
-
-    fs.writeFile(path.join(__dirname, '/../../../data/preferencias.json'), preferences_json, e => {
-        if (!!e) preview.value = 'Erro ao salvar modificações.';
-    });
-
-    localStorage.setItem('preferences', preferences_json);
-    localStorage.setItem('texto', texto);
-}
-
-function ajuda() {
-    const winAjuda = new BrowserWindow({
-        title: 'Ajuda',
-        width: 800, height: 600,
-        autoHideMenuBar: true,
-        icon: path.join(__dirname, '/../../../assets/img/icon.png'),
-        show: false
-    });
-
-    winAjuda.loadFile(path.join(__dirname, '/../ajuda/ajuda.html'));
-
-    winAjuda.once('ready-to-show', () => {
-        winAjuda.show();
-    });
+    }))
 }
 
 function avancarVerso() {
@@ -154,13 +93,25 @@ function pesquisar(projetar = true, pesquisa = pesquisarTexto.value) {
     }
 }
 
-// Listeners
 
-pesquisarButton.onclick = () => pesquisar(true);
-atualizarButton.onclick = () => salvarPreferencias();
-tamanhoFonteTexto.onchange = () => salvarPreferencias();
-projetarButton.onclick = projetor.projetar;
-ajudaButton.onclick = ajuda;
+var ajudaBrowserWindow = new browserWindowControllers.Ajuda()
+var projetorBrowserWindow = null
+function createProjetorBrowserWindow() {
+    projetorBrowserWindow = browserWindowControllers.projetor()
+    projetorBrowserWindow.once('closed', () => {
+        createProjetorBrowserWindow()
+    })
+}
+createProjetorBrowserWindow()
+
+
+pesquisarButton.onclick = () => pesquisar(true)
+atualizarButton.onclick = () => salvarPreferencias()
+tamanhoFonteTexto.onchange = () => salvarPreferencias()
+projetarButton.onclick = projetorBrowserWindow.showInactive
+ajudaButton.onclick = () => {
+    ajudaBrowserWindow.win.show()
+}
 
 versoes.onchange = function () {
     bible = new Bible(versoes.value);
@@ -178,30 +129,26 @@ pesquisarTexto.addEventListener('keypress', e => {
 
 document.addEventListener('keydown', e => {
     if (e.keyCode == 115) pesquisarTexto.select(); // F4
-    if (e.keyCode == 116) projetor.projetar(); // F5
+    if (e.keyCode == 116) projetorBrowserWindow.showInactive(); // F5
     if (e.keyCode == 117) salvarPreferencias(); // F6
     if (e.keyCode == 119) { } // F8
     if (e.keyCode == 120 || e.keyCode == 34) voltarVerso(); // F9 e PageDown
     if (e.keyCode == 121 || e.keyCode == 33) avancarVerso(); // F10 e PageUp
-    if (e.keyCode == 112) ajuda(); // F1
-    if (e.keyCode == 27) projetor.fechar(); // ESC
+    if (e.keyCode == 112) browserWindowControllers.ajuda(); // F1
+    if (e.keyCode == 27) projetorBrowserWindow.close(); // ESC
 });
 
 win.once('close', () => {
     fs.writeFileSync('./Histórico.txt', historico.value);
 });
 
-try {
-    preferencias = JSON.parse(fs.readFileSync(path.join(__dirname, '/../../../data/preferencias.json'), 'utf-8'));
-}
-catch {
-    const preferencias_json = fs.readFileSync(path.join(__dirname, '/../../../data/preferencias.json'));
-    fs.writeFileSync(path.join(__dirname, '/../../../data/preferencias.json'), preferencias_json);
-    preferencias = JSON.parse(preferencias_json);
-}
+localStorage.setItem('preferences', JSON.stringify({
+    fonte: 50,
+    versao: "ara"
+}))
 
-var bible = new Bible(preferencias.versao);
-tamanhoFonteTexto.value = preferencias.fonte;
-versoes.value = preferencias.versao;
+var preferencias = JSON.parse(localStorage.getItem('preferences'))
 
-projetor.criarTela();
+const bible = new Bible(preferencias.versao)
+tamanhoFonteTexto.value = preferencias.fonte
+versoes.value = preferencias.versao
