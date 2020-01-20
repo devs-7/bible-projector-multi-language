@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron .",
     "build": "electron-packager ./ --platform=win32 --arch=x64 --electron-version=4.1.4",
-    "rebuild": "",
+    "rebuild": "electron-rebuild -f -w sqlite3",
     "pack": "build --dir",
     "dist": "build"
   },
@@ -42,7 +42,8 @@
   },
   "devDependencies": {
     "electron": "^4.0.5",
-    "electron-builder": "^20.39.0"
+    "electron-builder": "^20.39.0",
+    "electron-rebuild": "^1.8.8"
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
