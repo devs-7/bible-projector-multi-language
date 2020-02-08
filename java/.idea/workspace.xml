@@ -8,14 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/libs/sqlite-jdbc-3.7.2.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/javafx.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/javafx.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_7_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_7_2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/bible.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/bible.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/java/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java/data/bible.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/java/exceptions/QueryBibleException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/exceptions/QueryBibleException.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/java/gui/main/MainView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/gui/main/MainView$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/java/gui/main/MainView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/gui/main/MainView.class" afterDir="false" />
@@ -26,6 +23,7 @@
       <change beforePath="$PROJECT_DIR$/out/production/java/helper/StringHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/helper/StringHelper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/java/model/Bible.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/model/Bible.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/java/model/Livro.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java/model/Livro.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/bible.db" beforeDir="false" afterPath="$PROJECT_DIR$/res/bible.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/helper/DbController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/helper/DbController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -138,8 +136,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/sqlite-jdbc-3.7.2.jar!/" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/META-INF" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.24022989" />
     <property name="recentsLimit" value="5" />
@@ -147,15 +145,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Programming\GitHub\Bible-projector\java\libs" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Programming\GitHub\Bible-projector\java\src" />
       <recent name="D:\Programming\GitHub\Bible-projector\java" />
+      <recent name="D:\Programming\GitHub\Bible-projector\java\assets" />
       <recent name="D:\Arquivos\Documentos\GitHub\Bible-projector\java\src\data" />
       <recent name="D:\Arquivos\Documentos\GitHub\Bible-projector\java\data" />
-      <recent name="D:\Arquivos\Documentos\GitHub\Bible-projector\java" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Programming\GitHub\Bible-projector\java\libs" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -344,38 +342,46 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="413" y="155" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1581202662758">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="155" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1581202662758" />
     <state x="534" y="257" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1581199618879">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="534" y="257" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1366.728@0.0.1366.728" timestamp="1581199618879" />
-    <state x="413" y="123" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1581201604271">
+    <state x="413" y="123" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1581202688416">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="123" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1366.728@0.0.1366.728" timestamp="1581201604271" />
-    <state x="389" y="109" key="FileChooserDialogImpl" timestamp="1581201504417">
+    <state x="413" y="123" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1366.728@0.0.1366.728" timestamp="1581202688416" />
+    <state x="389" y="109" key="FileChooserDialogImpl" timestamp="1581203647377">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="389" y="109" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1581201504417" />
-    <state width="1323" height="161" key="GridCell.Tab.0.bottom" timestamp="1581202414391">
+    <state x="389" y="109" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1581203647377" />
+    <state width="1323" height="161" key="GridCell.Tab.0.bottom" timestamp="1581204385696">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="161" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1581202414391" />
-    <state width="1323" height="161" key="GridCell.Tab.0.center" timestamp="1581202414390">
+    <state width="1323" height="161" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1581204385696" />
+    <state width="1323" height="161" key="GridCell.Tab.0.center" timestamp="1581204385696">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="161" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1581202414390" />
-    <state width="1323" height="161" key="GridCell.Tab.0.left" timestamp="1581202414390">
+    <state width="1323" height="161" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1581204385696" />
+    <state width="1323" height="161" key="GridCell.Tab.0.left" timestamp="1581204385696">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="161" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1581202414390" />
-    <state width="1323" height="161" key="GridCell.Tab.0.right" timestamp="1581202414391">
+    <state width="1323" height="161" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1581204385696" />
+    <state width="1323" height="161" key="GridCell.Tab.0.right" timestamp="1581204385696">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="161" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1581202414391" />
-    <state x="163" y="0" key="SettingsEditor" timestamp="1581201606787">
+    <state width="1323" height="161" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1581204385696" />
+    <state x="163" y="0" key="SettingsEditor" timestamp="1581204376251">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1581201606787" />
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1581204376251" />
+    <state x="391" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1581203150393">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="391" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1581203150393" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

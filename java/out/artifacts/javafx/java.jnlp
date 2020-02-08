@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="java.jnlp">
+  <information>
+    <title>Bible projector</title>
+    <vendor>Unknown</vendor>
+    <description>javafx</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="java.jar" size="6825688" download="eager" />
+    <jar href="sqlite-jdbc-3.7.2.jar" size="3201133" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="600" height="400" main-class="Main"  name="javafx" />
+  <update check="background"/>
+</jnlp>
