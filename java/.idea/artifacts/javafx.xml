@@ -16,6 +16,7 @@
       <element id="archive" name="java.jar">
         <element id="module-output" name="java" />
       </element>
+      <element id="library" level="project" name="sqlite-jdbc-3.7.2" />
     </root>
   </artifact>
 </component>

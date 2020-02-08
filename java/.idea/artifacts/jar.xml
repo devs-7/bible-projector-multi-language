@@ -3,7 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/jar</output-path>
     <root id="archive" name="bible.jar">
       <element id="module-output" name="java" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../../Java-libs/jdbc-connectors/sqlite-jdbc-3.7.2.jar" path-in-jar="/" />
+      <element id="library" level="project" name="sqlite-jdbc-3.7.2" />
     </root>
   </artifact>
 </component>

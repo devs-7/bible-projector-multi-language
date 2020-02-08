@@ -1,12 +1,14 @@
 package helper;
 
+import java.net.URL;
 import java.sql.*;
 
 public class DbController {
     public static Connection getConnection() throws SQLException {
         try {
+            URL url = ClassLoader.getSystemResource("data/bible.db");
             Class.forName("org.sqlite.JDBC");
-            return DriverManager.getConnection("jdbc:sqlite:data/bible.db");
+            return DriverManager.getConnection("jdbc:sqlite:" + url.getPath());
         } catch (ClassNotFoundException e) {
             throw new SQLException(e.getMessage());
         }
