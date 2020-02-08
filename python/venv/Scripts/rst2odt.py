@@ -1,4 +1,4 @@
-#!d:\arquivos\documentos\github\bible-projector\python\venv\scripts\python.exe
+#!D:\Programming\GitHub\Bible-projector\python\venv\Scripts\python.exe
 
 # $Id: rst2odt.py 5839 2009-01-07 19:09:28Z dkuhlman $
 # Author: Dave Kuhlman <dkuhlman@rexx.com>

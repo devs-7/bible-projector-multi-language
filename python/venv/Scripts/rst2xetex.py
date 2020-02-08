@@ -1,4 +1,4 @@
-#!d:\arquivos\documentos\github\bible-projector\python\venv\scripts\python.exe
+#!D:\Programming\GitHub\Bible-projector\python\venv\Scripts\python.exe
 
 # $Id: rst2xetex.py 7847 2015-03-17 17:30:47Z milde $
 # Author: Guenter Milde

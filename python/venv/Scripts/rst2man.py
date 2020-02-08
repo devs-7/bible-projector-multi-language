@@ -1,6 +1,6 @@
-#!d:\arquivos\documentos\github\bible-projector\python\venv\scripts\python.exe
+#!D:\Programming\GitHub\Bible-projector\python\venv\Scripts\python.exe
 
-# Author: 
+# Author:
 # Contact: grubert@users.sf.net
 # Copyright: This module has been placed in the public domain.
 

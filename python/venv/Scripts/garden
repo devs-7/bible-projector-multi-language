@@ -1,4 +1,4 @@
-#!d:\arquivos\documentos\github\bible-projector\python\venv\scripts\python.exe
+#!D:\Programming\GitHub\Bible-projector\python\venv\Scripts\python.exe
 
 import sys
 import argparse
