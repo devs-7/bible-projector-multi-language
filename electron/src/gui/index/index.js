@@ -25,13 +25,6 @@ const win = remote.getCurrentWindow()
 
 localStorage.setItem('preferences', recuperarPreferencias())
 
-function teste() {
-    const Bible = require('../../models/bible_sqlite')
-    const bible = new Bible()
-    bible.query()
-}
-teste()
-
 var preferencias = JSON.parse(localStorage.getItem('preferences'))
 var bible = new Bible(preferencias.versao)
 
