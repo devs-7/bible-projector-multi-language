@@ -1,6 +1,7 @@
 import helper.db_controller as db
 from helper.strings import normalizar
 
+
 def query_one(q):
     q = query(q)
     if q is not None:
@@ -57,6 +58,7 @@ def add_join(s):
         JOIN livros on textos.id_livro = livros.id
         WHERE 
     """ + s
+
 
 def format_dict_ver(ver):
     return f"{ver['liv']} {ver['cap']}:{ver['ver']}"

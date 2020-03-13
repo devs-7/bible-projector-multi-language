@@ -39,5 +39,4 @@ class SendEmail:
         return codigo
 
 
-send_email = SendEmail('guia.fone.uruguaiana@gmail.com', 'RxV#c3$vjGXDiF8F')
-# send_email = SendEmail('hack0441@gmail.com', 'plokmqsc')
+# send_email = SendEmail('email', 'senha')
