@@ -115,7 +115,6 @@ class Bible(DbClass):
         if result is not None:
             self.set_valores_dict(result)
             self.historico.append(self.ref())
-            print(self.historico)
             self.run_listener()
         else:
             self.set_valores_dict(self.historico[-1])
