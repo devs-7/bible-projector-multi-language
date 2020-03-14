@@ -1,6 +1,5 @@
 from ui.main.window import *
 from PyQt5.QtWidgets import QMainWindow
-from PyQt5.QtGui import QKeyEvent
 from model.bible import Bible, format_reference
 
 
