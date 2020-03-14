@@ -1,5 +1,6 @@
 import helper.db_controller as db
 from helper.strings import normalizar
+from model.db_class import DbClass
 
 SQL_SELECT = """
     SELECT livros.nome, textos.capitulo, textos.versiculo, textos.texto, versoes.versao
@@ -64,19 +65,30 @@ def format_reference(ref: dict):
     return f"{ref['liv']} {ref['cap']}:{ref['ver']}"
 
 
-class Bible:
-    def __init__(self, versao="ARA"):
+class Bible(DbClass):
+    def __init__(self, versao="ARA", dicionario: dict = None):
         self.liv = None
         self.cap = None
         self.ver = None
         self.text = None
         self.versao = versao
+        self.listener = None
+
+        if dicionario is not None:
+            self.set_valores_dict(dicionario)
+
+    def run_listener(self):
+        if self.listener is not None:
+            self.listener(self.__dict__)
 
     def query(self, q):
         return query(q, self.versao)
 
     def query_one(self, q):
-        return query_one(q, self.versao)
+        result = query_one(q, self.versao)
+        self.set_valores_dict(result)
+        self.run_listener()
+        return result
 
     def next(self):
         self.ver += 1
