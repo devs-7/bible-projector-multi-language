@@ -12,6 +12,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         super().setupUi(self)
 
         self.bible = Bible()
+        self.bible.listener = self.bible_listener
         self.projetor_window = ProjetorWindow()
 
         self.pesquisarButton.clicked.connect(self.pesquisar)
@@ -27,6 +28,24 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.projetar()
         elif key == QtCore.Qt.Key_Escape:
             self.fechar_projetor()
+        elif key == QtCore.Qt.Key_F6:
+            self.atualizar_texto_projetor()
+        elif key == QtCore.Qt.Key_PageUp:
+            self.bible.next()
+        elif key == QtCore.Qt.Key_PageDown:
+            self.bible.back()
+
+
+    def set_ref(self, ref: dict):
+        texto_referencia = f"{ref['text']} ({format_reference(ref)})"
+        self.mainTextEdit.setText(texto_referencia)
+        self.projetor_window.textLabel.setText(texto_referencia)
+
+    def bible_listener(self, ref):
+        self.set_ref(ref)
+
+    def atualizar_texto_projetor(self):
+        self.projetor_window.text = self.mainTextEdit.toPlainText()
 
     def fechar_projetor(self):
         self.projetor_window.close()
@@ -37,7 +56,4 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def pesquisar(self):
         pesquisa = self.pesquisaLineEdit.text()
         if pesquisa != '':
-            referencia = self.bible.query_one(pesquisa)
-            texto_referencia = f"{referencia['text']} ({format_reference(referencia)})"
-            self.mainTextEdit.setText(texto_referencia)
-            self.projetor_window.textLabel.setText(texto_referencia)
+            self.bible.query_one(pesquisa)
