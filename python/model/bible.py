@@ -82,25 +82,43 @@ def format_reference(ref: dict):
 
 
 class Bible(DbClass):
-    def __init__(self, versao="ARA", dicionario: dict = None):
+    def __init__(self, versao="ARA", ref: dict = None):
         self.liv = None
         self.cap = None
         self.ver = None
         self.text = None
         self.versao = versao
         self.listener = None
+        self.historico = []
 
-        if dicionario is not None:
-            self.set_valores_dict(dicionario)
+        if ref is not None:
+            self.set_ref(ref)
+
+    def set_ref(self, ref):
+        self.set_valores_dict(ref)
+
+    def ref(self):
+        return {
+            'liv': self.liv,
+            'cap': self.cap,
+            'ver': self.ver,
+            'text': self.text,
+            'versao': self.versao
+        }
 
     def run_listener(self):
         if self.listener is not None:
-            self.listener(self.__dict__)
+            self.listener(self.ref())
 
     def query(self, q):
         result = query_one(q, self.versao)
-        self.set_valores_dict(result)
-        self.run_listener()
+        if result is not None:
+            self.set_valores_dict(result)
+            self.historico.append(self.ref())
+            print(self.historico)
+            self.run_listener()
+        else:
+            self.set_valores_dict(self.historico[-1])
         return result
 
     def next(self):
