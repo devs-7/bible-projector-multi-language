@@ -13,7 +13,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(712, 399)
+        MainWindow.resize(665, 550)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -86,10 +86,13 @@ class Ui_MainWindow(object):
         self.verticalLayout.addLayout(self.horizontalLayout_3)
         self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setObjectName("gridLayout")
-        self.listView = QtWidgets.QListView(self.centralwidget)
-        self.listView.setObjectName("listView")
-        self.gridLayout.addWidget(self.listView, 0, 1, 1, 1)
         self.mainTextEdit = QtWidgets.QTextEdit(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.mainTextEdit.sizePolicy().hasHeightForWidth())
+        self.mainTextEdit.setSizePolicy(sizePolicy)
+        self.mainTextEdit.setMaximumSize(QtCore.QSize(16777215, 200))
         self.mainTextEdit.setStyleSheet("* {\n"
 "    border-style: solid;\n"
 "    border-color: gray;\n"
@@ -102,7 +105,21 @@ class Ui_MainWindow(object):
 "}")
         self.mainTextEdit.setObjectName("mainTextEdit")
         self.gridLayout.addWidget(self.mainTextEdit, 0, 0, 1, 1)
-        self.gridLayout.setColumnStretch(0, 1)
+        self.listView = QtWidgets.QListView(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.listView.sizePolicy().hasHeightForWidth())
+        self.listView.setSizePolicy(sizePolicy)
+        self.listView.setMaximumSize(QtCore.QSize(500, 16777215))
+        self.listView.setStyleSheet("*{\n"
+"    width: 100px;\n"
+"}")
+        self.listView.setObjectName("listView")
+        self.gridLayout.addWidget(self.listView, 0, 1, 2, 1)
+        self.listWidget = QtWidgets.QListWidget(self.centralwidget)
+        self.listWidget.setObjectName("listWidget")
+        self.gridLayout.addWidget(self.listWidget, 1, 0, 1, 1)
         self.verticalLayout.addLayout(self.gridLayout)
         MainWindow.setCentralWidget(self.centralwidget)
         self.actionSair = QtWidgets.QAction(MainWindow)
