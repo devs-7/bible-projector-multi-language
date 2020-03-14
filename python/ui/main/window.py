@@ -86,6 +86,9 @@ class Ui_MainWindow(object):
         self.verticalLayout.addLayout(self.horizontalLayout_3)
         self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setObjectName("gridLayout")
+        self.listView = QtWidgets.QListView(self.centralwidget)
+        self.listView.setObjectName("listView")
+        self.gridLayout.addWidget(self.listView, 0, 1, 1, 1)
         self.mainTextEdit = QtWidgets.QTextEdit(self.centralwidget)
         self.mainTextEdit.setStyleSheet("* {\n"
 "    border-style: solid;\n"
@@ -95,12 +98,10 @@ class Ui_MainWindow(object):
 "    padding: 3px;\n"
 "    background-color: white;\n"
 "    color: black;\n"
+"    font-size: 10pt;\n"
 "}")
         self.mainTextEdit.setObjectName("mainTextEdit")
         self.gridLayout.addWidget(self.mainTextEdit, 0, 0, 1, 1)
-        self.listView = QtWidgets.QListView(self.centralwidget)
-        self.listView.setObjectName("listView")
-        self.gridLayout.addWidget(self.listView, 0, 1, 1, 1)
         self.gridLayout.setColumnStretch(0, 1)
         self.verticalLayout.addLayout(self.gridLayout)
         MainWindow.setCentralWidget(self.centralwidget)
