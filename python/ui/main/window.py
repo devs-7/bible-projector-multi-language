@@ -46,6 +46,7 @@ class Ui_MainWindow(object):
         self.pesquisaLineEdit.setObjectName("pesquisaLineEdit")
         self.horizontalLayout_3.addWidget(self.pesquisaLineEdit)
         self.pesquisarButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pesquisarButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pesquisarButton.setStyleSheet("* {\n"
 "    border-style: solid;\n"
 "    border-color: gray;\n"
@@ -63,6 +64,7 @@ class Ui_MainWindow(object):
         self.pesquisarButton.setObjectName("pesquisarButton")
         self.horizontalLayout_3.addWidget(self.pesquisarButton)
         self.projetarButton = QtWidgets.QPushButton(self.centralwidget)
+        self.projetarButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.projetarButton.setStyleSheet("* {\n"
 "    border-style: solid;\n"
 "    border-color: gray;\n"
@@ -80,6 +82,7 @@ class Ui_MainWindow(object):
         self.projetarButton.setObjectName("projetarButton")
         self.horizontalLayout_3.addWidget(self.projetarButton)
         self.atualizarButton = QtWidgets.QPushButton(self.centralwidget)
+        self.atualizarButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.atualizarButton.setStyleSheet("* {\n"
 "    border-style: solid;\n"
 "    border-color: gray;\n"
@@ -97,6 +100,7 @@ class Ui_MainWindow(object):
         self.atualizarButton.setObjectName("atualizarButton")
         self.horizontalLayout_3.addWidget(self.atualizarButton)
         self.configuracoesButton = QtWidgets.QPushButton(self.centralwidget)
+        self.configuracoesButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.configuracoesButton.setStyleSheet("* {\n"
 "    border-style: solid;\n"
 "    border-color: gray;\n"

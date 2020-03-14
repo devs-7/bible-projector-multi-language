@@ -50,6 +50,9 @@
       </item>
       <item>
        <widget class="QPushButton" name="pesquisarButton">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
         <property name="styleSheet">
          <string notr="true">* {
 	border-style: solid;
@@ -73,6 +76,9 @@
       </item>
       <item>
        <widget class="QPushButton" name="projetarButton">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
         <property name="styleSheet">
          <string notr="true">* {
 	border-style: solid;
@@ -96,6 +102,9 @@
       </item>
       <item>
        <widget class="QPushButton" name="atualizarButton">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
         <property name="styleSheet">
          <string notr="true">* {
 	border-style: solid;
@@ -119,6 +128,9 @@
       </item>
       <item>
        <widget class="QPushButton" name="configuracoesButton">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
         <property name="styleSheet">
          <string notr="true">* {
 	border-style: solid;

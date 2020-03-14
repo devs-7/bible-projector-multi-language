@@ -2,6 +2,7 @@ import PyQt5.QtGui as QtGui
 
 from model.bible import Bible, format_reference
 from ui.projetor.projetor_window import ProjetorWindow
+from ui.configuracoes.configuracoes_window import ConfiguracoesWindow
 
 from ui.main.window import *
 from PyQt5 import QtCore, QtWidgets
@@ -17,6 +18,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.bible = Bible()
         self.bible.listener = self.bible_listener
 
+        self.configuracoes_window = ConfiguracoesWindow()
         self.projetor_window = ProjetorWindow()
         monitor = QDesktopWidget().screenGeometry(2)
         self.projetor_window.move(monitor.left(), monitor.top())
@@ -26,8 +28,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.pesquisarButton.clicked.connect(self.pesquisar)
         self.projetarButton.clicked.connect(self.projetar)
         self.atualizarButton.clicked.connect(self.atualizar_texto_projetor)
+        self.configuracoesButton.clicked.connect(self.show_configuracoes)
         self.pesquisaLineEdit.returnPressed.connect(self.pesquisar)
         self.versoesComboBox.currentTextChanged.connect(self.atualizar_versao)
+
+    def show_configuracoes(self):
+        self.configuracoes_window.show()
 
     def atualizar_versao(self):
         self.bible.versao = self.versoesComboBox.currentText()
