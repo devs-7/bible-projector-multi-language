@@ -26,9 +26,14 @@ def query(q, versao='ARA'):
     q_split = q_split.split(' ')
 
     if len(q_split) >= 3:
-        ver = q_split.pop()
-        cap = q_split.pop()
-        liv = ' '.join(q_split)
+        ver: str = q_split.pop()
+        cap: str = q_split.pop()
+        liv: str = ' '.join(q_split)
+
+        if not cap.isnumeric() or not ver.isnumeric():
+            ver = 'null'
+            cap = 'null'
+            liv = 'null'
     else:
         ver = 'null'
         cap = 'null'
@@ -38,8 +43,8 @@ def query(q, versao='ARA'):
         {SQL_SELECT}
         WHERE
         livros._sigla like '{liv}' AND
-        textos.capitulo = {cap} AND
-        textos.versiculo = {ver} AND
+        textos.capitulo = '{cap}' AND
+        textos.versiculo = '{ver}' AND
         versoes.versao LIKE '{versao}'
     """)
 
@@ -48,8 +53,8 @@ def query(q, versao='ARA'):
             {SQL_SELECT}
             WHERE
             livros._nome LIKE '%{liv}%' AND
-            textos.capitulo = {cap} AND
-            textos.versiculo = {ver} AND
+            textos.capitulo = '{cap}' AND
+            textos.versiculo = '{ver}' AND
             versoes.versao LIKE '{versao}'
         """)
 
