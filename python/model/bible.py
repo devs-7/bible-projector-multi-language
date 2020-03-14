@@ -82,9 +82,6 @@ class Bible(DbClass):
             self.listener(self.__dict__)
 
     def query(self, q):
-        return query(q, self.versao)
-
-    def query_one(self, q):
         result = query_one(q, self.versao)
         self.set_valores_dict(result)
         self.run_listener()
@@ -92,11 +89,11 @@ class Bible(DbClass):
 
     def next(self):
         self.ver += 1
-        self.query_one(self.referencia())
+        self.query(self.referencia())
 
     def back(self):
         self.ver -= 1
-        self.query_one(self.referencia())
+        self.query(self.referencia())
 
     def referencia(self):
         return format_reference({

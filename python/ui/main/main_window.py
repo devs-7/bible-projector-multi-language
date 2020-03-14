@@ -6,6 +6,7 @@ from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtGui import QKeyEvent
 from PyQt5 import QtCore
 
+
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -35,7 +36,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         elif key == QtCore.Qt.Key_PageDown:
             self.bible.back()
 
-
     def set_ref(self, ref: dict):
         texto_referencia = f"{ref['text']} ({format_reference(ref)})"
         self.mainTextEdit.setText(texto_referencia)
@@ -56,4 +56,4 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def pesquisar(self):
         pesquisa = self.pesquisaLineEdit.text()
         if pesquisa != '':
-            self.bible.query_one(pesquisa)
+            self.bible.query(pesquisa)
