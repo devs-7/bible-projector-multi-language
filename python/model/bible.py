@@ -60,8 +60,8 @@ def query(q, versao='ARA'):
         return None
 
 
-def format_dict_ver(ver):
-    return f"{ver['liv']} {ver['cap']}:{ver['ver']}"
+def format_reference(ref: dict):
+    return f"{ref['liv']} {ref['cap']}:{ref['ver']}"
 
 
 class Bible:

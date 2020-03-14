@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'view.ui'
+# Form implementation generated from reading ui file 'D:\Programming\GitHub\Bible-projector\python\ui\main_view\view.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.1
 #
@@ -13,28 +13,55 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(737, 432)
+        MainWindow.resize(712, 399)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName("gridLayout")
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setObjectName("pushButton")
-        self.gridLayout.addWidget(self.pushButton, 0, 1, 1, 1)
-        self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit.setObjectName("lineEdit")
-        self.gridLayout.addWidget(self.lineEdit, 0, 0, 1, 1)
-        self.textEdit = QtWidgets.QTextEdit(self.centralwidget)
-        self.textEdit.setObjectName("textEdit")
-        self.gridLayout.addWidget(self.textEdit, 1, 0, 1, 2)
+        self.pesquisaLineEdit = QtWidgets.QLineEdit(self.centralwidget)
+        self.pesquisaLineEdit.setStyleSheet("* {\n"
+"    border-style: solid;\n"
+"    border-color: gray;\n"
+"    border-width: 1px;\n"
+"    border-radius: 3px;\n"
+"    padding: 3px;\n"
+"    background-color: white;\n"
+"    color: black;\n"
+"}")
+        self.pesquisaLineEdit.setObjectName("pesquisaLineEdit")
+        self.gridLayout.addWidget(self.pesquisaLineEdit, 0, 0, 1, 1)
+        self.pesquisarButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pesquisarButton.setStyleSheet("* {\n"
+"    border-style: solid;\n"
+"    border-color: gray;\n"
+"    border-width: 1px;\n"
+"    border-radius: 3px;\n"
+"    padding: 4px;\n"
+"    background-color: rgb(220, 220, 220);\n"
+"    color: black;\n"
+"}\n"
+"\n"
+"*:hover {\n"
+"    background-color: gray;\n"
+"    color: white;\n"
+"}")
+        self.pesquisarButton.setObjectName("pesquisarButton")
+        self.gridLayout.addWidget(self.pesquisarButton, 0, 1, 1, 1)
+        self.mainTextEdit = QtWidgets.QTextEdit(self.centralwidget)
+        self.mainTextEdit.setStyleSheet("* {\n"
+"    border-style: solid;\n"
+"    border-color: gray;\n"
+"    border-width: 1px;\n"
+"    border-radius: 3px;\n"
+"    padding: 3px;\n"
+"    background-color: white;\n"
+"    color: black;\n"
+"}")
+        self.mainTextEdit.setObjectName("mainTextEdit")
+        self.gridLayout.addWidget(self.mainTextEdit, 1, 0, 1, 2)
         MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 737, 21))
-        self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        self.actionSair = QtWidgets.QAction(MainWindow)
+        self.actionSair.setObjectName("actionSair")
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -42,4 +69,5 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Projetor bíblico"))
-        self.pushButton.setText(_translate("MainWindow", "PushButton"))
+        self.pesquisarButton.setText(_translate("MainWindow", "Pesquisar"))
+        self.actionSair.setText(_translate("MainWindow", "Sair"))

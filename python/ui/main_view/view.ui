@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>737</width>
-    <height>432</height>
+    <width>712</width>
+    <height>399</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,32 +15,66 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="1">
-     <widget class="QPushButton" name="pushButton">
-      <property name="text">
-       <string>PushButton</string>
+    <item row="0" column="0">
+     <widget class="QLineEdit" name="pesquisaLineEdit">
+      <property name="styleSheet">
+       <string notr="true">* {
+	border-style: solid;
+	border-color: gray;
+	border-width: 1px;
+	border-radius: 3px;
+	padding: 3px;
+	background-color: white;
+	color: black;
+}</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="0">
-     <widget class="QLineEdit" name="lineEdit"/>
+    <item row="0" column="1">
+     <widget class="QPushButton" name="pesquisarButton">
+      <property name="styleSheet">
+       <string notr="true">* {
+	border-style: solid;
+	border-color: gray;
+	border-width: 1px;
+	border-radius: 3px;
+	padding: 4px;
+	background-color: rgb(220, 220, 220);
+	color: black;
+}
+
+*:hover {
+	background-color: gray;
+	color: white;
+}</string>
+      </property>
+      <property name="text">
+       <string>Pesquisar</string>
+      </property>
+     </widget>
     </item>
     <item row="1" column="0" colspan="2">
-     <widget class="QTextEdit" name="textEdit"/>
+     <widget class="QTextEdit" name="mainTextEdit">
+      <property name="styleSheet">
+       <string notr="true">* {
+	border-style: solid;
+	border-color: gray;
+	border-width: 1px;
+	border-radius: 3px;
+	padding: 3px;
+	background-color: white;
+	color: black;
+}</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>737</width>
-     <height>21</height>
-    </rect>
+  <action name="actionSair">
+   <property name="text">
+    <string>Sair</string>
    </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  </action>
  </widget>
  <resources/>
  <connections/>
