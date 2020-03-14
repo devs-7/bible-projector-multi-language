@@ -19,14 +19,20 @@ def query_one(q, versao='ARA'):
 
 
 def query(q, versao='ARA'):
-    q = q.replace(':', ' ')
-    while q.__contains__('  '):
-        q = q.replace('  ', ' ')
     q = normalizar(q)
-    q = q.split(' ')
-    ver = q.pop()
-    cap = q.pop()
-    liv = ' '.join(q)
+    q_split = q.replace(':', ' ')
+    while q_split.__contains__('  '):
+        q_split = q_split.replace('  ', ' ')
+    q_split = q_split.split(' ')
+
+    if len(q_split) >= 3:
+        ver = q_split.pop()
+        cap = q_split.pop()
+        liv = ' '.join(q_split)
+    else:
+        ver = 'null'
+        cap = 'null'
+        liv = 'null'
 
     result_query = db.query(f"""
         {SQL_SELECT}
@@ -34,15 +40,25 @@ def query(q, versao='ARA'):
         livros._sigla like '{liv}' AND
         textos.capitulo = {cap} AND
         textos.versiculo = {ver} AND
-        versao like '{versao}'
+        versoes.versao LIKE '{versao}'
     """)
+
     if len(result_query) == 0:
         result_query = db.query(f"""
             {SQL_SELECT}
             WHERE
-            livros._nome like '%{liv}%' AND
+            livros._nome LIKE '%{liv}%' AND
             textos.capitulo = {cap} AND
-            textos.versiculo = {ver}
+            textos.versiculo = {ver} AND
+            versoes.versao LIKE '{versao}'
+        """)
+
+    if (len(result_query) == 0):
+        result_query = db.query(f"""
+            {SQL_SELECT}
+            WHERE
+            textos.texto LIKE '%{q}%' AND
+            versoes.versao LIKE '{versao}'
         """)
 
     if len(result_query) > 0:
