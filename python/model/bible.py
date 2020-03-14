@@ -66,6 +66,10 @@ def format_reference(ref: dict):
 
 class Bible:
     def __init__(self, versao="ARA"):
+        self.liv = None
+        self.cap = None
+        self.ver = None
+        self.text = None
         self.versao = versao
 
     def query(self, q):
@@ -73,3 +77,18 @@ class Bible:
 
     def query_one(self, q):
         return query_one(q, self.versao)
+
+    def next(self):
+        self.ver += 1
+        self.query_one(self.referencia())
+
+    def back(self):
+        self.ver -= 1
+        self.query_one(self.referencia())
+
+    def referencia(self):
+        return format_reference({
+            'liv': self.liv,
+            'cap': self.cap,
+            'ver': self.ver
+        })

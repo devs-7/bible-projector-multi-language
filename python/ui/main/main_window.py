@@ -1,8 +1,7 @@
-from ui.main_view.view import *
+from ui.main.window import *
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtGui import QKeyEvent
 from model.bible import Bible, format_reference
-
 
 
 class MainView(QMainWindow, Ui_MainWindow):
@@ -13,6 +12,10 @@ class MainView(QMainWindow, Ui_MainWindow):
         self.bible = Bible()
 
         self.pesquisarButton.clicked.connect(self.pesquisar)
+        self.projetarButton.clicked.connect(self.projetar)
+
+    def projetar(self):
+        pass
 
     def pesquisar(self):
         pesquisa = self.pesquisaLineEdit.text()
