@@ -62,8 +62,9 @@ def query(q, versao='ARA'):
         result_query = db.query(f"""
             {SQL_SELECT}
             WHERE
-            textos.texto LIKE '%{q}%' AND
+            textos.texto LIKE '%{q.replace(' ', '%')}%' AND
             versoes.versao LIKE '{versao}'
+            ORDER BY livros.id, textos.capitulo, textos.versiculo
         """)
 
     if len(result_query) > 0:
