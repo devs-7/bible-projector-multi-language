@@ -18,6 +18,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.pesquisarButton.clicked.connect(self.pesquisar)
         self.projetarButton.clicked.connect(self.projetar)
+        self.atualizarButton.clicked.connect(self.atualizar_texto_projetor)
         self.pesquisaLineEdit.returnPressed.connect(self.pesquisar)
 
     def keyPressEvent(self, event: QKeyEvent):
