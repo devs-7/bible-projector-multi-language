@@ -23,15 +23,12 @@ class Ui_MainWindow(object):
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName("verticalLayout")
         self.scrollArea = QtWidgets.QScrollArea(self.centralwidget)
-        self.scrollArea.setStyleSheet("*{\n"
-"    padding: 0px;\n"
-"    border: none;\n"
-"}")
+        self.scrollArea.setStyleSheet("")
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignTop)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 782, 269))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 780, 269))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -99,6 +96,22 @@ class Ui_MainWindow(object):
 "}")
         self.spinBox.setObjectName("spinBox")
         self.horizontalLayout.addWidget(self.spinBox)
+        self.label_3 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_3.sizePolicy().hasHeightForWidth())
+        self.label_3.setSizePolicy(sizePolicy)
+        self.label_3.setMinimumSize(QtCore.QSize(25, 0))
+        self.label_3.setMaximumSize(QtCore.QSize(25, 16777215))
+        self.label_3.setStyleSheet("* {\n"
+"    border: 1px solid black;\n"
+"    border-radius: 2px;\n"
+"    background-color: white;\n"
+"}")
+        self.label_3.setText("")
+        self.label_3.setObjectName("label_3")
+        self.horizontalLayout.addWidget(self.label_3)
         self.pushButton = QtWidgets.QPushButton(self.scrollAreaWidgetContents)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)

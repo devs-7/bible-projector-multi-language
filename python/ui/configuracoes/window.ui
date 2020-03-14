@@ -26,10 +26,7 @@
     <item>
      <widget class="QScrollArea" name="scrollArea">
       <property name="styleSheet">
-       <string notr="true">*{
-	padding: 0px;
-	border: none;
-}</string>
+       <string notr="true"/>
       </property>
       <property name="widgetResizable">
        <bool>true</bool>
@@ -42,7 +39,7 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>782</width>
+         <width>780</width>
          <height>269</height>
         </rect>
        </property>
@@ -140,6 +137,38 @@
 	background-color: white;
 	color: black;
 }</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>25</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>25</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">* {
+	border: 1px solid black;
+	border-radius: 2px;
+	background-color: white;
+}</string>
+            </property>
+            <property name="text">
+             <string/>
             </property>
            </widget>
           </item>
