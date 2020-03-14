@@ -1,5 +1,5 @@
 import sys
-# import update_windows
+import update_windows
 
 from PyQt5.QtWidgets import QApplication
 from ui.main.main_window import MainWindow

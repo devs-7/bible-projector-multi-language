@@ -1,10 +1,12 @@
+import PyQt5.QtGui as QtGui
+
 from model.bible import Bible, format_reference
 from ui.projetor.projetor_window import ProjetorWindow
 
 from ui.main.window import *
+from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QDesktopWidget
 from PyQt5.QtGui import QKeyEvent
-from PyQt5 import QtCore
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -42,6 +44,23 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.mainTextEdit.setText(texto_referencia)
         self.projetor_window.textLabel.setText(texto_referencia)
 
+    def set_ocorrencias(self, ocorrencias: list):
+        model = QtGui.QStandardItemModel()
+
+        for ref in ocorrencias:
+            liv = ref['liv']
+            cap = ref['cap']
+            ver = ref['ver']
+            text = ref['text']
+            versao = ref['versao']
+
+            item = QtGui.QStandardItem()
+            item.setText(f"{text} ({liv} {cap}:{ver} {versao})")
+            model.appendRow(item)
+
+        self.ocorrenciasListView.setModel(model)
+        self.ocorrenciasLabel.setText(f'Ocorrências: {len(ocorrencias)}')
+
     def bible_listener(self, ref):
         self.set_ref(ref)
 
@@ -60,3 +79,4 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         pesquisa = self.pesquisaLineEdit.text()
         if pesquisa != '':
             self.bible.query(pesquisa)
+            self.set_ocorrencias(self.bible.ocorrencias)

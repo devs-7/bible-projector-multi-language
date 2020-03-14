@@ -19,7 +19,7 @@ def query_one(q, versao='ARA'):
 
 
 def query(q, versao='ARA'):
-    q = normalizar(q)
+    q_split = normalizar(q)
     q_split = q.replace(':', ' ')
     while q_split.__contains__('  '):
         q_split = q_split.replace('  ', ' ')
@@ -95,6 +95,7 @@ class Bible(DbClass):
         self.versao = versao
         self.listener = None
         self.historico = []
+        self.ocorrencias = []
 
         if ref is not None:
             self.set_ref(ref)
@@ -116,14 +117,15 @@ class Bible(DbClass):
             self.listener(self.ref())
 
     def query(self, q):
-        result = query_one(q, self.versao)
-        if result is not None:
-            self.set_valores_dict(result)
+        ocorrencias = query(q, self.versao)
+        if ocorrencias is not None:
+            self.set_valores_dict(ocorrencias[0])
             self.historico.append(self.ref())
+            self.ocorrencias = ocorrencias
             self.run_listener()
         else:
             self.set_valores_dict(self.historico[-1])
-        return result
+        return ocorrencias
 
     def next(self):
         self.ver += 1
