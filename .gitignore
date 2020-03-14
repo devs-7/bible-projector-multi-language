@@ -1,5 +1,6 @@
 node_modules/
 dist/
+python/.idea/
 Histórico.txt
 
 # Byte-compiled / optimized / DLL files
@@ -127,4 +128,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-python/.idea/workspace.xml
