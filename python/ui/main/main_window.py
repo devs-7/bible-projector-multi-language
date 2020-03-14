@@ -2,7 +2,7 @@ from model.bible import Bible, format_reference
 from ui.projetor.projetor_window import ProjetorWindow
 
 from ui.main.window import *
-from PyQt5.QtWidgets import QMainWindow
+from PyQt5.QtWidgets import QMainWindow, QDesktopWidget
 from PyQt5.QtGui import QKeyEvent
 from PyQt5 import QtCore
 
@@ -51,7 +51,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.projetor_window.close()
 
     def projetar(self):
-        self.projetor_window.show()
+        monitor = QDesktopWidget().screenGeometry(2)
+        self.projetor_window.move(monitor.left(), monitor.top())
+        self.projetor_window.showFullScreen()
 
     def pesquisar(self):
         pesquisa = self.pesquisaLineEdit.text()
