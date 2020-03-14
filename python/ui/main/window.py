@@ -16,8 +16,22 @@ class Ui_MainWindow(object):
         MainWindow.resize(712, 399)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
-        self.gridLayout.setObjectName("gridLayout")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.pesquisaLineEdit = QtWidgets.QLineEdit(self.centralwidget)
+        self.pesquisaLineEdit.setStyleSheet("* {\n"
+"    border-style: solid;\n"
+"    border-color: gray;\n"
+"    border-width: 1px;\n"
+"    border-radius: 3px;\n"
+"    padding: 3px;\n"
+"    background-color: white;\n"
+"    color: black;\n"
+"}")
+        self.pesquisaLineEdit.setObjectName("pesquisaLineEdit")
+        self.horizontalLayout_3.addWidget(self.pesquisaLineEdit)
         self.pesquisarButton = QtWidgets.QPushButton(self.centralwidget)
         self.pesquisarButton.setStyleSheet("* {\n"
 "    border-style: solid;\n"
@@ -34,19 +48,7 @@ class Ui_MainWindow(object):
 "    color: white;\n"
 "}")
         self.pesquisarButton.setObjectName("pesquisarButton")
-        self.gridLayout.addWidget(self.pesquisarButton, 0, 1, 1, 1)
-        self.pesquisaLineEdit = QtWidgets.QLineEdit(self.centralwidget)
-        self.pesquisaLineEdit.setStyleSheet("* {\n"
-"    border-style: solid;\n"
-"    border-color: gray;\n"
-"    border-width: 1px;\n"
-"    border-radius: 3px;\n"
-"    padding: 3px;\n"
-"    background-color: white;\n"
-"    color: black;\n"
-"}")
-        self.pesquisaLineEdit.setObjectName("pesquisaLineEdit")
-        self.gridLayout.addWidget(self.pesquisaLineEdit, 0, 0, 1, 1)
+        self.horizontalLayout_3.addWidget(self.pesquisarButton)
         self.projetarButton = QtWidgets.QPushButton(self.centralwidget)
         self.projetarButton.setStyleSheet("* {\n"
 "    border-style: solid;\n"
@@ -63,7 +65,27 @@ class Ui_MainWindow(object):
 "    color: white;\n"
 "}")
         self.projetarButton.setObjectName("projetarButton")
-        self.gridLayout.addWidget(self.projetarButton, 0, 2, 1, 1)
+        self.horizontalLayout_3.addWidget(self.projetarButton)
+        self.atualizarButton = QtWidgets.QPushButton(self.centralwidget)
+        self.atualizarButton.setStyleSheet("* {\n"
+"    border-style: solid;\n"
+"    border-color: gray;\n"
+"    border-width: 1px;\n"
+"    border-radius: 3px;\n"
+"    padding: 4px;\n"
+"    background-color: rgb(220, 220, 220);\n"
+"    color: black;\n"
+"}\n"
+"\n"
+"*:hover {\n"
+"    background-color: gray;\n"
+"    color: white;\n"
+"}")
+        self.atualizarButton.setObjectName("atualizarButton")
+        self.horizontalLayout_3.addWidget(self.atualizarButton)
+        self.verticalLayout.addLayout(self.horizontalLayout_3)
+        self.gridLayout = QtWidgets.QGridLayout()
+        self.gridLayout.setObjectName("gridLayout")
         self.mainTextEdit = QtWidgets.QTextEdit(self.centralwidget)
         self.mainTextEdit.setStyleSheet("* {\n"
 "    border-style: solid;\n"
@@ -75,7 +97,12 @@ class Ui_MainWindow(object):
 "    color: black;\n"
 "}")
         self.mainTextEdit.setObjectName("mainTextEdit")
-        self.gridLayout.addWidget(self.mainTextEdit, 1, 0, 1, 3)
+        self.gridLayout.addWidget(self.mainTextEdit, 0, 0, 1, 1)
+        self.listView = QtWidgets.QListView(self.centralwidget)
+        self.listView.setObjectName("listView")
+        self.gridLayout.addWidget(self.listView, 0, 1, 1, 1)
+        self.gridLayout.setColumnStretch(0, 1)
+        self.verticalLayout.addLayout(self.gridLayout)
         MainWindow.setCentralWidget(self.centralwidget)
         self.actionSair = QtWidgets.QAction(MainWindow)
         self.actionSair.setObjectName("actionSair")
@@ -88,4 +115,5 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "Projetor bíblico"))
         self.pesquisarButton.setText(_translate("MainWindow", "Pesquisar"))
         self.projetarButton.setText(_translate("MainWindow", "Projetar"))
+        self.atualizarButton.setText(_translate("MainWindow", "Atualizar"))
         self.actionSair.setText(_translate("MainWindow", "Sair"))
