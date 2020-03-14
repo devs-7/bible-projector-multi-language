@@ -20,6 +20,19 @@ class Ui_MainWindow(object):
         self.verticalLayout.setObjectName("verticalLayout")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.versoesComboBox = QtWidgets.QComboBox(self.centralwidget)
+        self.versoesComboBox.setStyleSheet("* {\n"
+"    border-style: solid;\n"
+"    border-color: gray;\n"
+"    border-width: 1px;\n"
+"    border-radius: 3px;\n"
+"    padding: 4px;\n"
+"    background-color: rgb(220, 220, 220);\n"
+"    color: black;\n"
+"    width: 30px\n"
+"}")
+        self.versoesComboBox.setObjectName("versoesComboBox")
+        self.horizontalLayout_3.addWidget(self.versoesComboBox)
         self.pesquisaLineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.pesquisaLineEdit.setStyleSheet("* {\n"
 "    border-style: solid;\n"
@@ -86,25 +99,6 @@ class Ui_MainWindow(object):
         self.verticalLayout.addLayout(self.horizontalLayout_3)
         self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setObjectName("gridLayout")
-        self.mainTextEdit = QtWidgets.QTextEdit(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.mainTextEdit.sizePolicy().hasHeightForWidth())
-        self.mainTextEdit.setSizePolicy(sizePolicy)
-        self.mainTextEdit.setMaximumSize(QtCore.QSize(16777215, 200))
-        self.mainTextEdit.setStyleSheet("* {\n"
-"    border-style: solid;\n"
-"    border-color: gray;\n"
-"    border-width: 1px;\n"
-"    border-radius: 3px;\n"
-"    padding: 3px;\n"
-"    background-color: white;\n"
-"    color: black;\n"
-"    font-size: 10pt;\n"
-"}")
-        self.mainTextEdit.setObjectName("mainTextEdit")
-        self.gridLayout.addWidget(self.mainTextEdit, 1, 0, 1, 1)
         self.listWidget = QtWidgets.QListWidget(self.centralwidget)
         self.listWidget.setStyleSheet("* {\n"
 "    border-style: solid;\n"
@@ -118,15 +112,6 @@ class Ui_MainWindow(object):
 "}")
         self.listWidget.setObjectName("listWidget")
         self.gridLayout.addWidget(self.listWidget, 3, 0, 1, 1)
-        self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setObjectName("label_2")
-        self.gridLayout.addWidget(self.label_2, 0, 0, 1, 1)
-        self.ocorrenciasLabel = QtWidgets.QLabel(self.centralwidget)
-        self.ocorrenciasLabel.setStyleSheet("*{\n"
-"    margin-left: 5px;\n"
-"}")
-        self.ocorrenciasLabel.setObjectName("ocorrenciasLabel")
-        self.gridLayout.addWidget(self.ocorrenciasLabel, 0, 3, 1, 1)
         self.ocorrenciasListView = QtWidgets.QListView(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -143,18 +128,45 @@ class Ui_MainWindow(object):
 "    background-color: white;\n"
 "    color: black;\n"
 "    font-size: 10pt;\n"
-"    margin-left: 5px;\n"
 "}\n"
 "\n"
 "*:item {\n"
 "    margin-bottom: 10px;\n"
 "}")
+        self.ocorrenciasListView.setEditTriggers(QtWidgets.QAbstractItemView.SelectedClicked)
         self.ocorrenciasListView.setWordWrap(True)
         self.ocorrenciasListView.setObjectName("ocorrenciasListView")
         self.gridLayout.addWidget(self.ocorrenciasListView, 1, 3, 3, 1)
+        self.ocorrenciasLabel = QtWidgets.QLabel(self.centralwidget)
+        self.ocorrenciasLabel.setStyleSheet("")
+        self.ocorrenciasLabel.setObjectName("ocorrenciasLabel")
+        self.gridLayout.addWidget(self.ocorrenciasLabel, 0, 3, 1, 1)
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
         self.label_3.setObjectName("label_3")
         self.gridLayout.addWidget(self.label_3, 2, 0, 1, 1)
+        self.mainTextEdit = QtWidgets.QTextEdit(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.mainTextEdit.sizePolicy().hasHeightForWidth())
+        self.mainTextEdit.setSizePolicy(sizePolicy)
+        self.mainTextEdit.setMaximumSize(QtCore.QSize(16777215, 200))
+        self.mainTextEdit.setStyleSheet("* {\n"
+"    border-style: solid;\n"
+"    border-color: gray;\n"
+"    border-width: 1px;\n"
+"    border-radius: 3px;\n"
+"    background-color: white;\n"
+"    color: black;\n"
+"    font-size: 10pt;\n"
+"}")
+        self.mainTextEdit.setObjectName("mainTextEdit")
+        self.gridLayout.addWidget(self.mainTextEdit, 1, 0, 1, 1)
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setObjectName("label_2")
+        self.gridLayout.addWidget(self.label_2, 0, 0, 1, 1)
+        spacerItem = QtWidgets.QSpacerItem(5, 0, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout.addItem(spacerItem, 2, 1, 1, 1)
         self.verticalLayout.addLayout(self.gridLayout)
         MainWindow.setCentralWidget(self.centralwidget)
         self.actionSair = QtWidgets.QAction(MainWindow)
@@ -169,7 +181,7 @@ class Ui_MainWindow(object):
         self.pesquisarButton.setText(_translate("MainWindow", "Pesquisar"))
         self.projetarButton.setText(_translate("MainWindow", "Projetar"))
         self.atualizarButton.setText(_translate("MainWindow", "Atualizar"))
-        self.label_2.setText(_translate("MainWindow", "Pré-visualização"))
         self.ocorrenciasLabel.setText(_translate("MainWindow", "Ocorrências"))
         self.label_3.setText(_translate("MainWindow", "Capítulo"))
+        self.label_2.setText(_translate("MainWindow", "Pré-visualização"))
         self.actionSair.setText(_translate("MainWindow", "Sair"))

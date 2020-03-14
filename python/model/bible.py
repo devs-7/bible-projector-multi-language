@@ -142,3 +142,11 @@ class Bible(DbClass):
             'cap': self.cap,
             'ver': self.ver
         })
+
+    def get_versoes(self):
+        rows = db.query("SELECT versao FROM versoes")
+        versoes = []
+        for row in rows:
+            versao = row[0]
+            versoes.append(versao)
+        return versoes

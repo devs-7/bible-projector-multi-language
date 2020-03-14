@@ -18,10 +18,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.bible.listener = self.bible_listener
         self.projetor_window = ProjetorWindow()
 
+        self.versoesComboBox.addItems(self.bible.get_versoes())
+
         self.pesquisarButton.clicked.connect(self.pesquisar)
         self.projetarButton.clicked.connect(self.projetar)
         self.atualizarButton.clicked.connect(self.atualizar_texto_projetor)
         self.pesquisaLineEdit.returnPressed.connect(self.pesquisar)
+        self.versoesComboBox.currentTextChanged.connect(self.atualizar_versao)
+
+    def atualizar_versao(self):
+        self.bible.versao = self.versoesComboBox.currentText()
 
     def keyPressEvent(self, event: QKeyEvent):
         key = event.key()
