@@ -20,7 +20,7 @@ def query_one(q, versao='ARA'):
 
 def query(q, versao='ARA'):
     q_split = normalizar(q)
-    q_split = q.replace(':', ' ')
+    q_split = q_split.replace(':', ' ')
     while q_split.__contains__('  '):
         q_split = q_split.replace('  ', ' ')
     q_split = q_split.split(' ')
