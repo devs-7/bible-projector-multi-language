@@ -117,6 +117,29 @@
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QPushButton" name="configuracoesButton">
+        <property name="styleSheet">
+         <string notr="true">* {
+	border-style: solid;
+	border-color: gray;
+	border-width: 1px;
+	border-radius: 3px;
+	padding: 4px;
+	background-color: rgb(220, 220, 220);
+	color: black;
+}
+
+*:hover {
+	background-color: gray;
+	color: white;
+}</string>
+        </property>
+        <property name="text">
+         <string>Configurações</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
     <item>

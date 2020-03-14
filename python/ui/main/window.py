@@ -96,6 +96,23 @@ class Ui_MainWindow(object):
 "}")
         self.atualizarButton.setObjectName("atualizarButton")
         self.horizontalLayout_3.addWidget(self.atualizarButton)
+        self.configuracoesButton = QtWidgets.QPushButton(self.centralwidget)
+        self.configuracoesButton.setStyleSheet("* {\n"
+"    border-style: solid;\n"
+"    border-color: gray;\n"
+"    border-width: 1px;\n"
+"    border-radius: 3px;\n"
+"    padding: 4px;\n"
+"    background-color: rgb(220, 220, 220);\n"
+"    color: black;\n"
+"}\n"
+"\n"
+"*:hover {\n"
+"    background-color: gray;\n"
+"    color: white;\n"
+"}")
+        self.configuracoesButton.setObjectName("configuracoesButton")
+        self.horizontalLayout_3.addWidget(self.configuracoesButton)
         self.verticalLayout.addLayout(self.horizontalLayout_3)
         self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setObjectName("gridLayout")
@@ -181,6 +198,7 @@ class Ui_MainWindow(object):
         self.pesquisarButton.setText(_translate("MainWindow", "Pesquisar"))
         self.projetarButton.setText(_translate("MainWindow", "Projetar"))
         self.atualizarButton.setText(_translate("MainWindow", "Atualizar"))
+        self.configuracoesButton.setText(_translate("MainWindow", "Configurações"))
         self.ocorrenciasLabel.setText(_translate("MainWindow", "Ocorrências"))
         self.label_3.setText(_translate("MainWindow", "Capítulo"))
         self.label_2.setText(_translate("MainWindow", "Pré-visualização"))

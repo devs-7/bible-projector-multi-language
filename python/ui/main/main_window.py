@@ -16,7 +16,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.bible = Bible()
         self.bible.listener = self.bible_listener
+
         self.projetor_window = ProjetorWindow()
+        monitor = QDesktopWidget().screenGeometry(2)
+        self.projetor_window.move(monitor.left(), monitor.top())
 
         self.versoesComboBox.addItems(self.bible.get_versoes())
 
@@ -77,8 +80,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.projetor_window.close()
 
     def projetar(self):
-        monitor = QDesktopWidget().screenGeometry(2)
-        self.projetor_window.move(monitor.left(), monitor.top())
         self.projetor_window.showFullScreen()
 
     def pesquisar(self):
