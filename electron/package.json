@@ -1,6 +1,6 @@
 {
-  "name": "bible-projector",
-  "version": "1.0.0",
+  "name": "projetor_biblico",
+  "version": "1.2.1",
   "description": "",
   "main": "main.js",
   "scripts": {
