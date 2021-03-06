@@ -10,7 +10,8 @@
     "pack": "build --dir",
     "dist": "build"
   },
-  "author": "Silveira_L",
+  "author": "luanws <luan.w.silveira@gmail.com>",
+  "productName": "Projetor bíblico",
   "license": "ISC",
   "build": {
     "appId": "enupal-electronv1",
