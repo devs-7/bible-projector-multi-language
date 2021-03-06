@@ -52,11 +52,14 @@ class Projetor extends BrowserWindowController {
 
     create(filePath, props) {
         super.create(filePath, props)
-        this.win.setFullScreen(true)
+
+        const display = screen.getAllDisplays().find(display =>
+            display.bounds.x === 0 || display.bounds.y === 0)
 
         if (screen.getAllDisplays().length > 1) {
-            win.setPosition(window.innerWidth, 0)
+            this.win.setPosition(display.workArea.width, 0)
         }
+        this.win.setFullScreen(true)
     }
 }
 
