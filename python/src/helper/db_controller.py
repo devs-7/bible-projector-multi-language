@@ -2,7 +2,7 @@ import sqlite3
 
 
 def get_connection():
-    return sqlite3.connect('data/dados.db')
+    return sqlite3.connect('data/bible.db')
 
 
 def get_cursor():
