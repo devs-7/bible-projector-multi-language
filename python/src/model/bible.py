@@ -1,5 +1,5 @@
-import src.helper.db_controller as db
-from src.helper.strings import normalizar
+import src.utils.db_controller as db
+from src.utils.strings import normalizar
 from src.model.db_class import DbClass
 
 SQL_SELECT = """
