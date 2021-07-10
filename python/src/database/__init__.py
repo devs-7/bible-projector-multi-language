@@ -12,7 +12,7 @@ class Database:
     session: Session
 
     def __init__(self, url: str) -> None:
-        self.engine = create_engine(url, echo='debug')
+        self.engine = create_engine(url)
         self.Base = declarative_base()
         self.Base.metadata.create_all(self.engine)
 

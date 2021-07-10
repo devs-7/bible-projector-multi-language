@@ -8,7 +8,5 @@ class Book(db.Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
-
-    def __init__(self, id: int, name: str) -> None:
-        self.id = id
-        self.name = name
+    _name = Column(String, nullable=False)
+    _initials = Column(String, nullable=False)
