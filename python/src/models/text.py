@@ -3,8 +3,8 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.sql.schema import ForeignKey
 from sqlalchemy.sql.sqltypes import Integer, String
 from src.database import db
-from src.model.book import Book
-from src.model.version import Version
+from src.models.book import Book
+from src.models.version import Version
 
 
 class Text(db.Base):
