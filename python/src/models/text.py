@@ -18,8 +18,8 @@ class Text(db.Base):
     book_id = Column(Integer, ForeignKey('books.id'))
     version_id = Column(Integer, ForeignKey('versions.id'))
 
-    book = relationship(Book)
-    version = relationship(Version)
+    book: Book = relationship(Book)
+    version: Version = relationship(Version)
 
     def __init__(
         self, *,
@@ -36,3 +36,7 @@ class Text(db.Base):
         self.verse_number = verse_number
         self.book_id = book_id
         self.version_id = version_id
+
+    @property
+    def reference(self) -> str:
+        return f'{self.book.name} {self.chapter_number}:{self.verse_number}'
