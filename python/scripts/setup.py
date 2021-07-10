@@ -20,7 +20,7 @@ def setup():
             os.path.join('main.py'),
             '--name=%s' % application_name,
             '--icon=%s' % os.path.join('assets', 'img', 'icon.ico'),
-            '--add-data=%s' % os.path.join('data', 'dados.db;.', 'data'),
+            '--add-data=%s' % os.path.join('data', 'bible.db;.', 'data'),
             # '--add-binary=%s' % os.path.join('resource', 'path', '*.png'),
             '--onefile',
             '--windowed',
