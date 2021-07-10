@@ -1,8 +1,11 @@
 import sys
-# import update_windows
 
 from PyQt5.QtWidgets import QApplication
-from ui.main.main_window import MainWindow
+
+from src.ui.main.main_window import MainWindow
+
+# import update_windows
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

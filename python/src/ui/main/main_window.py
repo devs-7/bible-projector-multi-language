@@ -1,13 +1,11 @@
 import PyQt5.QtGui as QtGui
-
-from model.bible import Bible, format_reference
-from ui.projetor.projetor_window import ProjetorWindow
-from ui.configuracoes.configuracoes_window import ConfiguracoesWindow
-
-from ui.main.window import *
 from PyQt5 import QtCore, QtWidgets
-from PyQt5.QtWidgets import QMainWindow, QDesktopWidget
 from PyQt5.QtGui import QKeyEvent
+from PyQt5.QtWidgets import QDesktopWidget, QMainWindow
+from src.model.bible import Bible, format_reference
+from src.ui.configuracoes.configuracoes_window import ConfiguracoesWindow
+from src.ui.main.window import *
+from src.ui.projetor.projetor_window import ProjetorWindow
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):

@@ -1,6 +1,6 @@
-import helper.db_controller as db
-from helper.strings import normalizar
-from model.db_class import DbClass
+import src.helper.db_controller as db
+from src.helper.strings import normalizar
+from src.model.db_class import DbClass
 
 SQL_SELECT = """
     SELECT livros.nome, textos.capitulo, textos.versiculo, textos.texto, versoes.versao

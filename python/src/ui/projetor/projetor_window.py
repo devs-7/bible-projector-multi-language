@@ -1,7 +1,7 @@
-from ui.projetor.window import *
-from PyQt5.QtWidgets import QMainWindow
-from PyQt5.QtGui import QKeyEvent
 from PyQt5 import QtCore
+from PyQt5.QtGui import QKeyEvent
+from PyQt5.QtWidgets import QMainWindow
+from src.ui.projetor.window import *
 
 
 class ProjetorWindow(QMainWindow, Ui_MainWindow):
