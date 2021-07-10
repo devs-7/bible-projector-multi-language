@@ -8,13 +8,13 @@ from sqlalchemy.orm.decl_api import DeclarativeMeta
 
 class Database:
     engine: Engine
-    base: DeclarativeMeta
+    Base: DeclarativeMeta
     session: Session
 
     def __init__(self, url: str) -> None:
         self.engine = create_engine(url, echo='debug')
-        self.base = declarative_base()
-        self.base.metadata.create_all(self.engine)
+        self.Base = declarative_base()
+        self.Base.metadata.create_all(self.engine)
 
         session_maker = sessionmaker(bind=self.engine)
         self.session = session_maker()
