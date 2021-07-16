@@ -1,5 +1,5 @@
 from contextlib import suppress
-from typing import List
+from typing import List, Optional
 
 import PyQt5.QtGui as QtGui
 from PyQt5 import QtCore
@@ -23,6 +23,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.versions = [v.version for v in version_dao.get_all()]
         self.current_version = self.versions[0]
+        self.__current_verse: Optional[Text] = None
 
         self.settings_window = SettingsWindow()
         self.projector_window = ProjectorWindow()
@@ -36,6 +37,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.configuracoesButton.clicked.connect(self.show_settings)
         self.pesquisaLineEdit.returnPressed.connect(self.search)
         self.versoesComboBox.currentTextChanged.connect(self.update_version)
+
+    @property
+    def current_verse(self):
+        return self.__current_verse
+
+    @current_verse.setter
+    def current_verse(self, verse: Text):
+        self.__current_verse = verse
+        self.mainTextEdit.setText(f"{verse.text} ({verse.reference})")
+        self.update_projector_text()
 
     def show_settings(self):
         self.settings_window.show()
@@ -96,7 +107,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         if search_text != '':
             with suppress(IndexError):
                 verses = text_dao.search(
-                    search_text, self.current_version, limit=100)
+                    search_text,
+                    self.current_version,
+                    limit=100
+                )
+                self.current_verse = verses[0]
                 self.set_occurrences(verses)
-                self.mainTextEdit.setText(verses[0].text)
-                self.update_projector_text()
