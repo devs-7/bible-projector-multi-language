@@ -70,11 +70,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         elif key == QtCore.Qt.Key_PageDown:
             self.bible.back()
 
-    def set_ref(self, ref: dict):
-        texto_referencia = f"{ref['text']} ({format_reference(ref)})"
-        self.mainTextEdit.setText(texto_referencia)
-        self.projector_window.textLabel.setText(texto_referencia)
-
     def set_occurrences(self, verses: List[Text]):
         model = QtGui.QStandardItemModel()
 
