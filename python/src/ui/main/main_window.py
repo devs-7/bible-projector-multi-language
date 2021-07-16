@@ -1,11 +1,19 @@
+from contextlib import suppress
+from typing import List
+
 import PyQt5.QtGui as QtGui
-from PyQt5 import QtCore, QtWidgets
+from PyQt5 import QtCore
 from PyQt5.QtGui import QKeyEvent
 from PyQt5.QtWidgets import QDesktopWidget, QMainWindow
-from src.models.bible import Bible, format_reference
-from src.ui.configuracoes.configuracoes_window import ConfiguracoesWindow
-from src.ui.main.window import *
-from src.ui.projetor.projetor_window import ProjetorWindow
+from src.dao.text_dao import TextDAO
+from src.dao.version_dao import VersionDAO
+from src.models.text import Text
+from src.ui.main.window import Ui_MainWindow
+from src.ui.projector.projector_window import ProjectorWindow
+from src.ui.settings.settings_window import SettingsWindow
+
+version_dao = VersionDAO()
+text_dao = TextDAO()
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -13,28 +21,27 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         super().__init__(parent)
         super().setupUi(self)
 
-        self.bible = Bible()
-        self.bible.listener = self.bible_listener
+        self.versions = [v.version for v in version_dao.get_all()]
+        self.current_version = self.versions[0]
 
-        self.configuracoes_window = ConfiguracoesWindow()
-        self.projetor_window = ProjetorWindow()
-        monitor = QDesktopWidget().screenGeometry(2)
-        self.projetor_window.move(monitor.left(), monitor.top())
+        self.settings_window = SettingsWindow()
+        self.projector_window = ProjectorWindow()
+        screen = QDesktopWidget().screenGeometry(2)
+        self.projector_window.move(screen.left(), screen.top())
 
-        self.versoesComboBox.addItems(self.bible.get_versoes())
+        self.versoesComboBox.addItems(self.versions)
+        self.pesquisarButton.clicked.connect(self.search)
+        self.projetarButton.clicked.connect(self.project)
+        self.atualizarButton.clicked.connect(self.update_projector_text)
+        self.configuracoesButton.clicked.connect(self.show_settings)
+        self.pesquisaLineEdit.returnPressed.connect(self.search)
+        self.versoesComboBox.currentTextChanged.connect(self.update_version)
 
-        self.pesquisarButton.clicked.connect(self.pesquisar)
-        self.projetarButton.clicked.connect(self.projetar)
-        self.atualizarButton.clicked.connect(self.atualizar_texto_projetor)
-        self.configuracoesButton.clicked.connect(self.show_configuracoes)
-        self.pesquisaLineEdit.returnPressed.connect(self.pesquisar)
-        self.versoesComboBox.currentTextChanged.connect(self.atualizar_versao)
+    def show_settings(self):
+        self.settings_window.show()
 
-    def show_configuracoes(self):
-        self.configuracoes_window.show()
-
-    def atualizar_versao(self):
-        self.bible.versao = self.versoesComboBox.currentText()
+    def update_version(self):
+        self.current_version = self.versoesComboBox.currentText()
 
     def keyPressEvent(self, event: QKeyEvent):
         key = event.key()
@@ -42,11 +49,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.pesquisaLineEdit.setFocus(True)
             self.pesquisaLineEdit.selectAll()
         elif key == QtCore.Qt.Key_F5:
-            self.projetar()
+            self.project()
         elif key == QtCore.Qt.Key_Escape:
-            self.fechar_projetor()
+            self.close_projector()
         elif key == QtCore.Qt.Key_F6:
-            self.atualizar_texto_projetor()
+            self.update_projector_text()
         elif key == QtCore.Qt.Key_PageUp:
             self.bible.next()
         elif key == QtCore.Qt.Key_PageDown:
@@ -55,39 +62,41 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def set_ref(self, ref: dict):
         texto_referencia = f"{ref['text']} ({format_reference(ref)})"
         self.mainTextEdit.setText(texto_referencia)
-        self.projetor_window.textLabel.setText(texto_referencia)
+        self.projector_window.textLabel.setText(texto_referencia)
 
-    def set_ocorrencias(self, ocorrencias: list):
+    def set_occurrences(self, verses: List[Text]):
         model = QtGui.QStandardItemModel()
 
-        for ref in ocorrencias:
-            liv = ref['liv']
-            cap = ref['cap']
-            ver = ref['ver']
-            text = ref['text']
-            versao = ref['versao']
+        for verse in verses:
+            book = verse.book.name
+            chapter_number = verse.chapter_number
+            verse_number = verse.verse_number
+            text = verse.text
+            version = verse.version.version
 
             item = QtGui.QStandardItem()
-            item.setText(f"{text} ({liv} {cap}:{ver} {versao})")
+            reference = f"({book} {chapter_number}:{verse_number} {version})"
+            item.setText(f"{text} {reference}")
             model.appendRow(item)
 
         self.ocorrenciasListView.setModel(model)
-        self.ocorrenciasLabel.setText(f'Ocorrências: {len(ocorrencias)}')
+        self.ocorrenciasLabel.setText(f'Ocorrências: {len(verses)}')
 
-    def bible_listener(self, ref):
-        self.set_ref(ref)
+    def update_projector_text(self):
+        self.projector_window.text = self.mainTextEdit.toPlainText()
 
-    def atualizar_texto_projetor(self):
-        self.projetor_window.text = self.mainTextEdit.toPlainText()
+    def close_projector(self):
+        self.projector_window.close()
 
-    def fechar_projetor(self):
-        self.projetor_window.close()
+    def project(self):
+        self.projector_window.showFullScreen()
 
-    def projetar(self):
-        self.projetor_window.showFullScreen()
-
-    def pesquisar(self):
-        pesquisa = self.pesquisaLineEdit.text()
-        if pesquisa != '':
-            self.bible.query(pesquisa)
-            self.set_ocorrencias(self.bible.ocorrencias)
+    def search(self):
+        search_text = self.pesquisaLineEdit.text()
+        if search_text != '':
+            with suppress(IndexError):
+                verses = text_dao.search(
+                    search_text, self.current_version, limit=100)
+                self.set_occurrences(verses)
+                self.mainTextEdit.setText(verses[0].text)
+                self.update_projector_text()

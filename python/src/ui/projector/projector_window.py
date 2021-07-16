@@ -1,10 +1,10 @@
 from PyQt5 import QtCore
 from PyQt5.QtGui import QKeyEvent
 from PyQt5.QtWidgets import QMainWindow
-from src.ui.projetor.window import *
+from src.ui.projector.window import Ui_MainWindow
 
 
-class ProjetorWindow(QMainWindow, Ui_MainWindow):
+class ProjectorWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
         super().setupUi(self)
