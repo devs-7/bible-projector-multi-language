@@ -7,7 +7,7 @@ from PyQt5.QtGui import QKeyEvent
 from PyQt5.QtWidgets import QDesktopWidget, QMainWindow
 from src.dao.text_dao import TextDAO
 from src.dao.version_dao import VersionDAO
-from src.models.text import Text
+from src.models.verse import Verse
 from src.ui.main.window import Ui_MainWindow
 from src.ui.projector import ProjectorWindow
 from src.ui.settings import SettingsWindow
@@ -23,7 +23,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.versions = [v.version for v in version_dao.get_all()]
         self.current_version = self.versions[0]
-        self.__current_verse: Optional[Text] = None
+        self.__current_verse: Optional[Verse] = None
 
         self.settings_window = SettingsWindow()
         self.projector_window = ProjectorWindow()
@@ -43,7 +43,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         return self.__current_verse
 
     @current_verse.setter
-    def current_verse(self, verse: Text):
+    def current_verse(self, verse: Verse):
         self.__current_verse = verse
         self.mainTextEdit.setText(f"{verse.text} ({verse.reference})")
         self.update_projector_text()
@@ -90,7 +90,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         except IndexError:
             self.mainTextEdit.setText('Verso não encontrado')
 
-    def set_occurrences(self, verses: List[Text]):
+    def set_occurrences(self, verses: List[Verse]):
         model = QtGui.QStandardItemModel()
 
         for verse in verses:

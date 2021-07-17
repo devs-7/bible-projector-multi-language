@@ -7,7 +7,7 @@ from src.models.book import Book
 from src.models.version import Version
 
 
-class Text(db.Base):
+class Verse(db.Base):
     __tablename__ = 'texts'
 
     id = Column(Integer, primary_key=True)
