@@ -5,7 +5,7 @@ import PyQt5.QtGui as QtGui
 from PyQt5 import QtCore
 from PyQt5.QtGui import QKeyEvent
 from PyQt5.QtWidgets import QDesktopWidget, QMainWindow
-from src.dao.text_dao import TextDAO
+from src.dao.verse_dao import VerseDAO
 from src.dao.version_dao import VersionDAO
 from src.models.verse import Verse
 from src.ui.main.window import Ui_MainWindow
@@ -13,7 +13,7 @@ from src.ui.projector import ProjectorWindow
 from src.ui.settings import SettingsWindow
 
 version_dao = VersionDAO()
-text_dao = TextDAO()
+verse_dao = VerseDAO()
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -72,7 +72,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def previous_verse(self):
         try:
-            self.current_verse = text_dao.filter({
+            self.current_verse = verse_dao.filter({
                 'book': self.current_verse.book.name,
                 'chapter': self.current_verse.chapter_number,
                 'verse': self.current_verse.verse_number - 1
@@ -82,7 +82,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def next_verse(self):
         try:
-            self.current_verse = text_dao.filter({
+            self.current_verse = verse_dao.filter({
                 'book': self.current_verse.book.name,
                 'chapter': self.current_verse.chapter_number,
                 'verse': self.current_verse.verse_number + 1
@@ -114,7 +114,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         search_text = self.pesquisaLineEdit.text()
         if search_text != '':
             with suppress(IndexError):
-                verses = text_dao.search(
+                verses = verse_dao.search(
                     search_text,
                     self.current_version,
                     limit=100

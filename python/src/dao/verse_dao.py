@@ -3,7 +3,6 @@ from contextlib import suppress
 from typing import Any, Dict, List
 
 from sqlalchemy.sql.expression import func, or_
-from sqlalchemy.util.langhelpers import NoneType
 from src.database import db
 from src.models import Book, Verse, Version
 from src.models.version import Version
@@ -22,7 +21,7 @@ query_filter: QueryFilter = {
 }
 
 
-class TextDAO:
+class VerseDAO:
     def search(self, search_text: str, version: str = None, limit: int = None) -> List[Verse]:
         with suppress(AttributeError):
             regex = r'^(.+)\s+(\d+)[\s|:]+(\d+)$'
