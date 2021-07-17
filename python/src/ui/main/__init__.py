@@ -74,15 +74,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         model = QtGui.QStandardItemModel()
 
         for verse in verses:
-            book = verse.book.name
-            chapter_number = verse.chapter_number
-            verse_number = verse.verse_number
-            text = verse.text
-            version = verse.version.version
-
             item = QtGui.QStandardItem()
-            reference = f"({book} {chapter_number}:{verse_number} {version})"
-            item.setText(f"{text} {reference}")
+            version = verse.version.version
+            item.setText(f"{verse.text} {verse.reference} {version}")
             model.appendRow(item)
 
         self.ocorrenciasListView.setModel(model)
