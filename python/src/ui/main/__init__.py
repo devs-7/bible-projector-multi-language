@@ -9,8 +9,8 @@ from src.dao.text_dao import TextDAO
 from src.dao.version_dao import VersionDAO
 from src.models.text import Text
 from src.ui.main.window import Ui_MainWindow
-from src.ui.projector.projector_window import ProjectorWindow
-from src.ui.settings.settings_window import SettingsWindow
+from src.ui.projector import ProjectorWindow
+from src.ui.settings import SettingsWindow
 
 version_dao = VersionDAO()
 text_dao = TextDAO()
