@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'D:\Programming\GitHub\Bible-projector\python\ui\projetor\window.ui'
+# Form implementation generated from reading ui file 'E:\GitHub\bible-projector\python\src\ui\projector\window.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.1
 #

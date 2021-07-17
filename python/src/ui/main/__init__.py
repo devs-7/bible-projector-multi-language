@@ -7,6 +7,7 @@ from PyQt5.QtGui import QKeyEvent
 from PyQt5.QtWidgets import QDesktopWidget, QMainWindow
 from src.dao.verse_dao import VerseDAO
 from src.dao.version_dao import VersionDAO
+from src.models.chapter_reference import ChapterReference
 from src.models.verse import Verse
 from src.ui.main.window import Ui_MainWindow
 from src.ui.projector import ProjectorWindow
@@ -24,6 +25,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.versions = [v.version for v in version_dao.get_all()]
         self.current_version = self.versions[0]
         self.__current_verse: Optional[Verse] = None
+        self.current_chapter: Optional[List[Verse]] = None
 
         self.settings_window = SettingsWindow()
         self.projector_window = ProjectorWindow()
@@ -45,7 +47,18 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     @current_verse.setter
     def current_verse(self, verse: Verse):
         self.__current_verse = verse
-        self.mainTextEdit.setText(f"{verse.text} ({verse.reference})")
+        current_chapter = verse_dao.get_by_chapter_reference(
+            ChapterReference.from_verse_reference(verse.reference))
+        self.current_chapter = current_chapter
+        self.previewTextEdit.setText(f"{verse.text} ({verse.reference})")
+
+        model = QtGui.QStandardItemModel()
+        for verse in current_chapter:
+            item = QtGui.QStandardItem()
+            item.setText(f"{verse.text} ({verse.reference})")
+            model.appendRow(item)
+        self.chapterListView.setModel(model)
+
         self.update_projector_text()
 
     def show_settings(self):
@@ -73,16 +86,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def previous_verse(self):
         try:
             reference = self.current_verse.reference.previous()
-            self.current_verse = verse_dao.get_by_reference(reference)
+            self.current_verse = verse_dao.get_by_verse_reference(reference)
         except Exception:
-            self.mainTextEdit.setText('Verso não encontrado')
+            self.previewTextEdit.setText('Verso não encontrado')
 
     def next_verse(self):
         try:
             reference = self.current_verse.reference.next()
-            self.current_verse = verse_dao.get_by_reference(reference)
+            self.current_verse = verse_dao.get_by_verse_reference(reference)
         except Exception:
-            self.mainTextEdit.setText('Verso não encontrado')
+            self.previewTextEdit.setText('Verso não encontrado')
 
     def set_occurrences(self, verses: List[Verse]):
         model = QtGui.QStandardItemModel()
@@ -92,11 +105,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             item.setText(f"{verse.text} ({verse.reference})")
             model.appendRow(item)
 
-        self.ocorrenciasListView.setModel(model)
+        self.occurrencesListView.setModel(model)
         self.ocorrenciasLabel.setText(f'Ocorrências: {len(verses)}')
 
     def update_projector_text(self):
-        self.projector_window.text = self.mainTextEdit.toPlainText()
+        self.projector_window.text = self.previewTextEdit.toPlainText()
 
     def close_projector(self):
         self.projector_window.close()

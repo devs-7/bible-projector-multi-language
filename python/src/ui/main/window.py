@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'D:\Programming\GitHub\Bible-projector\python\ui\main\window.ui'
+# Form implementation generated from reading ui file 'E:\GitHub\bible-projector\python\src\ui\main\window.ui'
 #
 # Created by: PyQt5 UI code generator 5.14.1
 #
@@ -120,8 +120,8 @@ class Ui_MainWindow(object):
         self.verticalLayout.addLayout(self.horizontalLayout_3)
         self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setObjectName("gridLayout")
-        self.listWidget = QtWidgets.QListWidget(self.centralwidget)
-        self.listWidget.setStyleSheet("* {\n"
+        self.chapterListView = QtWidgets.QListView(self.centralwidget)
+        self.chapterListView.setStyleSheet("* {\n"
 "    border-style: solid;\n"
 "    border-color: gray;\n"
 "    border-width: 1px;\n"
@@ -131,16 +131,16 @@ class Ui_MainWindow(object):
 "    color: black;\n"
 "    font-size: 10pt;\n"
 "}")
-        self.listWidget.setObjectName("listWidget")
-        self.gridLayout.addWidget(self.listWidget, 3, 0, 1, 1)
-        self.ocorrenciasListView = QtWidgets.QListView(self.centralwidget)
+        self.chapterListView.setObjectName("chapterListView")
+        self.gridLayout.addWidget(self.chapterListView, 3, 0, 1, 1)
+        self.occurrencesListView = QtWidgets.QListView(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.ocorrenciasListView.sizePolicy().hasHeightForWidth())
-        self.ocorrenciasListView.setSizePolicy(sizePolicy)
-        self.ocorrenciasListView.setMaximumSize(QtCore.QSize(500, 16777215))
-        self.ocorrenciasListView.setStyleSheet("* {\n"
+        sizePolicy.setHeightForWidth(self.occurrencesListView.sizePolicy().hasHeightForWidth())
+        self.occurrencesListView.setSizePolicy(sizePolicy)
+        self.occurrencesListView.setMaximumSize(QtCore.QSize(500, 16777215))
+        self.occurrencesListView.setStyleSheet("* {\n"
 "    border-style: solid;\n"
 "    border-color: gray;\n"
 "    border-width: 1px;\n"
@@ -154,10 +154,10 @@ class Ui_MainWindow(object):
 "*:item {\n"
 "    margin-bottom: 10px;\n"
 "}")
-        self.ocorrenciasListView.setEditTriggers(QtWidgets.QAbstractItemView.SelectedClicked)
-        self.ocorrenciasListView.setWordWrap(True)
-        self.ocorrenciasListView.setObjectName("ocorrenciasListView")
-        self.gridLayout.addWidget(self.ocorrenciasListView, 1, 3, 3, 1)
+        self.occurrencesListView.setEditTriggers(QtWidgets.QAbstractItemView.SelectedClicked)
+        self.occurrencesListView.setWordWrap(True)
+        self.occurrencesListView.setObjectName("occurrencesListView")
+        self.gridLayout.addWidget(self.occurrencesListView, 1, 3, 3, 1)
         self.ocorrenciasLabel = QtWidgets.QLabel(self.centralwidget)
         self.ocorrenciasLabel.setStyleSheet("")
         self.ocorrenciasLabel.setObjectName("ocorrenciasLabel")
@@ -165,14 +165,14 @@ class Ui_MainWindow(object):
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
         self.label_3.setObjectName("label_3")
         self.gridLayout.addWidget(self.label_3, 2, 0, 1, 1)
-        self.mainTextEdit = QtWidgets.QTextEdit(self.centralwidget)
+        self.previewTextEdit = QtWidgets.QTextEdit(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.mainTextEdit.sizePolicy().hasHeightForWidth())
-        self.mainTextEdit.setSizePolicy(sizePolicy)
-        self.mainTextEdit.setMaximumSize(QtCore.QSize(16777215, 200))
-        self.mainTextEdit.setStyleSheet("* {\n"
+        sizePolicy.setHeightForWidth(self.previewTextEdit.sizePolicy().hasHeightForWidth())
+        self.previewTextEdit.setSizePolicy(sizePolicy)
+        self.previewTextEdit.setMaximumSize(QtCore.QSize(16777215, 200))
+        self.previewTextEdit.setStyleSheet("* {\n"
 "    border-style: solid;\n"
 "    border-color: gray;\n"
 "    border-width: 1px;\n"
@@ -181,8 +181,8 @@ class Ui_MainWindow(object):
 "    color: black;\n"
 "    font-size: 10pt;\n"
 "}")
-        self.mainTextEdit.setObjectName("mainTextEdit")
-        self.gridLayout.addWidget(self.mainTextEdit, 1, 0, 1, 1)
+        self.previewTextEdit.setObjectName("previewTextEdit")
+        self.gridLayout.addWidget(self.previewTextEdit, 1, 0, 1, 1)
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setObjectName("label_2")
         self.gridLayout.addWidget(self.label_2, 0, 0, 1, 1)

@@ -5,6 +5,7 @@ from typing import Any, Dict, List
 from sqlalchemy.sql.expression import func, or_
 from src.database import db
 from src.models import Book, Verse, Version
+from src.models.chapter_reference import ChapterReference
 from src.models.verse_reference import VerseReference
 from src.models.version import Version
 from src.utils.query_filter import QueryFilter, query_filter_to_sql_filter_list
@@ -42,7 +43,7 @@ class VerseDAO:
             filter_dict['version'] = version
         return self.filter(filter_dict, limit=limit)
 
-    def get_by_reference(self, verse_reference: VerseReference) -> Verse:
+    def get_by_verse_reference(self, verse_reference: VerseReference) -> Verse:
         verse_filter = (
             Book.name == verse_reference.book_name,
             Verse.chapter_number == verse_reference.chapter_number,
@@ -53,6 +54,17 @@ class VerseDAO:
             .join(Version)\
             .join(Book)\
             .filter(*verse_filter).one()
+
+    def get_by_chapter_reference(self, chapter_reference: ChapterReference) -> List[Verse]:
+        verse_filter = (
+            Book.name == chapter_reference.book_name,
+            Verse.chapter_number == chapter_reference.chapter_number,
+            Version.version == chapter_reference.version
+        )
+        return db.session.query(Verse)\
+            .join(Version)\
+            .join(Book)\
+            .filter(*verse_filter).all()
 
     def filter(self, filter_dict: Dict[str, Any], limit: int = None) -> List[Verse]:
         verse_filter = query_filter_to_sql_filter_list(

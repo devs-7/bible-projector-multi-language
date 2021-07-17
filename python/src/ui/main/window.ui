@@ -157,7 +157,7 @@
     <item>
      <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0" columnstretch="0,0,0,0">
       <item row="3" column="0">
-       <widget class="QListWidget" name="listWidget">
+       <widget class="QListView" name="chapterListView">
         <property name="styleSheet">
          <string notr="true">* {
 	border-style: solid;
@@ -173,7 +173,7 @@
        </widget>
       </item>
       <item row="1" column="3" rowspan="3">
-       <widget class="QListView" name="ocorrenciasListView">
+       <widget class="QListView" name="occurrencesListView">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -228,7 +228,7 @@
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QTextEdit" name="mainTextEdit">
+       <widget class="QTextEdit" name="previewTextEdit">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
