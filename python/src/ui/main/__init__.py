@@ -75,8 +75,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         for verse in verses:
             item = QtGui.QStandardItem()
-            version = verse.version.version
-            item.setText(f"{verse.text} {verse.reference} {version}")
+            item.setText(f"{verse.text} ({verse.reference})")
             model.appendRow(item)
 
         self.ocorrenciasListView.setModel(model)
