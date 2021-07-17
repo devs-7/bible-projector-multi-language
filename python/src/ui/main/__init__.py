@@ -47,18 +47,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     @current_verse.setter
     def current_verse(self, verse: Verse):
         self.__current_verse = verse
-        current_chapter = verse_dao.get_by_chapter_reference(
-            ChapterReference.from_verse_reference(verse.reference))
-        self.current_chapter = current_chapter
         self.previewTextEdit.setText(f"{verse.text} ({verse.reference})")
-
-        model = QtGui.QStandardItemModel()
-        for verse in current_chapter:
-            item = QtGui.QStandardItem()
-            item.setText(f"{verse.text} ({verse.reference})")
-            model.appendRow(item)
-        self.chapterListView.setModel(model)
-
         self.update_projector_text()
 
     def show_settings(self):
@@ -117,6 +106,17 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def project(self):
         self.projector_window.showFullScreen()
 
+    def update_chapter(self):
+        current_chapter = verse_dao.get_by_chapter_reference(
+            ChapterReference.from_verse_reference(self.current_verse.reference))
+        self.current_chapter = current_chapter
+        model = QtGui.QStandardItemModel()
+        for verse in current_chapter:
+            item = QtGui.QStandardItem()
+            item.setText(f"{verse.text} ({verse.reference})")
+            model.appendRow(item)
+        self.chapterListView.setModel(model)
+
     def search(self):
         search_text = self.pesquisaLineEdit.text()
         if search_text != '':
@@ -128,3 +128,4 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 )
                 self.current_verse = verses[0]
                 self.set_occurrences(verses)
+                self.update_chapter()
