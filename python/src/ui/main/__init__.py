@@ -66,9 +66,29 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         elif key == QtCore.Qt.Key_F6:
             self.update_projector_text()
         elif key == QtCore.Qt.Key_PageUp:
-            self.bible.next()
+            self.next_verse()
         elif key == QtCore.Qt.Key_PageDown:
-            self.bible.back()
+            self.previous_verse()
+
+    def previous_verse(self):
+        try:
+            self.current_verse = text_dao.filter({
+                'book': self.current_verse.book.name,
+                'chapter': self.current_verse.chapter_number,
+                'verse': self.current_verse.verse_number - 1
+            })[0]
+        except IndexError:
+            self.mainTextEdit.setText('Verso não encontrado')
+
+    def next_verse(self):
+        try:
+            self.current_verse = text_dao.filter({
+                'book': self.current_verse.book.name,
+                'chapter': self.current_verse.chapter_number,
+                'verse': self.current_verse.verse_number + 1
+            })[0]
+        except IndexError:
+            self.mainTextEdit.setText('Verso não encontrado')
 
     def set_occurrences(self, verses: List[Text]):
         model = QtGui.QStandardItemModel()
