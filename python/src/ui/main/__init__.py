@@ -72,22 +72,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def previous_verse(self):
         try:
-            self.current_verse = verse_dao.filter({
-                'book': self.current_verse.book.name,
-                'chapter': self.current_verse.chapter_number,
-                'verse': self.current_verse.verse_number - 1
-            })[0]
-        except IndexError:
+            reference = self.current_verse.reference.previous()
+            self.current_verse = verse_dao.get_by_reference(reference)
+        except Exception:
             self.mainTextEdit.setText('Verso não encontrado')
 
     def next_verse(self):
         try:
-            self.current_verse = verse_dao.filter({
-                'book': self.current_verse.book.name,
-                'chapter': self.current_verse.chapter_number,
-                'verse': self.current_verse.verse_number + 1
-            })[0]
-        except IndexError:
+            reference = self.current_verse.reference.next()
+            self.current_verse = verse_dao.get_by_reference(reference)
+        except Exception:
             self.mainTextEdit.setText('Verso não encontrado')
 
     def set_occurrences(self, verses: List[Verse]):

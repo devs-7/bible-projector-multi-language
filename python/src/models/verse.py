@@ -4,6 +4,7 @@ from sqlalchemy.sql.schema import ForeignKey
 from sqlalchemy.sql.sqltypes import Integer, String
 from src.database import db
 from src.models.book import Book
+from src.models.verse_reference import VerseReference
 from src.models.version import Version
 
 
@@ -38,5 +39,10 @@ class Verse(db.Base):
         self.version_id = version_id
 
     @property
-    def reference(self) -> str:
-        return f'{self.book.name} {self.chapter_number}:{self.verse_number}'
+    def reference(self) -> VerseReference:
+        return VerseReference(
+            book_name=self.book.name,
+            chapter_number=self.chapter_number,
+            verse_number=self.verse_number,
+            version=self.version.version
+        )
